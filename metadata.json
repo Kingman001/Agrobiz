@@ -1,0 +1,6 @@
+{
+  "name": "Agribusiness Startup Platform",
+  "description": "Official website for a sustainable agribusiness producing poultry, fishery, cattle rearing, and farm produce, with a roadmap and interactive tools for smallholder farmer ecosystem support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
