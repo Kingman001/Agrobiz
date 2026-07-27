@@ -78,8 +78,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div
             onClick={() => handleNavClick('home')}
             className="cursor-pointer group flex items-center gap-2"
-          >
-            <GleanAgroLogo showTagline={true} />
+          width="400px">
+            <GleanAgroLogo with="100%" />
           </div>
 
           {/* Desktop Navigation Links */}
