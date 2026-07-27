@@ -80,6 +80,8 @@ export interface CompanySettings {
   tagline: string;
   foundingYear: string;
   location: string;
+  officeAddress: string;
+  farmLocation: string;
   email: string;
   phone: string;
   whatsapp: string;

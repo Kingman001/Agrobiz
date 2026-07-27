@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { CompanySettings } from '../types';
+import { GleanAgroLogo } from './GleanAgroLogo';
 import {
-  Sprout,
   Menu,
   X,
   Phone,
-  Settings2,
   Tractor,
   Handshake,
   ChevronRight,
@@ -16,7 +15,6 @@ interface NavbarProps {
   companySettings: CompanySettings;
   activeSection: string;
   setActiveSection: (section: string) => void;
-  onOpenCustomizer: () => void;
   onOpenInquiryModal: (role?: string) => void;
 }
 
@@ -24,26 +22,27 @@ export const Navbar: React.FC<NavbarProps> = ({
   companySettings,
   activeSection,
   setActiveSection,
-  onOpenCustomizer,
   onOpenInquiryModal
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
     { id: 'home', label: 'Home' },
-    { id: 'produce', label: 'Our Produce & Farming' },
+    { id: 'produce', label: 'Produce & Enterprises' },
     { id: 'roadmap', label: 'Smallholder Roadmap' },
     { id: 'farmer-hub', label: 'Farmer Hub & Tools' },
-    { id: 'about', label: 'About Us' },
+    { id: 'about', label: 'About Glean Agro' },
     { id: 'contact', label: 'Contact & Partnerships' }
   ];
 
   const handleNavClick = (id: string) => {
     setActiveSection(id);
     setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    try {
+      window.location.hash = id;
+    } catch (e) {
+      // ignore
     }
   };
 
@@ -54,16 +53,16 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1 bg-emerald-800 text-emerald-200 px-2 py-0.5 rounded-full text-[11px] font-semibold uppercase tracking-wider">
-              Our Vision
+              Glean Agro NG
             </span>
             <span className="truncate">
-              Building a resilient food supply & empowering 15,000+ smallholder farmers
+              Glean Agro Nigeria Limited • Office: Zaria, Kaduna State • Farm: Gazara, Makarfi
             </span>
           </div>
           <div className="flex items-center gap-4 text-xs">
             <a
               href={`tel:${companySettings.phone}`}
-              className="hidden md:inline-flex items-center gap-1 hover:text-emerald-300 transition-colors"
+              className="inline-flex items-center gap-1 hover:text-emerald-300 transition-colors"
             >
               <Phone className="w-3.5 h-3.5" />
               <span>{companySettings.phone}</span>
@@ -75,22 +74,12 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Main Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Brand Logo & Name */}
+          {/* Brand Logo Component */}
           <div
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-3 cursor-pointer group"
+            className="cursor-pointer group flex items-center gap-2"
           >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-700 via-emerald-800 to-stone-900 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
-              <Sprout className="w-7 h-7 text-emerald-300" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl sm:text-2xl font-serif font-bold tracking-tight text-stone-900 group-hover:text-emerald-800 transition-colors">
-                {companySettings.name}
-              </span>
-              <span className="text-xs font-medium text-stone-500 tracking-wide uppercase hidden sm:inline">
-                Agribusiness & Farmers Ecosystem
-              </span>
-            </div>
+            <GleanAgroLogo showTagline={true} />
           </div>
 
           {/* Desktop Navigation Links */}

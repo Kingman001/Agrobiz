@@ -2,136 +2,149 @@ import React, { useState, useEffect } from 'react';
 import { CompanySettings, ProducePillar } from './types';
 import { defaultCompanySettings } from './data/agribusinessData';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { PillarsSection } from './components/PillarsSection';
-import { SmallholderRoadmap } from './components/SmallholderRoadmap';
-import { FarmerHubTools } from './components/FarmerHubTools';
-import { AboutSection } from './components/AboutSection';
-import { PartnershipsSection } from './components/PartnershipsSection';
 import { Footer } from './components/Footer';
 import { ProductDetailModal } from './components/ProductDetailModal';
-import { CustomizerModal } from './components/CustomizerModal';
+
+// Pages
+import { HomePage } from './pages/HomePage';
+import { ProducePage } from './pages/ProducePage';
+import { RoadmapPage } from './pages/RoadmapPage';
+import { FarmerHubPage } from './pages/FarmerHubPage';
+import { AboutPage } from './pages/AboutPage';
+import { ContactPage } from './pages/ContactPage';
 
 export default function App() {
-  const [companySettings, setCompanySettings] = useState<CompanySettings>(() => {
+  const [companySettings] = useState<CompanySettings>(defaultCompanySettings);
+
+  // Page Routing State
+  const [activeSection, setActiveSection] = useState<string>(() => {
     try {
-      const saved = localStorage.getItem('agribusiness_settings');
-      if (saved) {
-        return JSON.parse(saved);
+      const hash = window.location.hash.replace('#', '');
+      if (['home', 'produce', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(hash)) {
+        return hash;
       }
     } catch (e) {
-      console.warn('Could not read saved settings', e);
+      // ignore
     }
-    return defaultCompanySettings;
+    return 'home';
   });
 
-  const [activeSection, setActiveSection] = useState<string>('home');
   const [selectedPillarModal, setSelectedPillarModal] = useState<ProducePillar | null>(null);
-  const [customizerModalOpen, setCustomizerModalOpen] = useState<boolean>(false);
   const [inquiryModalRole, setInquiryModalRole] = useState<string>('Commercial Buyer');
   const [inquiryProduceName, setInquiryProduceName] = useState<string>('');
 
-  const handleSaveSettings = (newSettings: CompanySettings) => {
-    setCompanySettings(newSettings);
-    try {
-      localStorage.setItem('agribusiness_settings', JSON.stringify(newSettings));
-    } catch (e) {
-      console.warn('Could not save settings', e);
-    }
-  };
+  // Handle hash changes or popstate
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (['home', 'produce', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(hash)) {
+        setActiveSection(hash);
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   const handleOpenInquiry = (role?: string, produceName?: string) => {
     if (role) setInquiryModalRole(role);
     if (produceName) setInquiryProduceName(produceName);
     
-    // Smooth scroll to contact/inquiry section
+    // Navigate to dedicated Contact & Partnerships page
     setActiveSection('contact');
-    const contactElem = document.getElementById('contact');
-    if (contactElem) {
-      contactElem.scrollIntoView({ behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    try {
+      window.location.hash = 'contact';
+    } catch (e) {
+      // ignore
     }
   };
 
-  const handleNavigateSection = (sectionId: string) => {
-    setActiveSection(sectionId);
-    const elem = document.getElementById(sectionId);
-    if (elem) {
-      elem.scrollIntoView({ behavior: 'smooth' });
+  const handleNavigatePage = (pageId: string) => {
+    setActiveSection(pageId);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    try {
+      window.location.hash = pageId;
+    } catch (e) {
+      // ignore
     }
   };
 
   return (
-    <div className="min-h-screen bg-stone-100 text-stone-900 font-sans antialiased selection:bg-emerald-800 selection:text-emerald-100">
+    <div className="min-h-screen bg-stone-100 text-stone-900 font-sans antialiased selection:bg-emerald-800 selection:text-emerald-100 flex flex-col justify-between">
       
-      {/* Navigation Header */}
-      <Navbar
-        companySettings={companySettings}
-        activeSection={activeSection}
-        setActiveSection={setActiveSection}
-        onOpenCustomizer={() => setCustomizerModalOpen(true)}
-        onOpenInquiryModal={handleOpenInquiry}
-      />
-
-      {/* Main Content Sections */}
-      <main>
-        {/* Hero Banner */}
-        <Hero
+      <div>
+        {/* Navigation Header */}
+        <Navbar
           companySettings={companySettings}
-          onNavigateSection={handleNavigateSection}
+          activeSection={activeSection}
+          setActiveSection={handleNavigatePage}
           onOpenInquiryModal={handleOpenInquiry}
         />
 
-        {/* Enterprise Produce Pillars */}
-        <PillarsSection
-          onSelectPillar={(pillar) => setSelectedPillarModal(pillar)}
-          onOpenInquiryModal={handleOpenInquiry}
-        />
+        {/* Page Content Router */}
+        <main className="transition-all duration-300">
+          {activeSection === 'home' && (
+            <HomePage
+              companySettings={companySettings}
+              onSelectPillar={(pillar) => setSelectedPillarModal(pillar)}
+              onOpenInquiryModal={handleOpenInquiry}
+              onNavigatePage={handleNavigatePage}
+            />
+          )}
 
-        {/* Smallholder Ecosystem Roadmap */}
-        <SmallholderRoadmap
-          onOpenInquiryModal={handleOpenInquiry}
-        />
+          {activeSection === 'produce' && (
+            <ProducePage
+              onSelectPillar={(pillar) => setSelectedPillarModal(pillar)}
+              onOpenInquiryModal={handleOpenInquiry}
+              onNavigatePage={handleNavigatePage}
+            />
+          )}
 
-        {/* Farmer Hub & Interactive Tools */}
-        <FarmerHubTools
-          onOpenInquiryModal={handleOpenInquiry}
-        />
+          {activeSection === 'roadmap' && (
+            <RoadmapPage
+              onOpenInquiryModal={handleOpenInquiry}
+              onNavigatePage={handleNavigatePage}
+            />
+          )}
 
-        {/* About Startup Vision */}
-        <AboutSection
-          companySettings={companySettings}
-          onOpenInquiryModal={handleOpenInquiry}
-        />
+          {activeSection === 'farmer-hub' && (
+            <FarmerHubPage
+              onOpenInquiryModal={handleOpenInquiry}
+              onNavigatePage={handleNavigatePage}
+            />
+          )}
 
-        {/* Contact & Partnerships */}
-        <PartnershipsSection
-          companySettings={companySettings}
-          initialRole={inquiryModalRole}
-          initialProduceInterest={inquiryProduceName}
-        />
-      </main>
+          {activeSection === 'about' && (
+            <AboutPage
+              companySettings={companySettings}
+              onOpenInquiryModal={handleOpenInquiry}
+              onNavigatePage={handleNavigatePage}
+            />
+          )}
+
+          {activeSection === 'contact' && (
+            <ContactPage
+              companySettings={companySettings}
+              initialRole={inquiryModalRole}
+              initialProduceInterest={inquiryProduceName}
+              onNavigatePage={handleNavigatePage}
+            />
+          )}
+        </main>
+      </div>
 
       {/* Footer */}
       <Footer
         companySettings={companySettings}
-        onNavigateSection={handleNavigateSection}
-        onOpenCustomizer={() => setCustomizerModalOpen(true)}
+        onNavigateSection={handleNavigatePage}
       />
 
-      {/* Modals */}
+      {/* Product Detail Modal */}
       <ProductDetailModal
         pillar={selectedPillarModal}
         onClose={() => setSelectedPillarModal(null)}
         onOpenInquiryModal={handleOpenInquiry}
       />
-
-      {customizerModalOpen && (
-        <CustomizerModal
-          currentSettings={companySettings}
-          onSave={handleSaveSettings}
-          onClose={() => setCustomizerModalOpen(false)}
-        />
-      )}
 
     </div>
   );

@@ -1,17 +1,16 @@
 import React from 'react';
 import { CompanySettings } from '../types';
-import { Sprout, Phone, Mail, MapPin, Heart, ArrowUp } from 'lucide-react';
+import { GleanAgroLogo } from './GleanAgroLogo';
+import { Phone, Mail, MapPin, ArrowUp, MessageSquare } from 'lucide-react';
 
 interface FooterProps {
   companySettings: CompanySettings;
   onNavigateSection: (sectionId: string) => void;
-  onOpenCustomizer: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
   companySettings,
-  onNavigateSection,
-  onOpenCustomizer
+  onNavigateSection
 }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -25,26 +24,16 @@ export const Footer: React.FC<FooterProps> = ({
           
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-emerald-800 flex items-center justify-center text-white">
-                <Sprout className="w-6 h-6 text-emerald-300" />
-              </div>
-              <span className="text-xl font-serif font-bold text-white">
-                {companySettings.name}
-              </span>
+            <div className="bg-white/10 p-3 rounded-2xl inline-block border border-stone-800">
+              <GleanAgroLogo variant="light" showTagline={true} />
             </div>
 
             <p className="text-stone-400 text-xs leading-relaxed max-w-sm">
-              {companySettings.tagline}. Operating commercial Fishery, Poultry, and Cattle rearing while empowering smallholder farmers with storage, equipment, and market linkages.
+              {companySettings.tagline}. Operating commercial Fishery, Poultry, and Cattle rearing while empowering 15,000+ smallholder farmers with storage, equipment leasing, and guaranteed market off-take.
             </p>
 
-            <div className="pt-2">
-              <button
-                onClick={onOpenCustomizer}
-                className="text-xs text-emerald-400 hover:underline flex items-center gap-1 font-mono cursor-pointer"
-              >
-                ⚙ Customize Company Branding / Settings
-              </button>
+            <div className="text-xs text-stone-500 font-mono">
+              Official Portal: <a href="https://gleanagrong.com/" target="_blank" rel="noreferrer" className="text-emerald-400 hover:underline">gleanagrong.com</a>
             </div>
           </div>
 
@@ -81,12 +70,12 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-2 text-xs">
               <li>
                 <button onClick={() => onNavigateSection('farmer-hub')} className="hover:text-emerald-300 transition-colors cursor-pointer">
-                  Yield & Income Calculator
+                  Yield & Productivity Tracker
                 </button>
               </li>
               <li>
                 <button onClick={() => onNavigateSection('farmer-hub')} className="hover:text-emerald-300 transition-colors cursor-pointer">
-                  Live Commodity Prices
+                  Live Commodity Market Prices
                 </button>
               </li>
               <li>
@@ -105,20 +94,39 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Contact Details */}
           <div className="space-y-3">
             <h4 className="font-serif font-bold text-white text-sm">Contact Info</h4>
-            <div className="space-y-2 text-xs text-stone-400">
+            <div className="space-y-2.5 text-xs text-stone-300">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                <span>{companySettings.location}</span>
+                <div className="space-y-0.5">
+                  <div><strong>Office:</strong> {companySettings.officeAddress}</div>
+                  <div><strong>Farm:</strong> {companySettings.farmLocation}</div>
+                </div>
               </div>
+
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
                 <a href={`mailto:${companySettings.email}`} className="hover:text-emerald-300">
                   {companySettings.email}
                 </a>
               </div>
+
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>{companySettings.phone}</span>
+                <a href={`tel:${companySettings.phone}`} className="hover:text-emerald-300">
+                  Calls: {companySettings.phone}
+                </a>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <MessageSquare className="w-4 h-4 text-emerald-400 shrink-0" />
+                <a
+                  href={`https://wa.me/${companySettings.whatsapp.replace(/[^0-9]/g, '')}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-emerald-300 text-emerald-400"
+                >
+                  WhatsApp: {companySettings.whatsapp}
+                </a>
               </div>
             </div>
           </div>
@@ -128,9 +136,9 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Bottom copyright & Scroll To Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-2">
-            <span>© {new Date().getFullYear()} {companySettings.name}. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} {companySettings.name} Nigeria Limited. All rights reserved.</span>
             <span className="text-stone-600">|</span>
-            <span className="text-emerald-400 font-mono">Sustainable Food Security Initiative</span>
+            <span className="text-emerald-400 font-mono">Kaduna State & Regional Agribusiness Hub</span>
           </div>
 
           <button

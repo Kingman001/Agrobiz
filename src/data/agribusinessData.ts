@@ -9,14 +9,68 @@ import {
 } from '../types';
 
 export const defaultCompanySettings: CompanySettings = {
-  name: "Verdant Agro & Smallholder Ecosystem",
-  tagline: "Cultivating Food Security & Empowering Rural Farming Communities",
-  foundingYear: "2025",
-  location: "Agro-Industrial Hub, Oyo State & Niger Delta Region",
-  email: "partnerships@verdantagro.com",
-  phone: "+234 (0) 800 837 3268",
-  whatsapp: "+234 802 345 6789"
+  name: "Glean Agro",
+  tagline: "Redefining Agribusiness & Smallholder Ecosystems in Nigeria",
+  foundingYear: "2023",
+  location: "Office: No. 5B Old Sokoto Road MTD Hanwa Zaria, Kaduna State | Farm: Gazara, Makarfi, Kaduna State, Nigeria",
+  officeAddress: "No. 5B Old Sokoto Road MTD Hanwa Zaria, Kaduna State, Nigeria",
+  farmLocation: "Gazara, Makarfi, Kaduna State, Nigeria",
+  email: "info@gleanagrong.com",
+  phone: "+234 813 440 7110",
+  whatsapp: "+234 703 596 1713"
 };
+
+export interface GrowthMetricPoint {
+  year: string;
+  maizeYieldTonsPerHa: number;
+  smallholderIncomeNaira: number;
+  postHarvestLossPercent: number;
+  outgrowerNetworkCount: number;
+  aquacultureProductionTons: number;
+}
+
+export const yieldGrowthData: GrowthMetricPoint[] = [
+  {
+    year: "2022 (Baseline)",
+    maizeYieldTonsPerHa: 1.8,
+    smallholderIncomeNaira: 450000,
+    postHarvestLossPercent: 38,
+    outgrowerNetworkCount: 1200,
+    aquacultureProductionTons: 25
+  },
+  {
+    year: "2023 (Phase 1)",
+    maizeYieldTonsPerHa: 3.2,
+    smallholderIncomeNaira: 820000,
+    postHarvestLossPercent: 24,
+    outgrowerNetworkCount: 3800,
+    aquacultureProductionTons: 60
+  },
+  {
+    year: "2024 (Phase 2)",
+    maizeYieldTonsPerHa: 4.8,
+    smallholderIncomeNaira: 1450000,
+    postHarvestLossPercent: 14,
+    outgrowerNetworkCount: 7500,
+    aquacultureProductionTons: 110
+  },
+  {
+    year: "2025 (Phase 3)",
+    maizeYieldTonsPerHa: 6.1,
+    smallholderIncomeNaira: 2200000,
+    postHarvestLossPercent: 8,
+    outgrowerNetworkCount: 11200,
+    aquacultureProductionTons: 180
+  },
+  {
+    year: "2026 (Current Projected)",
+    maizeYieldTonsPerHa: 7.5,
+    smallholderIncomeNaira: 3100000,
+    postHarvestLossPercent: 4,
+    outgrowerNetworkCount: 15000,
+    aquacultureProductionTons: 250
+  }
+];
 
 export const producePillars: ProducePillar[] = [
   {
@@ -426,8 +480,8 @@ export const trainingCourses: TrainingCourse[] = [
 
 export const faqItems = [
   {
-    q: "As a startup, how does Verdant ensure product supply without long delays?",
-    a: "We operate our own 120-hectare flagship enterprise farm with active cycles in catfish, tilapia, broilers, layers, and cattle fattening. This provides an immediate, reliable source of high-quality produce while our smallholder aggregator model scales."
+    q: "How does Glean Agro ensure high-quality product supply without delays?",
+    a: "Glean Agro operates integrated commercial farming facilities across Nigeria in catfish, tilapia, broiler poultry, egg production, and cattle fattening. This guarantees immediate, high-volume produce supply while our smallholder outgrower aggregator network scales across rural farming clusters."
   },
   {
     q: "How can smallholder farmers join your support network?",

@@ -1,6 +1,6 @@
 {
-  "name": "Agribusiness Startup Platform",
-  "description": "Official website for a sustainable agribusiness producing poultry, fishery, cattle rearing, and farm produce, with a roadmap and interactive tools for smallholder farmer ecosystem support.",
+  "name": "Glean Agro | Agribusiness & Smallholder Ecosystem",
+  "description": "Modern agribusiness website redesign for Glean Agro Nigeria Limited, showcasing sustainable poultry, fishery, cattle rearing, crop produce, smallholder outgrower roadmap, and interactive farmer hub tools.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
