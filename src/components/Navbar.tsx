@@ -54,23 +54,13 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1 bg-emerald-800 text-emerald-200 px-2 py-0.5 rounded-full text-[11px] font-semibold uppercase tracking-wider">
-              Startup Vision
+              Our Vision
             </span>
             <span className="truncate">
               Building a resilient food supply & empowering 15,000+ smallholder farmers
             </span>
           </div>
           <div className="flex items-center gap-4 text-xs">
-            <button
-              onClick={onOpenCustomizer}
-              className="inline-flex items-center gap-1 hover:text-emerald-300 transition-colors cursor-pointer"
-              title="Customize Company Name & Settings"
-            >
-              <Settings2 className="w-3.5 h-3.5" />
-              <span className="underline decoration-dashed underline-offset-2">
-                Customize Company Details
-              </span>
-            </button>
             <a
               href={`tel:${companySettings.phone}`}
               className="hidden md:inline-flex items-center gap-1 hover:text-emerald-300 transition-colors"
@@ -159,13 +149,6 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="lg:hidden bg-stone-900 text-white border-b border-stone-800 px-4 pt-3 pb-6 space-y-3">
           <div className="pb-2 border-b border-stone-800 flex items-center justify-between">
             <span className="text-xs text-stone-400 font-mono uppercase tracking-wider">Navigation Menu</span>
-            <button
-              onClick={onOpenCustomizer}
-              className="text-xs text-emerald-400 flex items-center gap-1"
-            >
-              <Settings2 className="w-3.5 h-3.5" />
-              Customize Name
-            </button>
           </div>
           <div className="grid grid-cols-1 gap-1">
             {navItems.map((item) => (
