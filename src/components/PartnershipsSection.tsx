@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CompanySettings, InquiryFormState } from '../types';
+import { CompanySettings, InquiryCallback, InquiryFormState, InquiryRole } from '../types';
 import { faqItems } from '../data/agribusinessData';
 import {
   Mail,
@@ -18,7 +18,7 @@ import {
 
 interface PartnershipsSectionProps {
   companySettings: CompanySettings;
-  initialRole?: string;
+  initialRole?: InquiryRole;
   initialProduceInterest?: string;
 }
 
@@ -31,7 +31,7 @@ export const PartnershipsSection: React.FC<PartnershipsSectionProps> = ({
     fullName: '',
     email: '',
     phone: '',
-    userRole: (initialRole as any) || 'Commercial Buyer',
+    userRole: initialRole,
     produceInterest: initialProduceInterest || 'General Inquiry',
     message: ''
   });
@@ -164,17 +164,19 @@ export const PartnershipsSection: React.FC<PartnershipsSectionProps> = ({
 
                 {/* Role Tabs */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                  {[
-                    { role: 'Commercial Buyer', label: 'Commercial Buyer' },
-                    { role: 'Smallholder Farmer', label: 'Smallholder Farmer' },
-                    { role: 'Impact Investor', label: 'Impact / Partner' }
-                  ].map((r) => (
+                  {(
+                    [
+                      { value: 'Commercial Buyer', label: 'Commercial Buyer' },
+                      { value: 'Smallholder Farmer', label: 'Smallholder Farmer' },
+                      { value: 'Impact Investor', label: 'Impact Investor' }
+                    ] as const
+                  ).map((r) => (
                     <button
-                      key={r.role}
+                      key={r.value}
                       type="button"
-                      onClick={() => setFormData({ ...formData, userRole: r.role as any })}
+                      onClick={() => setFormData({ ...formData, userRole: r.value })}
                       className={`py-2.5 px-3 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
-                        formData.userRole === r.role
+                        formData.userRole === r.value
                           ? 'bg-emerald-800 text-white border-emerald-600 shadow-sm'
                           : 'bg-stone-900 text-stone-400 hover:bg-stone-800 border-stone-800'
                       }`}

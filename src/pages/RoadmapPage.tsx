@@ -18,8 +18,10 @@ import {
   Coins
 } from 'lucide-react';
 
+import { InquiryCallback } from '../types';
+
 interface RoadmapPageProps {
-  onOpenInquiryModal: (role?: string) => void;
+  onOpenInquiryModal: InquiryCallback;
   onNavigatePage: (pageId: string) => void;
 }
 

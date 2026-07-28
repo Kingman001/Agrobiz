@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { producePillars } from '../data/agribusinessData';
-import { ProducePillar } from '../types';
+import { ProducePillar, InquiryCallback } from '../types';
 import {
   Fish,
   Bird,
@@ -18,7 +18,7 @@ import {
 
 interface PillarsSectionProps {
   onSelectPillar: (pillar: ProducePillar) => void;
-  onOpenInquiryModal: (role?: string, produceName?: string) => void;
+  onOpenInquiryModal: InquiryCallback;
 }
 
 export const PillarsSection: React.FC<PillarsSectionProps> = ({

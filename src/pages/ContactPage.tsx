@@ -15,9 +15,11 @@ import {
   MessageSquare
 } from 'lucide-react';
 
+import { InquiryRole } from '../types';
+
 interface ContactPageProps {
   companySettings: CompanySettings;
-  initialRole?: string;
+  initialRole?: InquiryRole;
   initialProduceInterest?: string;
   onNavigatePage: (pageId: string) => void;
 }
@@ -29,7 +31,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
   onNavigatePage
 }) => {
   // Form State
-  const [role, setRole] = useState<string>(initialRole);
+  const [role, setRole] = useState<InquiryRole>(initialRole);
   const [fullName, setFullName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [phone, setPhone] = useState<string>('');

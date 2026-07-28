@@ -21,9 +21,10 @@ import {
   PhoneCall,
   Clock
 } from 'lucide-react';
+import { InquiryCallback } from '../types';
 
 interface FarmerHubToolsProps {
-  onOpenInquiryModal: (role?: string, serviceName?: string) => void;
+  onOpenInquiryModal: InquiryCallback;
 }
 
 export const FarmerHubTools: React.FC<FarmerHubToolsProps> = ({
@@ -147,18 +148,18 @@ export const FarmerHubTools: React.FC<FarmerHubToolsProps> = ({
 
         {/* Feature Navigation Tabs */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-          {[
+          {([
             { id: 'calculator', label: 'Yield & Income Boost Calculator', icon: Calculator },
             { id: 'prices', label: 'Live Commodity Market Board', icon: TrendingUp },
             { id: 'equipment', label: 'Equipment & Supplies Lease', icon: Tractor },
             { id: 'training', label: 'Agronomy Workshops & Guides', icon: BookOpen }
-          ].map((tab) => {
+          ] as const).map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
+                onClick={() => setActiveTab(tab.id)}
                 className={`px-4 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${
                   isActive
                     ? 'bg-emerald-900 text-white shadow-md'
@@ -184,15 +185,17 @@ export const FarmerHubTools: React.FC<FarmerHubToolsProps> = ({
                     Step 1: Select Farming Enterprise
                   </span>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-2">
-                    {[
-                      { id: 'catfish', label: 'Aquaculture' },
-                      { id: 'poultry', label: 'Poultry' },
-                      { id: 'maize', label: 'Maize Grain' },
-                      { id: 'cattle', label: 'Cattle' }
-                    ].map(item => (
+                    {(
+                      [
+                        { id: 'catfish', label: 'Aquaculture' },
+                        { id: 'poultry', label: 'Poultry' },
+                        { id: 'maize', label: 'Maize Grain' },
+                        { id: 'cattle', label: 'Cattle' }
+                      ] as const
+                    ).map((item) => (
                       <button
                         key={item.id}
-                        onClick={() => handleEnterpriseChange(item.id as any)}
+                        onClick={() => handleEnterpriseChange(item.id)}
                         className={`p-3 rounded-xl text-xs font-bold border text-center transition-all cursor-pointer ${
                           enterpriseType === item.id
                             ? 'bg-emerald-800 text-white border-emerald-900'

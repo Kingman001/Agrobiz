@@ -20,9 +20,11 @@ import {
   Sparkles
 } from 'lucide-react';
 
+import { InquiryCallback } from '../types';
+
 interface ProducePageProps {
   onSelectPillar: (pillar: ProducePillar) => void;
-  onOpenInquiryModal: (role?: string, produceName?: string) => void;
+  onOpenInquiryModal: InquiryCallback;
   onNavigatePage: (pageId: string) => void;
 }
 

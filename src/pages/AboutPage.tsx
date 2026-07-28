@@ -19,10 +19,13 @@ import {
   Warehouse,
   Handshake
 } from 'lucide-react';
+import smallholderHubImage from '../assets/images/smallholder_farmer_hub_1784882677913.jpg';
+
+import { InquiryCallback } from '../types';
 
 interface AboutPageProps {
   companySettings: CompanySettings;
-  onOpenInquiryModal: (role?: string) => void;
+  onOpenInquiryModal: InquiryCallback;
   onNavigatePage: (pageId: string) => void;
 }
 
@@ -108,7 +111,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           <div className="lg:col-span-5">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-200 group">
               <img
-                src="/src/assets/images/smallholder_farmer_hub_1784882677913.jpg"
+                src={smallholderHubImage}
                 alt="Glean Agro Agricultural Hub"
                 className="w-full h-[520px] object-cover group-hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"

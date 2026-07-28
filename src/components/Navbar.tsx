@@ -11,11 +11,13 @@ import {
   ShieldCheck
 } from 'lucide-react';
 
+import { InquiryCallback } from '../types';
+
 interface NavbarProps {
   companySettings: CompanySettings;
   activeSection: string;
   setActiveSection: (section: string) => void;
-  onOpenInquiryModal: (role?: string) => void;
+  onOpenInquiryModal: InquiryCallback;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({

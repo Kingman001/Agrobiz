@@ -1,131 +1,101 @@
-import React, { use } from 'react';
+import React from 'react';
 
 const GleanAgroLogo = ({ width = "100%", className = "" }) => {
   return (
-    <svg 
-      xmlns="http://w3.org" 
-      viewBox="0 0 900 300" 
-      width={width} 
-      className={className}
-      style={{ display: 'block', backgroundColor: 'transparent' }}
-    >
-      <defs>
-        {/* Wheat seed template for reuse */}
-        <g id="seed">
-          <path d="M0,0 Q-4,-8 0,-15 Q4,-8 0,0" fill="#a4c639" opacity="0.85" />
-          <path d="M0,0 Q-3,-10 0,-18 Q3,-10 0,0" fill="#8cb827" />
-        </g>
-        {/* Sprout template */}
-        <g id="sprout">
-          <path d="M0,0 Q-3,-8 -1,-14 Q3,-8 0,0" fill="#1b8a3e" />
-          <path d="M2,-1 Q6,-7 4,-12 Q0,-6 2,-1" fill="#2bb656" />
-        </g>
-      </defs>
-
-      {/* Decorative Left Wheat Accent */}
-      <g transform="translate(10, 200) rotate(-15) scale(0.6)">
-        <path d="M0,0 Q60,-10 120,-5" fill="none" stroke="#a4c639" strokeWidth="1.5" />
-        <use href="#seed" x="30" y="-4" transform="rotate(35 30 -4)" />
-        <use href="#seed" x="50" y="-6" transform="rotate(40 50 -6)" />
-        <use href="#seed" x="70" y="-7" transform="rotate(45 70 -7)" />
-        <use href="#seed" x="90" y="-6" transform="rotate(50 90 -6)" />
-        <use href="#seed" x="110" y="-3" transform="rotate(55 110 -3)" />
-      </g>
-
-      {/* --- TOP LEFT FARM EMBLEM --- */}
-      <g transform="translate(300, 100)">
-        {/* Wheat Arc Frame */}
-        <path d="M-80,0 A80,80 0 0,1 60,-50" fill="none" stroke="#a4c639" strokeWidth="2" strokeDasharray="1,5" strokeLinecap="round" />
-        <g transform="translate(-75, -15) rotate(-50)"><use href="#seed" scale="0.8"/></g>
-        <g transform="translate(-60, -45) rotate(-25)"><use href="#seed" scale="0.8"/></g>
-        <g transform="translate(-35, -68) rotate(0)"><use href="#seed" scale="0.8"/></g>
-        <g transform="translate(-5, -78) rotate(25)"><use href="#seed" scale="0.8"/></g>
-        <g transform="translate(25, -73) rotate(50)"><use href="#seed" scale="0.8"/></g>
-        <g transform="translate(52, -55) rotate(75)"><use href="#seed" scale="0.8"/></g>
-
-        {/* Right Frame Extension */}
-        <path d="M40,55 A75,75 0 0,0 80,-5" fill="none" stroke="#a4c639" strokeWidth="1.5" strokeDasharray="1,4" />
-        <g transform="translate(55, 45) rotate(140)"><use href="#seed" scale="0.6"/></g>
-        <g transform="translate(72, 25) rotate(160)"><use href="#seed" scale="0.6"/></g>
-        <g transform="translate(78, 2) rotate(180)"><use href="#seed" scale="0.6"/></g>
-
-        {/* Green Field Slopes */}
-        <path d="M-72,15 C-40,-25 40,-25 72,15 C50,55 -50,55 -72,15 Z" fill="#117f38" />
-        <path d="M-65,25 C-30,-5 30,-5 65,25" fill="none" stroke="#fff" strokeWidth="4" />
-        <path d="M-50,42 C-20,15 20,15 50,42" fill="none" stroke="#fff" strokeWidth="5" />
-        
-        {/* Growing Sprouts Above Fields */}
-        <use href="#sprout" x="-40" y="-12" transform="scale(0.8)" />
-        <use href="#sprout" x="-15" y="-22" transform="scale(1)" />
-        <use href="#sprout" x="15" y="-22" transform="scale(1)" />
-        <use href="#sprout" x="40" y="-12" transform="scale(0.8)" />
-      </g>
-
-      {/* --- TYPOGRAPHY SECTION --- */}
-      {/* "Glean" in Solid Medium Blue */}
-      <text 
-        x="150" 
-        y="235" 
-        fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-        fontWeight="800" 
-        fontSize="125" 
-        fill="#00529b" 
-        letterSpacing="-3"
+    <div className={`flex items-center justify-center p-4 bg-white select-none ${className}`}>
+      <svg
+        viewBox="0 0 500 150"
+        className="w-full max-w-[500px] h-auto"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        Glean
-      </text>
+        {/* Decorative background wheat wisps */}
+        <g stroke="#A3D977" strokeWidth="1" fill="none" opacity="0.6">
+          {/* Left faint stalk */}
+          <path d="M 10 100 Q 40 110 80 105" />
+          <path d="M 25 102 C 23 95, 30 92, 33 97 C 36 92, 43 95, 41 102" fill="#A3D977" />
+          <path d="M 45 104 C 43 97, 50 94, 53 99 C 56 94, 63 97, 61 104" fill="#A3D977" />
 
-      {/* Integrated Stylized Leaf on letter 'A' */}
-      <g transform="translate(463, 115)">
-        {/* Left flowing leaf blade */}
-        <path d="M25,85 C15,30 -10,15 15,-20 C5,15 20,40 25,85 Z" fill="#006837" />
-        {/* Right bright leaf accent */}
-        <path d="M25,85 C35,40 45,20 22,-5 C32,20 30,50 25,85 Z" fill="#39b54a" />
-        {/* Center swooping stem veil */}
-        <path d="M-15,95 Q15,105 25,85 Q10,40 18,-10" fill="none" stroke="#004b23" strokeWidth="2.5" />
-      </g>
+          {/* Right faint stalk */}
+          <path d="M 420 105 Q 460 110 490 100" />
+          <path d="M 435 104 C 433 97, 440 94, 443 99 C 446 94, 453 97, 451 104" fill="#A3D977" />
+          <path d="M 455 104 C 453 97, 460 94, 463 99 C 466 94, 473 97, 471 104" fill="#A3D977" />
+        </g>
 
-      {/* "Agro" in Forest Green & Bright Green blend */}
-      <text 
-        x="470" 
-        y="235" 
-        fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-        fontWeight="800" 
-        fontSize="125" 
-        letterSpacing="-2"
-      >
-        <tspan fill="#0f5132">A</tspan>
-        <tspan fill="#198754">gro</tspan>
-      </text>
+        {/* Top Left Icon (Field and Sprout Circle) */}
+        <g transform="translate(110, 5) scale(0.9)">
+          {/* Curved Field Lines */}
+          <path d="M 30 50 Q 55 20 80 50" fill="#008736" />
+          <path d="M 32 55 Q 55 28 78 55" fill="#FFFFFF" />
+          <path d="M 35 60 Q 55 35 75 60" fill="#008736" />
+          <path d="M 38 65 Q 55 42 72 65" fill="#FFFFFF" />
+          <path d="M 42 70 Q 55 50 68 70" fill="#008736" />
 
-      {/* --- RIGHT MINI SUN & HILLS LOGO OVAL --- */}
-      <g transform="translate(735, 195)">
-        {/* Outer Circular Boundary */}
-        <circle cx="0" cy="0" r="42" fill="none" stroke="#198754" strokeWidth="4" />
-        
-        {/* Micro Golden Sun */}
-        <circle cx="-12" cy="-18" r="8" fill="#f97316" />
-        
-        {/* Tiny Backdrop Trees */}
-        <path d="M15,-5 L18,-15 L21,-5 Z" fill="#14532d" />
-        <path d="M22,-2 L24,-11 L26,-2 Z" fill="#14532d" />
-        
-        {/* Wavy Landscape Contours */}
-        <path d="M-38,10 Q-15,-10 10,5 T38,-2" fill="none" stroke="#198754" strokeWidth="3" />
-        <path d="M-36,22 Q-10,5 15,18 T36,10" fill="none" stroke="#198754" strokeWidth="3" />
-        <path d="M-30,32 Q-5,18 20,28" fill="none" stroke="#198754" strokeWidth="3" />
-      </g>
+          {/* Growing Sprouts */}
+          <path d="M 40 22 Q 45 12 43 5 Q 40 12 36 20 Z" fill="#008736" />
+          <path d="M 43 22 Q 48 14 51 8 Q 47 15 43 22 Z" fill="#008736" />
+          <path d="M 55 18 Q 60 6 58 0 Q 55 8 51 16 Z" fill="#008736" />
+          <path d="M 58 18 Q 63 9 66 3 Q 62 10 58 18 Z" fill="#008736" />
+          <path d="M 70 22 Q 75 12 73 5 Q 70 12 66 20 Z" fill="#008736" />
+          <path d="M 73 22 Q 78 14 81 8 Q 77 15 73 22 Z" fill="#008736" />
 
-      {/* Decorative Right Wheat Accent */}
-      <g transform="translate(890, 200) scale(0.6) rotate(15) translate(-120, 0)">
-        <path d="M0,-5 Q60,-10 120,0" fill="none" stroke="#a4c639" strokeWidth="1.5" />
-        <use href="#seed" x="20" y="-5" transform="rotate(-35 20 -5)" />
-        <use href="#seed" x="40" y="-7" transform="rotate(-40 40 -7)" />
-        <use href="#seed" x="60" y="-8" transform="rotate(-45 60 -8)" />
-        <use href="#seed" x="80" y="-7" transform="rotate(-50 80 -7)" />
-        <use href="#seed" x="100" y="-4" transform="rotate(-55 100 -4)" />
-      </g>
-    </svg>
+          {/* Enclosing Circular Wheat Ears */}
+          <path d="M 28 45 C 22 25, 40 5, 55 3" fill="none" stroke="#A3D977" strokeWidth="1.5" strokeDasharray="3,3" />
+          <path d="M 82 45 C 88 25, 70 5, 55 3" fill="none" stroke="#A3D977" strokeWidth="1.5" strokeDasharray="3,3" />
+        </g>
+
+        {/* Text Group */}
+        <g id="logo-text">
+          {/* "Glean" in Deep Blue */}
+          <text
+            x="85"
+            y="115"
+            fill="#00529B"
+            className="font-sans font-bold tracking-tight"
+            style={{ fontSize: '76px', letterSpacing: '-2px' }}
+          >
+            Glean
+          </text>
+
+          {/* Integrated Leaf Graphic on the 'A' */}
+          <g transform="translate(233, 40)">
+            {/* Elegant swooping leaf dynamic lines */}
+            <path d="M 12 60 Q 20 20 22 0 C 12 15, 2 35, 12 60" fill="#008736" />
+            <path d="M 12 60 Q -2 40 5 15 C 10 25, 12 45, 12 60" fill="#A3D977" opacity="0.8" />
+          </g>
+
+          {/* "Agro" in Forest Green */}
+          <text
+            x="248"
+            y="115"
+            fill="#008736"
+            className="font-sans font-bold tracking-tight"
+            style={{ fontSize: '76px', letterSpacing: '-2px' }}
+          >
+            Agro
+          </text>
+        </g>
+
+        {/* Right Circle Landscape Emblem (Inside the 'o' area) */}
+        <g transform="translate(385, 92)" id="emblem-o">
+          {/* Outer Border */}
+          <circle cx="25" cy="25" r="23" fill="none" stroke="#008736" strokeWidth="4" />
+
+          {/* Sun */}
+          <circle cx="22" cy="14" r="4" fill="#FF9E1B" />
+
+          {/* Micro Landscape / Hills inside 'o' */}
+          <path d="M 6 35 Q 15 28 25 35 Q 35 28 44 35" fill="none" stroke="#008736" strokeWidth="2" />
+          <path d="M 6 41 Q 15 34 25 41 Q 35 34 44 41" fill="none" stroke="#008736" strokeWidth="2" />
+
+          {/* Micro Trees */}
+          <path d="M 32 25 L 35 20 L 38 25 Z" fill="#008736" />
+          <path d="M 35 25 L 35 28" stroke="#008736" strokeWidth="1" />
+
+          <path d="M 37 27 L 39 23 L 41 27 Z" fill="#008736" />
+          <path d="M 39 27 L 39 29" stroke="#008736" strokeWidth="1" />
+        </g>
+      </svg>
+    </div>
   );
 };
 

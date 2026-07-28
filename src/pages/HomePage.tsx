@@ -1,5 +1,5 @@
 import React from 'react';
-import { CompanySettings, ProducePillar } from '../types';
+import { CompanySettings, InquiryCallback, ProducePillar } from '../types';
 import { Hero } from '../components/Hero';
 import { PillarsSection } from '../components/PillarsSection';
 import { SmallholderRoadmap } from '../components/SmallholderRoadmap';
@@ -11,7 +11,7 @@ import { ArrowRight, Sparkles, Tractor, Handshake, Sprout, Fish, Bird, Beef, War
 interface HomePageProps {
   companySettings: CompanySettings;
   onSelectPillar: (pillar: ProducePillar) => void;
-  onOpenInquiryModal: (role?: string, produceName?: string) => void;
+  onOpenInquiryModal: InquiryCallback;
   onNavigatePage: (pageId: string) => void;
 }
 

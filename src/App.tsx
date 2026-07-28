@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CompanySettings, ProducePillar } from './types';
+import { CompanySettings, InquiryRole, ProducePillar } from './types';
 import { defaultCompanySettings } from './data/agribusinessData';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -30,7 +30,7 @@ export default function App() {
   });
 
   const [selectedPillarModal, setSelectedPillarModal] = useState<ProducePillar | null>(null);
-  const [inquiryModalRole, setInquiryModalRole] = useState<string>('Commercial Buyer');
+  const [inquiryModalRole, setInquiryModalRole] = useState<InquiryRole>('Commercial Buyer');
   const [inquiryProduceName, setInquiryProduceName] = useState<string>('');
 
   // Handle hash changes or popstate
@@ -45,7 +45,7 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const handleOpenInquiry = (role?: string, produceName?: string) => {
+  const handleOpenInquiry = (role?: InquiryRole, produceName?: string) => {
     if (role) setInquiryModalRole(role);
     if (produceName) setInquiryProduceName(produceName);
     
