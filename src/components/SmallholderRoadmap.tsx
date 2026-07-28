@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { roadmapPhases } from '../data/agribusinessData';
-import { RoadmapPhase } from '../types';
+import { RoadmapPhase, InquiryCallback } from '../types';
 import {
   CheckCircle2,
   Clock,
@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 
 interface SmallholderRoadmapProps {
-  onOpenInquiryModal: (role?: string) => void;
+  onOpenInquiryModal: InquiryCallback;
 }
 
 export const SmallholderRoadmap: React.FC<SmallholderRoadmapProps> = ({

@@ -21,7 +21,7 @@ export const GleanAgroLogo: React.FC<GleanAgroLogoProps> = ({
       <svg
         viewBox="0 0 500 150"
         className="w-full max-w-[500px] h-auto"
-        xmlns="http://www.w3.org"
+        xmlns="http://www.w3.org/2000/svg"
       >
         {/* Decorative background wheat wisps */}
         <g stroke="#A3D977" strokeWidth="1" fill="none" opacity="0.6">

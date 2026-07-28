@@ -7,6 +7,10 @@ import {
   TrainingCourse,
   CompanySettings
 } from '../types';
+import fisheryImage from '../assets/images/fishery_aquaculture_1784882633745.jpg';
+import poultryImage from '../assets/images/poultry_farming_1784882647000.jpg';
+import cattleImage from '../assets/images/cattle_rearing_1784882661585.jpg';
+import cropsImage from '../assets/images/smallholder_farmer_hub_1784882677913.jpg';
 
 export const defaultCompanySettings: CompanySettings = {
   name: "Glean Agro",
@@ -79,7 +83,7 @@ export const producePillars: ProducePillar[] = [
     subtitle: "Sustainable Fish Hatcheries, Table-Size Catfish & Fresh Tilapia",
     category: "fishery",
     icon: "Fish",
-    image: "/src/assets/images/fishery_aquaculture_1784882633745.jpg",
+    image: fisheryImage,
     description: "Our aquaculture division operates eco-friendly recirculation aquaculture systems (RAS) and managed earthen ponds. We specialize in disease-resistant fingerlings, high-protein table fish, and smoked fish processing.",
     keyFeatures: [
       "Water Quality Automated Monitoring (pH, Oxygen, Temp)",
@@ -103,7 +107,7 @@ export const producePillars: ProducePillar[] = [
     subtitle: "Broiler Meat Production, Fresh Farm Eggs & Organic Poultry Feed",
     category: "poultry",
     icon: "Bird",
-    image: "/src/assets/images/poultry_farming_1784882647000.jpg",
+    image: poultryImage,
     description: "Climate-controlled poultry houses designed for biosecurity and optimal animal welfare. Producing jumbo farm-fresh eggs and premium broilers processed in hygienic, temperature-managed conditions.",
     keyFeatures: [
       "Automated Feeding & Nipple Drinking Lines",
@@ -127,7 +131,7 @@ export const producePillars: ProducePillar[] = [
     subtitle: "Ethical Beef Cattle, Pasture Milk & Genetic Improvement",
     category: "cattle",
     icon: "Beef",
-    image: "/src/assets/images/cattle_rearing_1784882661585.jpg",
+    image: cattleImage,
     description: "Focusing on zero-grazing paddocks and intensive pasture management to rear healthier cattle with high meat-to-bone ratios and clean milk yields, while eliminating farmer-herder conflicts.",
     keyFeatures: [
       "High-Yield Cross-Breeds (Friesian, White Fulani, Brahman)",
@@ -151,7 +155,7 @@ export const producePillars: ProducePillar[] = [
     subtitle: "Yellow Maize, Cassava Tubers, Soybeans & Fresh Vegetables",
     category: "crops",
     icon: "Sprout",
-    image: "/src/assets/images/smallholder_farmer_hub_1784882677913.jpg",
+    image: cropsImage,
     description: "Cultivating high-demand staples utilizing climate-smart tillage and organic soil builders. Our crops serve internal feed mills as well as commercial food processing plants.",
     keyFeatures: [
       "Hybrid High-Yield Seed Varieties",

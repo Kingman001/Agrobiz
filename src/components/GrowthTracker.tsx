@@ -29,8 +29,10 @@ import {
   HelpCircle
 } from 'lucide-react';
 
+import { InquiryCallback } from '../types';
+
 interface GrowthTrackerProps {
-  onOpenInquiryModal?: (role?: string) => void;
+  onOpenInquiryModal?: InquiryCallback;
   title?: string;
   subtitle?: string;
 }

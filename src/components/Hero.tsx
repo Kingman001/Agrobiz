@@ -15,11 +15,14 @@ import {
   Sparkles,
   Handshake
 } from 'lucide-react';
+import heroBannerImage from '../assets/images/agribusiness_hero_banner_1784882619239.jpg';
+
+import { InquiryCallback } from '../types';
 
 interface HeroProps {
   companySettings: CompanySettings;
   onNavigateSection: (sectionId: string) => void;
-  onOpenInquiryModal: (role?: string) => void;
+  onOpenInquiryModal: InquiryCallback;
 }
 
 export const Hero: React.FC<HeroProps> = ({
@@ -32,7 +35,7 @@ export const Hero: React.FC<HeroProps> = ({
       {/* Hero Background Image with Gradient Overlay */}
       <div className="absolute inset-0 z-0 opacity-35 bg-cover bg-center scale-105 transition-transform duration-1000">
         <img
-          src="/src/assets/images/agribusiness_hero_banner_1784882619239.jpg"
+          src={heroBannerImage}
           alt="Agribusiness Farm Sunrise"
           className="w-full h-full object-cover object-center"
           referrerPolicy="no-referrer"

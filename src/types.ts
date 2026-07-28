@@ -91,7 +91,10 @@ export interface InquiryFormState {
   fullName: string;
   email: string;
   phone: string;
-  userRole: 'Commercial Buyer' | 'Smallholder Farmer' | 'Impact Investor' | 'Equipment Vendor' | 'General';
+  userRole: 'Commercial Buyer' | 'Smallholder Farmer' | 'Impact Investor' | 'Equipment Partner' | 'General';
   produceInterest: string;
   message: string;
 }
+
+export type InquiryRole = InquiryFormState['userRole'];
+export type InquiryCallback = (role?: InquiryRole, produceName?: string) => void;

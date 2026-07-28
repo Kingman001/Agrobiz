@@ -25,8 +25,10 @@ import {
   Tag
 } from 'lucide-react';
 
+import { InquiryCallback } from '../types';
+
 interface FarmerHubPageProps {
-  onOpenInquiryModal: (role?: string, itemTitle?: string) => void;
+  onOpenInquiryModal: InquiryCallback;
   onNavigatePage: (pageId: string) => void;
 }
 
@@ -66,18 +68,18 @@ export const FarmerHubPage: React.FC<FarmerHubPageProps> = ({
         {/* Navigation Tabs Bar */}
         <div className="bg-white p-4 rounded-2xl border border-stone-200 shadow-sm flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-2">
-            {[
+            {([
               { id: 'prices', label: 'Live Market Prices', icon: TrendingUp },
               { id: 'equipment', label: 'Equipment & Tractor Leasing', icon: Tractor },
               { id: 'training', label: 'Agronomy Training Academy', icon: BookOpen },
               { id: 'services', label: 'Outgrower Support Services', icon: HandCoins }
-            ].map(tab => {
+            ] as const).map(tab => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
               return (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id as any)}
+                  onClick={() => setActiveTab(tab.id)}
                   className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${
                     isActive
                       ? 'bg-emerald-800 text-white shadow-md'

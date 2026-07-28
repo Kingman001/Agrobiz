@@ -1,11 +1,11 @@
 import React from 'react';
-import { ProducePillar } from '../types';
+import { ProducePillar, InquiryCallback } from '../types';
 import { X, CheckCircle2, ShieldCheck, Package, Clock, Handshake } from 'lucide-react';
 
 interface ProductDetailModalProps {
   pillar: ProducePillar | null;
   onClose: () => void;
-  onOpenInquiryModal: (role?: string, produceName?: string) => void;
+  onOpenInquiryModal: InquiryCallback;
 }
 
 export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
