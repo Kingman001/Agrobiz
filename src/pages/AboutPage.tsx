@@ -113,6 +113,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <img
                 src={smallholderHubImage}
                 alt="Glean Agro Agricultural Hub"
+                loading="lazy"
                 className="w-full h-[520px] object-cover group-hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"
               />

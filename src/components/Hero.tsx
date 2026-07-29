@@ -37,6 +37,7 @@ export const Hero: React.FC<HeroProps> = ({
         <img
           src={heroBannerImage}
           alt="Agribusiness Farm Sunrise"
+          loading="lazy"
           className="w-full h-full object-cover object-center"
           referrerPolicy="no-referrer"
         />

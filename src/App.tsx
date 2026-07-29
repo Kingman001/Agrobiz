@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { CompanySettings, InquiryRole, ProducePillar } from './types';
 import { defaultCompanySettings } from './data/agribusinessData';
 import { Navbar } from './components/Navbar';
@@ -6,12 +6,12 @@ import { Footer } from './components/Footer';
 import { ProductDetailModal } from './components/ProductDetailModal';
 
 // Pages
-import { HomePage } from './pages/HomePage';
-import { ProducePage } from './pages/ProducePage';
-import { RoadmapPage } from './pages/RoadmapPage';
-import { FarmerHubPage } from './pages/FarmerHubPage';
-import { AboutPage } from './pages/AboutPage';
-import { ContactPage } from './pages/ContactPage';
+const HomePage = lazy(() => import('./pages/HomePage').then(m => ({ default: m.HomePage })));
+const ProducePage = lazy(() => import('./pages/ProducePage').then(m => ({ default: m.ProducePage })));
+const RoadmapPage = lazy(() => import('./pages/RoadmapPage').then(m => ({ default: m.RoadmapPage })));
+const FarmerHubPage = lazy(() => import('./pages/FarmerHubPage').then(m => ({ default: m.FarmerHubPage })));
+const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
+const ContactPage = lazy(() => import('./pages/ContactPage').then(m => ({ default: m.ContactPage })));
 
 export default function App() {
   const [companySettings] = useState<CompanySettings>(defaultCompanySettings);
@@ -81,55 +81,57 @@ export default function App() {
           onOpenInquiryModal={handleOpenInquiry}
         />
 
-        {/* Page Content Router */}
+        {/* Page Content Router (lazy-loaded pages) */}
         <main className="transition-all duration-300">
-          {activeSection === 'home' && (
-            <HomePage
-              companySettings={companySettings}
-              onSelectPillar={(pillar) => setSelectedPillarModal(pillar)}
-              onOpenInquiryModal={handleOpenInquiry}
-              onNavigatePage={handleNavigatePage}
-            />
-          )}
+          <Suspense fallback={<div className="max-w-7xl mx-auto p-8">Loading...</div>}>
+            {activeSection === 'home' && (
+              <HomePage
+                companySettings={companySettings}
+                onSelectPillar={(pillar) => setSelectedPillarModal(pillar)}
+                onOpenInquiryModal={handleOpenInquiry}
+                onNavigatePage={handleNavigatePage}
+              />
+            )}
 
-          {activeSection === 'produce' && (
-            <ProducePage
-              onSelectPillar={(pillar) => setSelectedPillarModal(pillar)}
-              onOpenInquiryModal={handleOpenInquiry}
-              onNavigatePage={handleNavigatePage}
-            />
-          )}
+            {activeSection === 'produce' && (
+              <ProducePage
+                onSelectPillar={(pillar) => setSelectedPillarModal(pillar)}
+                onOpenInquiryModal={handleOpenInquiry}
+                onNavigatePage={handleNavigatePage}
+              />
+            )}
 
-          {activeSection === 'roadmap' && (
-            <RoadmapPage
-              onOpenInquiryModal={handleOpenInquiry}
-              onNavigatePage={handleNavigatePage}
-            />
-          )}
+            {activeSection === 'roadmap' && (
+              <RoadmapPage
+                onOpenInquiryModal={handleOpenInquiry}
+                onNavigatePage={handleNavigatePage}
+              />
+            )}
 
-          {activeSection === 'farmer-hub' && (
-            <FarmerHubPage
-              onOpenInquiryModal={handleOpenInquiry}
-              onNavigatePage={handleNavigatePage}
-            />
-          )}
+            {activeSection === 'farmer-hub' && (
+              <FarmerHubPage
+                onOpenInquiryModal={handleOpenInquiry}
+                onNavigatePage={handleNavigatePage}
+              />
+            )}
 
-          {activeSection === 'about' && (
-            <AboutPage
-              companySettings={companySettings}
-              onOpenInquiryModal={handleOpenInquiry}
-              onNavigatePage={handleNavigatePage}
-            />
-          )}
+            {activeSection === 'about' && (
+              <AboutPage
+                companySettings={companySettings}
+                onOpenInquiryModal={handleOpenInquiry}
+                onNavigatePage={handleNavigatePage}
+              />
+            )}
 
-          {activeSection === 'contact' && (
-            <ContactPage
-              companySettings={companySettings}
-              initialRole={inquiryModalRole}
-              initialProduceInterest={inquiryProduceName}
-              onNavigatePage={handleNavigatePage}
-            />
-          )}
+            {activeSection === 'contact' && (
+              <ContactPage
+                companySettings={companySettings}
+                initialRole={inquiryModalRole}
+                initialProduceInterest={inquiryProduceName}
+                onNavigatePage={handleNavigatePage}
+              />
+            )}
+          </Suspense>
         </main>
       </div>
 
