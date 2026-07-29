@@ -24,7 +24,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           <img
             src={pillar.image}
             alt={pillar.title}
-            loading="lazy"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />

@@ -1,7 +1,7 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState } from 'react';
 import { roadmapPhases } from '../data/agribusinessData';
 import { PageHeader } from '../components/PageHeader';
-const GrowthTracker = lazy(() => import('../components/GrowthTracker').then(m => ({ default: m.GrowthTracker })));
+import { GrowthTracker } from '../components/GrowthTracker';
 import {
   TrendingUp,
   Users,
@@ -56,10 +56,8 @@ export const RoadmapPage: React.FC<RoadmapPageProps> = ({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 space-y-12">
         
-        {/* Recharts Visual Growth & Yield Improvement Tracker (lazy) */}
-        <Suspense fallback={<div className="p-6">Loading chart…</div>}>
-          <GrowthTracker onOpenInquiryModal={onOpenInquiryModal} />
-        </Suspense>
+        {/* Recharts Visual Growth & Yield Improvement Tracker */}
+        <GrowthTracker onOpenInquiryModal={onOpenInquiryModal} />
 
         {/* Phase Selector Tabs */}
         <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-6">

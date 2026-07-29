@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState } from 'react';
 import {
   liveMarketPrices,
   equipmentCatalog,
@@ -6,7 +6,7 @@ import {
   smallholderServices
 } from '../data/agribusinessData';
 import { PageHeader } from '../components/PageHeader';
-const GrowthTracker = lazy(() => import('../components/GrowthTracker').then(m => ({ default: m.GrowthTracker })));
+import { GrowthTracker } from '../components/GrowthTracker';
 import {
   Tractor,
   TrendingUp,
@@ -405,10 +405,8 @@ export const FarmerHubPage: React.FC<FarmerHubPageProps> = ({
           </div>
         )}
 
-        {/* Recharts Visual Growth & Productivity Tracker (lazy) */}
-        <Suspense fallback={<div className="p-6">Loading chart…</div>}>
-          <GrowthTracker onOpenInquiryModal={onOpenInquiryModal} />
-        </Suspense>
+        {/* Recharts Visual Growth & Productivity Tracker */}
+        <GrowthTracker onOpenInquiryModal={onOpenInquiryModal} />
 
         {/* Farmer Extension Hotline Banner */}
         <div className="bg-gradient-to-r from-emerald-900 via-stone-900 to-emerald-950 text-white rounded-3xl p-8 border border-emerald-800 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg">
