@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CompanySettings } from '../types';
+import { CompanySettings, InquiryCallback } from '../types';
 import { GleanAgroLogo } from './GleanAgroLogo';
 import {
   Menu,
@@ -7,11 +7,8 @@ import {
   Phone,
   Tractor,
   Handshake,
-  ChevronRight,
-  ShieldCheck
+  ChevronRight
 } from 'lucide-react';
-
-import { InquiryCallback } from '../types';
 
 interface NavbarProps {
   companySettings: CompanySettings;
@@ -20,6 +17,15 @@ interface NavbarProps {
   onOpenInquiryModal: InquiryCallback;
 }
 
+const navItems = [
+  { id: 'home', label: 'Home' },
+  { id: 'produce', label: 'Produce & Enterprises' },
+  { id: 'roadmap', label: 'Smallholder Roadmap' },
+  { id: 'farmer-hub', label: 'Farmer Hub & Tools' },
+  { id: 'about', label: 'About Glean Agro' },
+  { id: 'contact', label: 'Contact & Partnerships' }
+];
+
 export const Navbar: React.FC<NavbarProps> = ({
   companySettings,
   activeSection,
@@ -27,15 +33,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenInquiryModal
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'produce', label: 'Produce & Enterprises' },
-    { id: 'roadmap', label: 'Smallholder Roadmap' },
-    { id: 'farmer-hub', label: 'Farmer Hub & Tools' },
-    { id: 'about', label: 'About Glean Agro' },
-    { id: 'contact', label: 'Contact & Partnerships' }
-  ];
 
   const handleNavClick = (id: string) => {
     setActiveSection(id);
@@ -77,12 +74,14 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Brand Logo Component */}
-          <div
+          <button
+            type="button"
             onClick={() => handleNavClick('home')}
-            className="cursor-pointer group flex items-center gap-2"
-          width="400px">
-            <GleanAgroLogo with="100%" />
-          </div>
+            className="cursor-pointer group flex items-center gap-2 shrink-0"
+            aria-label="Go to home"
+          >
+            <GleanAgroLogo width="220px" className="max-w-[220px]" />
+          </button>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">

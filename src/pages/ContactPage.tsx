@@ -105,12 +105,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     I am contacting Glean Agro as a:
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                    {[
+                    {([
                       'Commercial Buyer',
                       'Smallholder Farmer',
                       'Impact Investor',
-                      'Equipment Partner'
-                    ].map((r) => (
+                      'Equipment Partner',
+                      'General'
+                    ] as InquiryRole[]).map((r) => (
                       <button
                         type="button"
                         key={r}
