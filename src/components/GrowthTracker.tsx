@@ -231,7 +231,7 @@ export const GrowthTracker: React.FC<GrowthTrackerProps> = ({
             <Users className={`w-4 h-4 ${activeMetric === 'network' ? 'text-sky-300' : 'text-sky-700'}`} />
           </div>
           <div className="text-2xl font-serif font-bold">
-            15,000 <span className="text-xs font-normal">Farmers</span>
+            300+ <span className="text-xs font-normal">Farmers</span>
           </div>
           <div className={`text-[11px] font-medium flex items-center gap-1 ${activeMetric === 'network' ? 'text-sky-200' : 'text-sky-700'}`}>
             <ArrowUpRight className="w-3.5 h-3.5" />

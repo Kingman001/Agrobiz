@@ -61,7 +61,7 @@ export const Hero: React.FC<HeroProps> = ({
             </h1>
 
             <p className="text-base sm:text-lg text-stone-300 max-w-2xl leading-relaxed">
-              <strong className="text-white font-semibold">{companySettings.name}</strong> operates high-standard commercial production in <strong className="text-emerald-300">Fishery</strong>, <strong className="text-emerald-300">Poultry</strong>, <strong className="text-emerald-300">Cattle Rearing</strong>, and <strong className="text-emerald-300">Arable Produce</strong>. Long-term, we are building a integrated platform providing smallholder farmers with access to finance, fair markets, cold storage, equipment leasing, and agronomy training.
+              <strong className="text-white font-semibold">{companySettings.name}</strong> is focused on enhancing the livelihoods of smallholder farmers across Africa by leveraging technology to connect them with financial resources, data-driven agricultural methods, and local and global markets—driving food security and combating poverty. Long-term, we are building an integrated platform that provides smallholder farmers with access to finance, fair markets, cold storage, equipment leasing, and agronomy training.
             </p>
 
             {/* Action Buttons */}
@@ -123,7 +123,7 @@ export const Hero: React.FC<HeroProps> = ({
                     Enterprise Capacity Status
                   </span>
                 </div>
-                <span className="text-xs text-stone-400 font-mono">2025/2026</span>
+                <span className="text-xs text-stone-400 font-mono">2023-2026</span>
               </div>
 
               <div className="mt-4 space-y-4">
@@ -178,7 +178,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <div>
                   <span className="text-[11px] font-mono text-emerald-400 font-bold uppercase">Smallholder Ecosystem Goal</span>
                   <p className="text-xs text-stone-200 font-medium mt-0.5">
-                    Connecting 15,000+ farmers to storage, equipment & market off-take
+                    Connecting 300+ farmers to storage, equipment & market off-take
                   </p>
                 </div>
                 <button

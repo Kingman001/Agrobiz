@@ -178,18 +178,17 @@ export const producePillars: ProducePillar[] = [
 export const roadmapPhases: RoadmapPhase[] = [
   {
     phaseNumber: 1,
-    title: "Enterprise Anchor Farming & Model Facility Setup",
-    timeframe: "2025 - Early 2026",
+    title: "Initiate Parnerships",
+    timeframe: "2023 - 2026",
     status: "In Progress",
-    summary: "Establish our own high-yielding flagship farms in Fishery, Poultry, and Cattle to validate best practices, build processing infrastructure, and secure commercial off-taker contracts.",
+    summary: "Initiate engagement and establish relationships with smallholder farmers and financial investors.",
     milestones: [
-      "Construct 15-Pond Recirculation Fishery & Hatchery",
-      "Launch 10,000-Bird Biosecure Poultry Layer/Broiler Facility",
-      "Establish Pasture Fodder & Cattle Enclosure for 350 Livestock",
-      "Secure Initial Off-take Agreements with Regional Hotel & Supermarket Chains"
+      "Profile 500+ smallholder farmers",
+      "Secure 3+ local partnerships (cooperatives/groups)",
+      "Establish partnerships with 4+ financial investors/partners",
     ],
     targetImpact: {
-      farmersReached: "150 Direct Apprentices",
+      farmersReached: "500+ smallholders",
       incomeGrowth: "+25% Productivity Baseline",
       wasteReduction: "15% Post-Harvest Loss"
     }
@@ -197,7 +196,7 @@ export const roadmapPhases: RoadmapPhase[] = [
   {
     phaseNumber: 2,
     title: "Regional Storage Hubs & Equipment Leasing Fleet",
-    timeframe: "Late 2026 - 2027",
+    timeframe: "2027 - 2028",
     status: "Upcoming",
     summary: "Deploy decentralized solar-powered cold pods, grain silos, and a mechanized tractor leasing pool to protect smallholders from post-harvest rot and high labor costs.",
     milestones: [
@@ -215,7 +214,7 @@ export const roadmapPhases: RoadmapPhase[] = [
   {
     phaseNumber: 3,
     title: "Farmers Financial Access & Input Credit Platform",
-    timeframe: "2027 - 2028",
+    timeframe: "2028 - 2029",
     status: "Future Vision",
     summary: "Introduce collateral-free input financing and digital credit scoring based on farm performance, enabling smallholders to get seeds, fertilizer, and fingerlings on credit.",
     milestones: [
@@ -233,7 +232,7 @@ export const roadmapPhases: RoadmapPhase[] = [
   {
     phaseNumber: 4,
     title: "Integrated Market Linkage & Regional Agri-Hub",
-    timeframe: "2028+",
+    timeframe: "2029+",
     status: "Future Vision",
     summary: "Create a direct digital agricultural exchange matching smallholders directly with industrial processors, exporters, and urban retailers, eliminating predatory middlemen.",
     milestones: [
