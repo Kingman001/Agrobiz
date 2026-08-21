@@ -7,6 +7,7 @@ import {
 } from '../data/agribusinessData';
 import { PageHeader } from '../components/PageHeader';
 import { GrowthTracker } from '../components/GrowthTracker';
+import { AIOpportunityAdvisor } from '../components/AIOpportunityAdvisor';
 import {
   Tractor,
   TrendingUp,
@@ -64,7 +65,8 @@ export const FarmerHubPage: React.FC<FarmerHubPageProps> = ({
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 space-y-10">
-        
+        <AIOpportunityAdvisor />
+
         {/* Navigation Tabs Bar */}
         <div className="bg-white p-4 rounded-2xl border border-stone-200 shadow-sm flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-2">

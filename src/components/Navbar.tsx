@@ -17,13 +17,33 @@ interface NavbarProps {
   onOpenInquiryModal: InquiryCallback;
 }
 
+const solutionsList = [
+  'Farm Inputs',
+  'Agricultural Finance',
+  'Training & Technical Support',
+  'Irrigation & Greenhouse',
+  'Storage & Post-Harvest',
+  'Market Access',
+  'Enterprise Development',
+  'Investment & Partnerships'
+];
+
+const aboutList = [
+  'Who We Are',
+  'Our Team',
+  'Advisors',
+  'Partners',
+  'Careers'
+];
+
 const navItems = [
   { id: 'home', label: 'Home' },
-  { id: 'produce', label: 'Produce & Enterprises' },
-  { id: 'roadmap', label: 'Smallholder Roadmap' },
-  { id: 'farmer-hub', label: 'Farmer Hub & Tools' },
-  { id: 'about', label: 'About Glean Agro' },
-  { id: 'contact', label: 'Contact & Partnerships' }
+  { id: 'solutions', label: 'Solutions' },
+  { id: 'for-farmers', label: 'For Farmers' },
+  { id: 'innovation', label: 'Innovation' },
+  { id: 'impact', label: 'Impact' },
+  { id: 'about', label: 'About' },
+  { id: 'insights', label: 'Insights' }
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -33,6 +53,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenInquiryModal
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
 
   const handleNavClick = (id: string) => {
     setActiveSection(id);
@@ -83,9 +104,62 @@ export const Navbar: React.FC<NavbarProps> = ({
             <GleanAgroLogo width="220px" className="max-w-[220px]" />
           </button>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links with dropdowns for Solutions & About */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navItems.map((item) => {
+              if (item.id === 'solutions') {
+                return (
+                  <div key={item.id} className="relative group">
+                    <button
+                      onClick={() => handleNavClick(item.id)}
+                      className="px-3 py-2 rounded-lg text-sm font-semibold text-stone-700 hover:text-emerald-800 hover:bg-stone-50 transition-all"
+                    >
+                      {item.label}
+                    </button>
+
+                    <div className="absolute left-0 mt-2 min-w-[220px] bg-white border border-stone-200 rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                      {solutionsList.map((s) => (
+                        <button
+                          key={s}
+                          onClick={() => {
+                            handleNavClick('solutions');
+                            try { window.location.hash = `solutions-${s.replace(/[^a-z0-9]/gi,'-').toLowerCase()}`; } catch(e){}
+                          }}
+                          className="w-full text-left px-3 py-2 text-sm text-stone-700 hover:bg-stone-50"
+                        >
+                          {s}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              if (item.id === 'about') {
+                return (
+                  <div key={item.id} className="relative group">
+                    <button
+                      onClick={() => handleNavClick(item.id)}
+                      className="px-3 py-2 rounded-lg text-sm font-semibold text-stone-700 hover:text-emerald-800 hover:bg-stone-50 transition-all"
+                    >
+                      {item.label}
+                    </button>
+
+                    <div className="absolute left-0 mt-2 min-w-[200px] bg-white border border-stone-200 rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                      {aboutList.map((a) => (
+                        <button
+                          key={a}
+                          onClick={() => { handleNavClick('about'); try { window.location.hash = `about-${a.replace(/[^a-z0-9]/gi,'-').toLowerCase()}`; } catch(e){} }}
+                          className="w-full text-left px-3 py-2 text-sm text-stone-700 hover:bg-stone-50"
+                        >
+                          {a}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
               const isActive = activeSection === item.id;
               return (
                 <button
@@ -134,27 +208,82 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
 
-      {/* Mobile Drawer Navigation */}
+      {/* Mobile Drawer Navigation (mobile-specific list per spec) */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-stone-900 text-white border-b border-stone-800 px-4 pt-3 pb-6 space-y-3">
           <div className="pb-2 border-b border-stone-800 flex items-center justify-between">
-            <span className="text-xs text-stone-400 font-mono uppercase tracking-wider">Navigation Menu</span>
+            <span className="text-xs text-stone-400 font-mono uppercase tracking-wider">Menu</span>
+            <button onClick={() => setMobileMenuOpen(false)} className="text-stone-400 text-xs">Close</button>
           </div>
-          <div className="grid grid-cols-1 gap-1">
-            {navItems.map((item) => (
+
+          <div className="space-y-1">
+            <button onClick={() => handleNavClick('home')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'home' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
+              Home
+            </button>
+
+            {/* Solutions collapsible */}
+            <div>
               <button
-                key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-left text-base font-medium transition-colors ${
-                  activeSection === item.id
-                    ? 'bg-emerald-900 text-emerald-200 font-bold'
-                    : 'text-stone-200 hover:bg-stone-800'
-                }`}
-              >
-                <span>{item.label}</span>
+                onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
+                className={`w-full flex items-center justify-between px-3 py-3 rounded-lg ${activeSection === 'solutions' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
+                <span>Solutions</span>
+                <ChevronRight className={`w-4 h-4 transition-transform ${mobileSolutionsOpen ? 'rotate-90' : ''}`} />
+              </button>
+              {mobileSolutionsOpen && (
+                <div className="pl-4 pt-2 pb-2 space-y-1">
+                  {solutionsList.map((s) => (
+                    <button key={s} onClick={() => { handleNavClick('solutions'); setMobileMenuOpen(false); }} className="w-full text-left px-3 py-2 rounded-lg text-sm text-stone-200 hover:bg-stone-800">
+                      {s}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <button onClick={() => handleNavClick('for-farmers')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'for-farmers' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
+              For Farmers
+            </button>
+
+            <button onClick={() => handleNavClick('innovation')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'innovation' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
+              Innovation
+            </button>
+
+            <button onClick={() => handleNavClick('impact')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'impact' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
+              Impact
+            </button>
+
+            <button onClick={() => handleNavClick('women-youth')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'women-youth' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
+              Women & Youth
+            </button>
+
+            {/* About with nested items */}
+            <div>
+              <button
+                onClick={() => handleNavClick('about')}
+                className={`w-full flex items-center justify-between px-3 py-3 rounded-lg ${activeSection === 'about' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
+                <span>About</span>
                 <ChevronRight className="w-4 h-4 text-stone-500" />
               </button>
-            ))}
+              <div className="pl-4 pt-2 pb-2 space-y-1">
+                {aboutList.map((a) => (
+                  <button key={a} onClick={() => { handleNavClick('about'); setMobileMenuOpen(false); }} className="w-full text-left px-3 py-2 rounded-lg text-sm text-stone-200 hover:bg-stone-800">
+                    {a}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <button onClick={() => handleNavClick('insights')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'insights' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
+              Insights
+            </button>
+
+            <button onClick={() => handleNavClick('contact')} className="w-full text-left px-3 py-3 rounded-lg text-stone-200 hover:bg-stone-800">
+              Contact
+            </button>
+
+            <button onClick={() => { setMobileMenuOpen(false); onOpenInquiryModal('General'); }} className="w-full text-left px-3 py-3 rounded-lg bg-emerald-700 text-white font-bold">
+              Partner With Us
+            </button>
           </div>
 
           <div className="pt-3 border-t border-stone-800 grid grid-cols-2 gap-2">

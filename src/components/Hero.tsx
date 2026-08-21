@@ -1,19 +1,9 @@
 import React from 'react';
 import { CompanySettings } from '../types';
 import {
-  Fish,
-  Bird,
-  Beef,
-  Sprout,
   ArrowRight,
-  ShieldCheck,
-  TrendingUp,
-  Warehouse,
-  Tractor,
-  BookOpen,
-  Award,
-  Sparkles,
-  Handshake
+  Handshake,
+  Sparkles
 } from 'lucide-react';
 import heroBannerImage from '../assets/images/agribusiness_hero_banner_1784882619239.jpg';
 
@@ -31,166 +21,63 @@ export const Hero: React.FC<HeroProps> = ({
   onOpenInquiryModal
 }) => {
   return (
-    <section id="home" className="relative bg-stone-900 text-white overflow-hidden">
-      {/* Hero Background Image with Gradient Overlay */}
-      <div className="absolute inset-0 z-0 opacity-35 bg-cover bg-center scale-105 transition-transform duration-1000">
-        <img
-          src={heroBannerImage}
-          alt="Agribusiness Farm Sunrise"
-          className="w-full h-full object-cover object-center"
-          referrerPolicy="no-referrer"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-950/90 to-emerald-950/80" />
-      </div>
+    <section id="home" className="relative overflow-hidden bg-stone-950 text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(16,185,129,0.2),transparent_34%),linear-gradient(120deg,#0c1915_0%,#12251d_56%,#3b2415_100%)]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 lg:pt-24 lg:pb-28">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Main Hero Copy */}
-          <div className="lg:col-span-7 space-y-8 text-left">
-            <div className="inline-flex items-center gap-2 bg-emerald-900/80 border border-emerald-500/40 text-emerald-200 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Next-Generation Agribusiness & Smallholder Hub</span>
+      <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-14 sm:px-6 lg:px-8 lg:pb-20 lg:pt-24">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <div className="max-w-2xl space-y-7">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-emerald-300">
+              <Sparkles className="h-4 w-4" />
+              <span>Agricultural solutions for a better future</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-stone-100 leading-[1.15]">
-              Cultivating Sustainable Food Systems. <br className="hidden sm:inline" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-emerald-400 to-amber-200">
-                Empowering Rural Smallholders.
-              </span>
+            <h1 className="font-serif text-4xl font-bold leading-[1.08] tracking-tight text-stone-50 sm:text-6xl">
+              Building a More Productive, Sustainable Future for Agriculture.
             </h1>
 
-            <p className="text-base sm:text-lg text-stone-300 max-w-2xl leading-relaxed">
-              <strong className="text-white font-semibold">{companySettings.name}</strong> is focused on enhancing the livelihoods of smallholder farmers across Africa by leveraging technology to connect them with financial resources, data-driven agricultural methods, and local and global markets—driving food security and combating poverty. Long-term, we are building an integrated platform that provides smallholder farmers with access to finance, fair markets, cold storage, equipment leasing, and agronomy training.
+            <p className="max-w-xl text-base leading-relaxed text-stone-300 sm:text-lg">
+              We develop and deliver practical agricultural solutions that help smallholder farmers produce more, build sustainable livelihoods and unlock new opportunities for women and youth.
             </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
               <button
                 onClick={() => onNavigateSection('produce')}
-                className="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base shadow-lg shadow-emerald-900/40 transition-all flex items-center justify-center gap-2 cursor-pointer group"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 px-5 py-3.5 text-sm font-bold text-emerald-950 shadow-lg shadow-emerald-950/40 transition hover:bg-emerald-400"
               >
-                <span>Explore Our Produce</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <span>Explore Our Solutions</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
-
-              <button
-                onClick={() => onNavigateSection('roadmap')}
-                className="px-6 py-3.5 rounded-xl bg-stone-800/90 hover:bg-stone-800 text-stone-200 hover:text-white border border-stone-700 font-bold text-base transition-all flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <span>Smallholder Roadmap</span>
-              </button>
-
               <button
                 onClick={() => onOpenInquiryModal('Impact Investor')}
-                className="px-6 py-3.5 rounded-xl bg-amber-600/20 hover:bg-amber-600/30 text-amber-200 border border-amber-500/40 font-bold text-base transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-stone-600 bg-stone-900/40 px-5 py-3.5 text-sm font-bold text-stone-100 transition hover:border-emerald-400 hover:text-emerald-300"
               >
-                <Handshake className="w-5 h-5 text-amber-400" />
-                <span>Partner / Off-Take</span>
+                <Handshake className="h-4 w-4" />
+                <span>Partner With Us</span>
               </button>
             </div>
 
-            {/* Core Value Pills */}
-            <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 border-t border-stone-800/80">
-              <div className="flex items-center gap-2 text-stone-300 text-xs font-medium">
-                <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Zero-Hormone Poultry</span>
-              </div>
-              <div className="flex items-center gap-2 text-stone-300 text-xs font-medium">
-                <Fish className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Bio-Secure Aquaculture</span>
-              </div>
-              <div className="flex items-center gap-2 text-stone-300 text-xs font-medium">
-                <Beef className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Ethical Pasture Cattle</span>
-              </div>
-              <div className="flex items-center gap-2 text-stone-300 text-xs font-medium">
-                <Warehouse className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Solar Cold Storage</span>
-              </div>
-            </div>
+            <button
+              onClick={() => onNavigateSection('farmer-hub')}
+              className="text-sm font-semibold text-emerald-300 underline decoration-emerald-500/50 underline-offset-4 transition hover:text-emerald-200"
+            >
+              Join Our Farmer Network
+            </button>
           </div>
 
-          {/* Right Hero Cards Highlight */}
-          <div className="lg:col-span-5 space-y-4">
-            <div className="bg-stone-900/90 border border-stone-800/90 rounded-2xl p-6 shadow-2xl backdrop-blur-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
-              
-              <div className="flex items-center justify-between pb-4 border-b border-stone-800">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">
-                    Enterprise Capacity Status
-                  </span>
-                </div>
-                <span className="text-xs text-stone-400 font-mono">2023-2026</span>
-              </div>
-
-              <div className="mt-4 space-y-4">
-                <div className="p-3.5 bg-stone-950/80 rounded-xl border border-stone-800 flex items-start gap-3">
-                  <div className="p-2.5 rounded-lg bg-emerald-950 text-emerald-400 shrink-0">
-                    <Fish className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-sm font-bold text-stone-200">Aquaculture & Fishery</h4>
-                      <span className="text-[11px] bg-emerald-900/60 text-emerald-300 px-2 py-0.5 rounded-md font-semibold">Active</span>
-                    </div>
-                    <p className="text-xs text-stone-400 mt-1">
-                      25,000 kg / cycle. Fresh catfish, tilapia, and solar-smoked fish.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-3.5 bg-stone-950/80 rounded-xl border border-stone-800 flex items-start gap-3">
-                  <div className="p-2.5 rounded-lg bg-amber-950 text-amber-400 shrink-0">
-                    <Bird className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-sm font-bold text-stone-200">Poultry Operations</h4>
-                      <span className="text-[11px] bg-emerald-900/60 text-emerald-300 px-2 py-0.5 rounded-md font-semibold">Active</span>
-                    </div>
-                    <p className="text-xs text-stone-400 mt-1">
-                      15,000 broilers & 500 egg crates/day from biosecure poultry houses.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-3.5 bg-stone-950/80 rounded-xl border border-stone-800 flex items-start gap-3">
-                  <div className="p-2.5 rounded-lg bg-stone-800 text-amber-300 shrink-0">
-                    <Beef className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-sm font-bold text-stone-200">Cattle & Livestock</h4>
-                      <span className="text-[11px] bg-amber-900/60 text-amber-300 px-2 py-0.5 rounded-md font-semibold">Expanding</span>
-                    </div>
-                    <p className="text-xs text-stone-400 mt-1">
-                      350 head herd under intensive zero-grazing paddock fattening.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Smallholder Roadmap Banner inside hero */}
-              <div className="mt-5 p-4 rounded-xl bg-gradient-to-r from-emerald-950 to-stone-950 border border-emerald-800/80 flex items-center justify-between">
-                <div>
-                  <span className="text-[11px] font-mono text-emerald-400 font-bold uppercase">Smallholder Ecosystem Goal</span>
-                  <p className="text-xs text-stone-200 font-medium mt-0.5">
-                    Connecting 300+ farmers to storage, equipment & market off-take
-                  </p>
-                </div>
-                <button
-                  onClick={() => onNavigateSection('farmer-hub')}
-                  className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold transition-all shrink-0 cursor-pointer"
-                >
-                  Farmer Tools
-                </button>
-              </div>
+          <div className="relative min-h-[360px] overflow-hidden rounded-[2rem] border border-white/15 shadow-2xl shadow-black/30 sm:min-h-[470px]">
+            <img
+              src={heroBannerImage}
+              alt="African farmer tending crops in a green agricultural field"
+              className="h-full min-h-[360px] w-full object-cover object-center transition-transform duration-[4000ms] hover:scale-105 sm:min-h-[470px]"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent" />
+            <div className="absolute bottom-5 left-5 right-5 rounded-xl border border-white/15 bg-stone-950/70 p-4 backdrop-blur-md">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-300">Simple solutions. Real impact.</p>
+              <p className="mt-1 text-sm text-stone-100">Partnership for shared prosperity across African agriculture.</p>
             </div>
           </div>
-
         </div>
 
         {/* Quick Impact Stats Bar */}
