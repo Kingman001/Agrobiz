@@ -1,7 +1,7 @@
 import React from 'react';
 import { CompanySettings } from '../types';
 import { ArrowRight, Handshake, Sprout } from 'lucide-react';
-import heroBannerImage from '../assets/images/agribusiness_hero_banner_1784882619239.jpg';
+import heroBannerImage from '../assets/images/hero-img.jpg';
 
 import { InquiryCallback } from '../types';
 
