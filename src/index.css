@@ -1,1 +1,118 @@
 @import "tailwindcss";
+
+:root {
+  --agro-green-950: #0f2f2b;
+  --agro-green-900: #173a31;
+  --agro-green-700: #1d5a42;
+  --agro-green-600: #2f6f51;
+  --agro-gold: #c99545;
+  --agro-gold-soft: #f4d39a;
+  --agro-soil: #b86b3d;
+  --agro-ivory: #f9f5ee;
+  --agro-cream: #f2efe6;
+  --agro-charcoal: #1d2421;
+  --agro-muted: #58615d;
+  --agro-border: rgba(23, 58, 49, 0.12);
+  --agro-shadow: 0 20px 45px rgba(15, 47, 43, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--agro-cream);
+  color: var(--agro-charcoal);
+  font-family: "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+.display-font {
+  font-family: "Segoe UI", "Inter", "Arial", sans-serif;
+  letter-spacing: -0.04em;
+}
+
+.agro-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.agro-panel {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--agro-border);
+  border-radius: 1.5rem;
+  box-shadow: var(--agro-shadow);
+}
+
+.agro-card {
+  background: #ffffff;
+  border: 1px solid var(--agro-border);
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 30px rgba(15, 47, 43, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.agro-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 42px rgba(15, 47, 43, 0.09);
+}
+
+.growth-line {
+  background:
+    linear-gradient(90deg, rgba(22, 69, 56, 0.08) 0%, rgba(22, 69, 56, 0.08) 1px, transparent 1px, transparent 52px),
+    linear-gradient(180deg, rgba(22, 69, 56, 0.04), rgba(22, 69, 56, 0.02));
+  background-size: 52px 52px;
+}
+
+.metric-tile {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+@media (min-width: 640px) {
+  .agro-shell {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .agro-shell {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
