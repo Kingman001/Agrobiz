@@ -87,10 +87,10 @@ export const HomePage: React.FC<HomePageProps> = ({
   onOpenInquiryModal,
   onNavigatePage
 }) => {
-  const [impactValues, setImpactValues] = useState({ one: 0, six: 0, three: 0, four: 0 });
+  const [impactValues, setImpactValues] = useState({ farmersReached: 0, financeAccessed: 0, inclusionRate: 0, storageQuality: 0 });
 
   useEffect(() => {
-    const target = { one: 1, six: 6, three: 3, four: 4 };
+    const target = { farmersReached: 300, financeAccessed: 150, inclusionRate: 65, storageQuality: 98 };
     const duration = 900;
     const start = performance.now();
     let rafId = 0;
@@ -100,10 +100,10 @@ export const HomePage: React.FC<HomePageProps> = ({
       const eased = 1 - Math.pow(1 - progress, 3);
 
       setImpactValues({
-        one: Math.round(target.one * eased),
-        six: Math.round(target.six * eased),
-        three: Math.round(target.three * eased),
-        four: Math.round(target.four * eased)
+        farmersReached: Math.round(target.farmersReached * eased),
+        financeAccessed: Math.round(target.financeAccessed * eased),
+        inclusionRate: Math.round(target.inclusionRate * eased),
+        storageQuality: Math.round(target.storageQuality * eased)
       });
 
       if (progress < 1) {
@@ -322,13 +322,13 @@ export const HomePage: React.FC<HomePageProps> = ({
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {[
-              { key: 'one', value: impactValues.one, suffix: '', label: 'farmer-first ecosystem' },
-              { key: 'six', value: impactValues.six, suffix: '+', label: 'core support pillars' },
-              { key: 'three', value: impactValues.three, suffix: '', label: 'growth pathways for women & youth' },
-              { key: 'four', value: impactValues.four, suffix: '', label: 'stages from need to impact' }
-            ].map(({ key, value, suffix, label }) => (
+              { key: 'farmersReached', prefix: '', value: impactValues.farmersReached, suffix: '+', label: 'Smallholder farmers supported' },
+              { key: 'financeAccessed', prefix:  '₦', value: impactValues.financeAccessed, suffix: 'M+', label: 'Input Finance Accessed' },
+              { key: 'inclusionRate', prefix: '', value: impactValues.inclusionRate, suffix: '%', label: 'Women & Youth Inclusion' },
+              { key: 'storageQuality', prefix: '', value: impactValues.storageQuality, suffix: '%', label: 'Storage Quality' }
+            ].map(({ key, prefix, value, suffix, label }) => (
               <div key={key} className="metric-tile p-5 text-center text-white/90">
-                <div className="text-4xl font-bold tracking-[-0.06em] text-[var(--agro-gold-soft)]">{value}{suffix}</div>
+                <div className="text-4xl font-bold tracking-[-0.06em] text-[var(--agro-gold-soft)]">{prefix}{value}{suffix}</div>
                 <div className="mt-2 text-sm text-white/80 uppercase tracking-[0.12em]">{label}</div>
               </div>
             ))}
