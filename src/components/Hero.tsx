@@ -47,7 +47,7 @@ export const Hero: React.FC<HeroProps> = ({
 
             <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
               <button
-                onClick={() => onNavigateSection('produce')}
+                onClick={() => onNavigateSection('solutions')}
                 className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--agro-gold)] px-5 py-3.5 text-sm font-bold text-[#1b2e28] shadow-lg shadow-black/20 transition hover:bg-[var(--agro-gold-soft)]"
               >
                 <span>Explore Solutions</span>

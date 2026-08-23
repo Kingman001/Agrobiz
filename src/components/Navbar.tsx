@@ -119,16 +119,13 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                     <div className="absolute left-0 mt-2 min-w-[220px] bg-white border border-stone-200 rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
                       {solutionsList.map((s) => (
-                        <button
-                          key={s}
-                          onClick={() => {
-                            handleNavClick('solutions');
-                            try { window.location.hash = `solutions-${s.replace(/[^a-z0-9]/gi,'-').toLowerCase()}`; } catch(e){}
-                          }}
-                          className="w-full text-left px-3 py-2 text-sm text-stone-700 hover:bg-stone-50"
-                        >
-                          {s}
-                        </button>
+                       <button
+                         key={s}
+                         onClick={() => handleNavClick('solutions')}
+                         className="w-full text-left px-3 py-2 text-sm text-stone-700 hover:bg-stone-50"
+                       >
+                         {s}
+                       </button>
                       ))}
                     </div>
                   </div>
@@ -149,7 +146,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       {aboutList.map((a) => (
                         <button
                           key={a}
-                          onClick={() => { handleNavClick('about'); try { window.location.hash = `about-${a.replace(/[^a-z0-9]/gi,'-').toLowerCase()}`; } catch(e){} }}
+                          onClick={() => handleNavClick('about')}
                           className="w-full text-left px-3 py-2 text-sm text-stone-700 hover:bg-stone-50"
                         >
                           {a}

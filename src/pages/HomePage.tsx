@@ -251,7 +251,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <p className="mt-2 text-sm leading-6 text-[var(--agro-muted)]">{text}</p>
                 <button
                   type="button"
-                  onClick={() => onNavigatePage('produce')}
+                  onClick={() => onNavigatePage('solutions')}
                   className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--agro-green-700)]"
                 >
                   Learn more <ArrowRight className="h-4 w-4" />

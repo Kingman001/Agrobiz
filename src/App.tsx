@@ -7,6 +7,7 @@ import { ProductDetailModal } from './components/ProductDetailModal';
 
 // Pages
 import { HomePage } from './pages/HomePage';
+import { SolutionsPage } from './pages/SolutionsPage';
 import { ProducePage } from './pages/ProducePage';
 import { RoadmapPage } from './pages/RoadmapPage';
 import { FarmerHubPage } from './pages/FarmerHubPage';
@@ -20,8 +21,9 @@ export default function App() {
   const [activeSection, setActiveSection] = useState<string>(() => {
     try {
       const hash = window.location.hash.replace('#', '');
-      if (['home', 'produce', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(hash)) {
-        return hash;
+      const route = hash.split('-')[0];
+      if (['home', 'solutions', 'produce', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(route)) {
+        return route;
       }
     } catch (e) {
       // ignore
@@ -37,8 +39,9 @@ export default function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
-      if (['home', 'produce', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(hash)) {
-        setActiveSection(hash);
+      const route = hash.split('-')[0];
+      if (['home', 'solutions', 'produce', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(route)) {
+        setActiveSection(route);
       }
     };
     window.addEventListener('hashchange', handleHashChange);
@@ -87,6 +90,13 @@ export default function App() {
             <HomePage
               companySettings={companySettings}
               onSelectPillar={(pillar) => setSelectedPillarModal(pillar)}
+              onOpenInquiryModal={handleOpenInquiry}
+              onNavigatePage={handleNavigatePage}
+            />
+          )}
+
+          {activeSection === 'solutions' && (
+            <SolutionsPage
               onOpenInquiryModal={handleOpenInquiry}
               onNavigatePage={handleNavigatePage}
             />
