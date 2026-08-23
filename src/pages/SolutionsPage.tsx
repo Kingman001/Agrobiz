@@ -369,17 +369,6 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onOpenInquiryModal
               We Don’t Just Provide Products. We Build Pathways.
             </h2>
           </div>
-
-          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-6">
-            {valueStages.map((stage, index) => (
-              <div key={stage} className="rounded-2xl border border-[rgba(29,90,66,0.12)] bg-white p-4 text-center shadow-sm">
-                <div className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-gold)]">{index + 1}</div>
-                <h3 className="mt-2 text-xl font-bold tracking-[-0.04em] text-[var(--agro-charcoal)]">{stage}</h3>
-                {index < valueStages.length - 1 && <div className="mt-3 flex justify-center text-[var(--agro-green-700)]"><ArrowRight className="h-4 w-4" /></div>}
-              </div>
-            ))}
-          </div>
-
           <p className="mx-auto mt-6 max-w-3xl text-center text-base leading-7 text-[var(--agro-muted)]">
             Our goal is not simply to provide a product or service. It is to help farmers move from a specific agricultural challenge toward measurable improvement and long-term sustainability.
           </p>
