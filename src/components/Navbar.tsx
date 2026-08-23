@@ -118,15 +118,18 @@ export const Navbar: React.FC<NavbarProps> = ({
                     </button>
 
                     <div className="absolute left-0 mt-2 min-w-[220px] bg-white border border-stone-200 rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
-                      {solutionsList.map((s) => (
-                       <button
-                         key={s}
-                         onClick={() => handleNavClick('solutions')}
-                         className="w-full text-left px-3 py-2 text-sm text-stone-700 hover:bg-stone-50"
-                       >
-                         {s}
-                       </button>
-                      ))}
+                      {solutionsList.map((s) => {
+                        const destination = s === 'Farm Inputs' ? 'farm-inputs' : 'solutions';
+                        return (
+                          <button
+                            key={s}
+                            onClick={() => handleNavClick(destination)}
+                            className="w-full text-left px-3 py-2 text-sm text-stone-700 hover:bg-stone-50"
+                          >
+                            {s}
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
                 );
@@ -228,11 +231,14 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
               {mobileSolutionsOpen && (
                 <div className="pl-4 pt-2 pb-2 space-y-1">
-                  {solutionsList.map((s) => (
-                    <button key={s} onClick={() => { handleNavClick('solutions'); setMobileMenuOpen(false); }} className="w-full text-left px-3 py-2 rounded-lg text-sm text-stone-200 hover:bg-stone-800">
-                      {s}
-                    </button>
-                  ))}
+                  {solutionsList.map((s) => {
+                    const destination = s === 'Farm Inputs' ? 'farm-inputs' : 'solutions';
+                    return (
+                      <button key={s} onClick={() => { handleNavClick(destination); setMobileMenuOpen(false); }} className="w-full text-left px-3 py-2 rounded-lg text-sm text-stone-200 hover:bg-stone-800">
+                        {s}
+                      </button>
+                    );
+                  })}
                 </div>
               )}
             </div>

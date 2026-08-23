@@ -8,6 +8,7 @@ import { ProductDetailModal } from './components/ProductDetailModal';
 // Pages
 import { HomePage } from './pages/HomePage';
 import { SolutionsPage } from './pages/SolutionsPage';
+import { FarmInputsPage } from './pages/FarmInputsPage';
 import { ProducePage } from './pages/ProducePage';
 import { RoadmapPage } from './pages/RoadmapPage';
 import { FarmerHubPage } from './pages/FarmerHubPage';
@@ -22,7 +23,7 @@ export default function App() {
     try {
       const hash = window.location.hash.replace('#', '');
       const route = hash.split('-')[0];
-      if (['home', 'solutions', 'produce', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(route)) {
+      if (['home', 'solutions', 'farm-inputs', 'produce', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(route)) {
         return route;
       }
     } catch (e) {
@@ -40,7 +41,7 @@ export default function App() {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
       const route = hash.split('-')[0];
-      if (['home', 'solutions', 'produce', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(route)) {
+      if (['home', 'solutions', 'farm-inputs', 'produce', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(route)) {
         setActiveSection(route);
       }
     };
@@ -97,6 +98,13 @@ export default function App() {
 
           {activeSection === 'solutions' && (
             <SolutionsPage
+              onOpenInquiryModal={handleOpenInquiry}
+              onNavigatePage={handleNavigatePage}
+            />
+          )}
+
+          {activeSection === 'farm-inputs' && (
+            <FarmInputsPage
               onOpenInquiryModal={handleOpenInquiry}
               onNavigatePage={handleNavigatePage}
             />
