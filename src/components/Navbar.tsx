@@ -18,11 +18,11 @@ interface NavbarProps {
 }
 
 const solutionsList = [
-  'Farm Inputs',
-  'Agricultural Finance',
-  'Training & Technical Support',
-  'Irrigation & Greenhouse',
-  'Storage & Post-Harvest',
+  {id: 'farm-inputs', label: 'Farm Inputs'},
+  {id: 'agric-finance', label: 'Agricultural Finance'},
+  {id: 'tech-support', label: 'Training & Technical Support'},
+  {id: 'irrigation', label: 'Irrigation & Greenhouse',
+   {id: 'storage', label: 'Storage & Post-Harvest',
   'Market Access',
   'Enterprise Development',
   'Investment & Partnerships'
