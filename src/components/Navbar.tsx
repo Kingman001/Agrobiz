@@ -18,14 +18,14 @@ interface NavbarProps {
 }
 
 const solutionsList = [
-  {id: 'farm-inputs', label: 'Farm Inputs'},
-  {id: 'agric-finance', label: 'Agricultural Finance'},
-  {id: 'tech-support', label: 'Training & Technical Support'},
-  {id: 'irrigation', label: 'Irrigation & Greenhouse',
-   {id: 'storage', label: 'Storage & Post-Harvest',
-  'Market Access',
-  'Enterprise Development',
-  'Investment & Partnerships'
+  { id: 'farm-inputs', label: 'Farm Inputs' },
+  { id: 'agric-finance', label: 'Agricultural Finance' },
+  { id: 'tech-support', label: 'Training & Technical Support' },
+  { id: 'irrigation', label: 'Irrigation & Greenhouse' },
+  { id: 'storage', label: 'Storage & Post-Harvest' },
+  { id: 'market-access', label: 'Market Access' },
+  { id: 'enterprise', label: 'Enterprise Development' },
+  { id: 'partnerships', label: 'Investment & Partnerships' },
 ];
 
 const aboutList = [
@@ -119,17 +119,17 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                     <div className="absolute left-0 mt-2 min-w-[220px] bg-white border border-stone-200 rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
                       {solutionsList.map((s) => {
-                        const destination = s === 'Farm Inputs' ? 'farm-inputs' : 'solutions';
-                        return (
-                          <button
-                            key={s}
-                            onClick={() => handleNavClick(destination)}
-                            className="w-full text-left px-3 py-2 text-sm text-stone-700 hover:bg-stone-50"
-                          >
-                            {s}
-                          </button>
-                        );
-                      })}
+                          const destination = s.id || 'solutions';
+                          return (
+                            <button
+                              key={s.id}
+                              onClick={() => handleNavClick(destination)}
+                              className="w-full text-left px-3 py-2 text-sm text-stone-700 hover:bg-stone-50"
+                            >
+                              {s.label}
+                            </button>
+                          );
+                        })}
                     </div>
                   </div>
                 );
@@ -232,13 +232,13 @@ export const Navbar: React.FC<NavbarProps> = ({
               {mobileSolutionsOpen && (
                 <div className="pl-4 pt-2 pb-2 space-y-1">
                   {solutionsList.map((s) => {
-                    const destination = s === 'Farm Inputs' ? 'farm-inputs' : 'solutions';
-                    return (
-                      <button key={s} onClick={() => { handleNavClick(destination); setMobileMenuOpen(false); }} className="w-full text-left px-3 py-2 rounded-lg text-sm text-stone-200 hover:bg-stone-800">
-                        {s}
-                      </button>
-                    );
-                  })}
+                      const destination = s.id || 'solutions';
+                      return (
+                        <button key={s.id} onClick={() => { handleNavClick(destination); setMobileMenuOpen(false); }} className="w-full text-left px-3 py-2 rounded-lg text-sm text-stone-200 hover:bg-stone-800">
+                          {s.label}
+                        </button>
+                      );
+                    })}
                 </div>
               )}
             </div>
