@@ -10,6 +10,7 @@ import { HomePage } from './pages/HomePage';
 import { SolutionsPage } from './pages/SolutionsPage';
 import { FarmInputsPage } from './pages/FarmInputsPage';
 import { TrainingSupportPage } from './pages/TrainingSupportPage';
+import { IrrigationPage } from './pages/IrrigationPage';
 import { ProducePage } from './pages/ProducePage';
 import { RoadmapPage } from './pages/RoadmapPage';
 import { FarmerHubPage } from './pages/FarmerHubPage';
@@ -24,7 +25,7 @@ export default function App() {
     try {
       const hash = window.location.hash.replace('#', '');
       const route = hash.split('-')[0];
-      if (['home', 'solutions', 'farm-inputs', 'tech-support', 'produce', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(route)) {
+      if (['home', 'solutions', 'farm-inputs', 'tech-support', 'irrigation', 'produce', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(route)) {
         return route;
       }
     } catch (e) {
@@ -42,7 +43,7 @@ export default function App() {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
       const route = hash.split('-')[0];
-      if (['home', 'solutions', 'farm-inputs', 'tech-support', 'produce', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(route)) {
+      if (['home', 'solutions', 'farm-inputs', 'tech-support', 'irrigation', 'produce', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(route)) {
         setActiveSection(route);
       }
     };
@@ -113,6 +114,13 @@ export default function App() {
 
           {activeSection === 'tech-support' && (
             <TrainingSupportPage
+              onOpenInquiryModal={handleOpenInquiry}
+              onNavigatePage={handleNavigatePage}
+            />
+          )}
+
+          {activeSection === 'irrigation' && (
+            <IrrigationPage
               onOpenInquiryModal={handleOpenInquiry}
               onNavigatePage={handleNavigatePage}
             />
