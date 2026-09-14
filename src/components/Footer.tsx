@@ -29,7 +29,7 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
 
             <p className="text-stone-400 text-xs leading-relaxed max-w-sm">
-              {companySettings.tagline}. Operating commercial Fishery, Poultry, and Cattle rearing while empowering 15,000+ smallholder farmers with storage, equipment leasing, and guaranteed market off-take.
+              {companySettings.tagline}. Operating commercial Fishery, Poultry, and Cattle rearing while empowering smallholder farmers with storage, equipment leasing, and guaranteed market off-take.
             </p>
 
             <div className="text-xs text-stone-500 font-mono">
