@@ -4,7 +4,7 @@ import { Hero } from '../components/Hero';
 import { PartnershipsSection } from '../components/PartnershipsSection';
 import { ArrowRight, Sprout, Warehouse, TrendingUp, Users, Leaf, HandCoins, Stethoscope, CircleDollarSign, BriefcaseBusiness, BookOpenText, Coins, Cpu, Store, UserRound } from 'lucide-react';
 import innovationFarmImage from '../assets/images/smallholder_farmer_hub_1784882677913.jpg';
-import HauwaImage from '../assets/images/hauwa.jpg';
+import HauwaImage from '../assets/images/hauwa.webp';
 import AuwalImage from '../assets/images/auwal.jpg';
 import FatimaImage from '../assets/images/fatima.jpg';
 
