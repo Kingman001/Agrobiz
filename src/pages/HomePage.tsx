@@ -316,7 +316,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="mx-auto max-w-4xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-gold-soft)]">Impact dashboard</p>
             <h2 className="mt-3 text-3xl font-bold tracking-[-0.05em] text-white sm:text-4xl">
-              Measured by practical progress, not inflated claims.
+              Measured by practical progress.
             </h2>
           </div>
 
@@ -346,7 +346,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {storyCards.map(({ name, location, focus, quote }) => (
               <article key={name} className="agro-card overflow-hidden">
-                <div className="h-40 bg-[linear-gradient(135deg,#d9e6df_0%,#bfd3c5_55%,#d7b683_100%)]" aria-hidden="true" />
+                <div className="h-20 bg-[linear-gradient(135deg,#d9e6df_0%,#bfd3c5_55%,#d7b683_100%)]" aria-hidden="true" />
                 <div className="p-5">
                   <h3 className="text-xl font-bold tracking-[-0.04em] text-[var(--agro-charcoal)]">{name}</h3>
                   <p className="mt-1 text-sm text-[var(--agro-green-700)]">{location}</p>

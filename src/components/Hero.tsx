@@ -38,7 +38,7 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             <h1 className="display-font text-4xl font-bold leading-[1.06] tracking-[-0.06em] text-white sm:text-6xl">
-              Practical solutions for farmers who need results, not theory.
+              Practical solutions for farmers who need results.
             </h1>
 
             <p className="max-w-xl text-base leading-relaxed text-stone-200 sm:text-lg">
