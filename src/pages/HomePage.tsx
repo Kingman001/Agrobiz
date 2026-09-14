@@ -4,6 +4,9 @@ import { Hero } from '../components/Hero';
 import { PartnershipsSection } from '../components/PartnershipsSection';
 import { ArrowRight, Sprout, Warehouse, TrendingUp, Users, Leaf, HandCoins, Stethoscope, CircleDollarSign, BriefcaseBusiness, BookOpenText, Coins, Cpu, Store, UserRound } from 'lucide-react';
 import innovationFarmImage from '../assets/images/smallholder_farmer_hub_1784882677913.jpg';
+import HauwaImage from '../assets/images/hauwa.jpg';
+import AuwalImage from '../assets/images/auwal.jpg';
+import FatimaImage from '../assets/images/fatima.jpg';
 
 interface HomePageProps {
   companySettings: CompanySettings;
@@ -69,9 +72,9 @@ const womenYouthPaths = [
 ];
 
 const storyCards = [
-  { name: 'Hauwa M.', location: 'Makarfi, Kaduna', focus: 'Poultry & household enterprise', quote: 'With better support and better planning, I can run a more stable farm business for my household.' },
-  { name: 'Auwal S.', location: 'Zaria, Kaduna', focus: 'Crop production & aggregation', quote: 'The real difference is getting systems that match the reality of how farmers work and produce.' },
-  { name: 'Fatima A.', location: 'Kaduna South', focus: 'Women in agribusiness', quote: 'Good training and strong local support make it possible to start, learn and grow with confidence.' }
+  { profile_pic: 'HauwaImage', name: 'Hauwa M.', location: 'Makarfi, Kaduna', focus: 'Poultry & household enterprise', quote: 'With better support and better planning, I can run a more stable farm business for my household.' },
+  { profile_pic: 'AuwalImage', name: 'Auwal S.', location: 'Zaria, Kaduna', focus: 'Crop production & aggregation', quote: 'The real difference is getting systems that match the reality of how farmers work and produce.' },
+  { profile_pic: 'FatimaImage', name: 'Fatima A.', location: 'Kaduna South', focus: 'Women in agribusiness', quote: 'Good training and strong local support make it possible to start, learn and grow with confidence.' }
 ];
 
 const insightCards = [
@@ -346,7 +349,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {storyCards.map(({ name, location, focus, quote }) => (
               <article key={name} className="agro-card overflow-hidden">
-                <div className="h-20 bg-[linear-gradient(135deg,#d9e6df_0%,#bfd3c5_55%,#d7b683_100%)]" aria-hidden="true" />
+                <div className="h-40 bg-[linear-gradient(135deg,#d9e6df_0%,#bfd3c5_55%,#d7b683_100%)]" aria-hidden="true" />
                 <div className="p-5">
                   <h3 className="text-xl font-bold tracking-[-0.04em] text-[var(--agro-charcoal)]">{name}</h3>
                   <p className="mt-1 text-sm text-[var(--agro-green-700)]">{location}</p>
