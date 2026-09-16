@@ -138,7 +138,7 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="flex items-center gap-2">
             <span>© {new Date().getFullYear()} {companySettings.name} Nigeria Limited. All rights reserved.</span>
             <span className="text-stone-600">|</span>
-            <span className="text-emerald-400 font-mono">Kaduna State & Regional Agribusiness Hub</span>
+            <span className="text-emerald-400 font-mono">Powered by Axtron Digital Solutions</span>
           </div>
 
           <button

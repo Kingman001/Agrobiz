@@ -47,6 +47,7 @@ const solutionCategories = [
     title: 'Quality Inputs for Better Production',
     summary: 'Access reliable agricultural inputs selected to support healthier production, better yields and more efficient farm operations.',
     offerings: ['Seeds', 'Animal feed', 'Poultry inputs', 'Aquaculture inputs', 'Fertilizers', 'Crop protection products', 'Livestock inputs', 'Other approved farm supplies'],
+    pageLink: 'farm-inputs',
     cta: 'Explore Farm Inputs',
     accent: 'bg-[var(--agro-green-700)]',
     icon: Sprout,
@@ -59,6 +60,7 @@ const solutionCategories = [
     summary: 'Practical agricultural knowledge should not remain in classrooms. We help farmers build the skills and confidence to adopt better production practices.',
     offerings: ['Farmer training', 'Production techniques', 'Farm management', 'Livestock management', 'Aquaculture management', 'Poultry management', 'Agribusiness training', 'Extension support'],
     cta: 'Explore Training',
+    pageLink: 'tech-support',
     accent: 'bg-[var(--agro-gold)]',
     icon: BookOpenText,
     highlight: 'Focused on field learning, confidence building and improved decision-making.',
@@ -70,6 +72,7 @@ const solutionCategories = [
     summary: 'We promote simple technologies that help farmers use resources more efficiently, reduce production risks and improve productivity.',
     offerings: ['Irrigation', 'Solar-powered water systems', 'Greenhouses', 'Farm automation', 'Climate-smart technologies', 'Water management', 'Production monitoring'],
     cta: 'Explore Agricultural Technology',
+    pageLink: 'irrigation',
     accent: 'bg-[#0f766e]',
     icon: Droplets,
     highlight: 'Designed to reduce losses, improve efficiency and support more resilient production.',
@@ -81,6 +84,7 @@ const solutionCategories = [
     summary: 'Access to the right financing can help farmers move from subsistence production to sustainable agricultural enterprise.',
     offerings: ['Production financing', 'Input financing', 'Asset and equipment financing', 'Working capital', 'Enterprise expansion'],
     cta: 'Explore Finance Opportunities',
+    pageLink: 'agric-finance',
     accent: 'bg-[var(--agro-green-900)]',
     icon: CircleDollarSign,
     highlight: 'We facilitate access to agricultural finance through appropriate partners and financing structures.',
@@ -92,6 +96,7 @@ const solutionCategories = [
     summary: 'Production means little if farmers cannot reliably sell what they produce. GleanAgro works to connect farmers and agricultural producers with dependable market opportunities and bulk off-take channels.',
     offerings: ['Produce aggregation', 'Bulk off-take', 'Buyer connections', 'Quality standards', 'Market information', 'Contract opportunities', 'Post-harvest coordination'],
     cta: 'Explore Bulk Off-Take',
+    pageLink: 'market-access',
     accent: 'bg-[#d39a34]',
     icon: HandCoins,
     highlight: 'This is one of the strongest direct pathways from farm output to real earnings.',
@@ -103,6 +108,7 @@ const solutionCategories = [
     summary: 'Post-harvest losses can erase the value of months of hard work. We support practical approaches to storage, handling and post-harvest management.',
     offerings: ['Storage solutions', 'Produce handling', 'Drying', 'Packaging', 'Aggregation', 'Cold-chain solutions where applicable', 'Post-harvest management'],
     cta: 'Explore Post-Harvest Solutions',
+    pageLink: 'storage',
     accent: 'bg-[#0f766e]',
     icon: Warehouse,
     highlight: 'Helps preserve quality, reduce loss and improve the value of agricultural output.',
@@ -114,6 +120,7 @@ const solutionCategories = [
     summary: 'Agriculture can become more than a source of food—it can become a viable business. We support farmers and aspiring agripreneurs with the knowledge, connections and opportunities required to build sustainable enterprises.',
     offerings: ['Agribusiness training', 'Business planning', 'Enterprise development', 'Youth agripreneurship', 'Women-led agricultural enterprises', 'Value addition', 'Market development'],
     cta: 'Explore Enterprise Development',
+    pageLink: 'enterprise',
     accent: 'bg-[var(--agro-green-700)]',
     icon: BriefcaseBusiness,
     highlight: 'Supports long-term business growth, job creation and stronger local enterprise.',
@@ -349,7 +356,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onOpenInquiryModal
                     </ul>
                     <button
                       type="button"
-                      onClick={() => onNavigatePage('produce')}
+                      onClick={() => onNavigatePage({pageLink})}
                       className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[var(--agro-green-700)]"
                     >
                       {cta}

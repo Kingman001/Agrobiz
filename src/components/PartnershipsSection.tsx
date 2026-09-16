@@ -111,9 +111,8 @@ export const PartnershipsSection: React.FC<PartnershipsSectionProps> = ({
               </div>
 
               <div className="p-4 bg-emerald-950/80 rounded-2xl border border-emerald-800/80 space-y-2">
-                <span className="text-xs font-mono font-bold uppercase text-emerald-300">Fast Response Guarantee</span>
                 <p className="text-xs text-stone-300">
-                  Our commercial sales and farmer extension teams review all incoming off-take inquiries within 12 business hours.
+                  Our representatives typically responds to inquiries within 15 business hours.
                 </p>
               </div>
             </div>
