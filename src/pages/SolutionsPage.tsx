@@ -326,7 +326,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onOpenInquiryModal
           </div>
 
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {solutionCategories.map(({ number, name, title, summary, offerings, cta, accent, icon: Icon, highlight }, index) => {
+            {solutionCategories.map(({ number, name, title, summary, offerings, cta, accent, icon: Icon, highlight, pageLink }, index) => {
               const isFeatured = index < 3;
 
               return (
@@ -356,7 +356,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onOpenInquiryModal
                     </ul>
                     <button
                       type="button"
-                      onClick={() => onNavigatePage({pageLink})}
+                      onClick={() => onNavigatePage(pageLink)}
                       className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[var(--agro-green-700)]"
                     >
                       {cta}
