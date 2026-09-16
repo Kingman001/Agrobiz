@@ -18,6 +18,7 @@ import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { AgriculturalFinancePage } from './pages/AgriculturalFinancePage';
 import { MarketAccessPage } from './pages/MarketAccessPage';
+import { StoragePage } from './pages/StoragePage';
 
 export default function App() {
   const [companySettings] = useState<CompanySettings>(defaultCompanySettings);
@@ -27,7 +28,7 @@ export default function App() {
     try {
       const hash = window.location.hash.replace('#', '');
       const route = hash.split('-')[0];
-      if (['home', 'solutions', 'agric-finance', 'farm-inputs', 'tech-support', 'irrigation', 'produce', 'market-access', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(route)) {
+      if (['home', 'solutions', 'agric-finance', 'farm-inputs', 'tech-support', 'irrigation', 'produce', 'market-access', 'storage', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(route)) {
         return route;
       }
     } catch (e) {
@@ -45,7 +46,7 @@ export default function App() {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
       const route = hash.split('-')[0];
-      if (['home', 'solutions', 'agric-finance', 'farm-inputs', 'tech-support', 'irrigation', 'produce', 'market-access', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(route)) {
+      if (['home', 'solutions', 'agric-finance', 'farm-inputs', 'tech-support', 'irrigation', 'produce', 'market-access', 'storage', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(route)) {
         setActiveSection(route);
       }
     };
@@ -145,6 +146,13 @@ export default function App() {
 
           {activeSection === 'market-access' && (
             <MarketAccessPage
+              onOpenInquiryModal={handleOpenInquiry}
+              onNavigatePage={handleNavigatePage}
+            />
+          )}
+
+          {activeSection === 'storage' && (
+            <StoragePage
               onOpenInquiryModal={handleOpenInquiry}
               onNavigatePage={handleNavigatePage}
             />
