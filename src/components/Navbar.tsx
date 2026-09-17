@@ -33,7 +33,8 @@ const aboutList = [
   { id: 'our-story', label: 'Our Story' },
   { id: 'our-approach', label: 'Our Approach' },
   { id: 'our-values', label: 'Our Values' },
-  { id: 'our-team', label: 'Our Team' }
+  { id: 'our-team', label: 'Our Team' },
+  { id: 'advisors', label: 'Advisors' }
 ];
 
 const navItems = [

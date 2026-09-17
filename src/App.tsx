@@ -22,6 +22,7 @@ import { StoragePage } from './pages/StoragePage';
 import { EnterpriseDevelopmentPage } from './pages/EnterpriseDevelopmentPage';
 import {
   InnovationFarmPage,
+  AdvisorsPage,
   OurApproachPage,
   OurStoryPage,
   OurTeamPage,
@@ -34,7 +35,7 @@ const routes = [
   'home', 'solutions', 'agric-finance', 'farm-inputs', 'tech-support', 'irrigation',
   'produce', 'market-access', 'storage', 'enterprise', 'roadmap', 'farmer-hub',
   'about', 'our-story', 'our-approach', 'our-values', 'our-team', 'innovation-farm',
-  'resources', 'partnerships', 'contact'
+  'resources', 'partnerships', 'advisors', 'contact'
 ];
 
 const pageMetadata: Record<string, { title: string; description: string }> = {
@@ -44,6 +45,7 @@ const pageMetadata: Record<string, { title: string; description: string }> = {
   'our-approach': { title: 'Our Approach | GleanAgro', description: 'Explore GleanAgro’s practical, farmer-centered approach to agricultural solutions.' },
   'our-values': { title: 'Our Values | GleanAgro', description: 'The principles guiding GleanAgro’s service, partnerships, and continuous improvement.' },
   'our-team': { title: 'Our Team | GleanAgro', description: 'Meet the people and partners contributing to GleanAgro’s agricultural work.' },
+  advisors: { title: 'Advisors | GleanAgro', description: 'Meet the published advisors contributing experience and perspective to GleanAgro.' },
   'innovation-farm': { title: 'Innovation Farm | GleanAgro', description: 'Learning by doing through practical agricultural testing, demonstration, and improvement.' },
   'farmer-hub': { title: 'Farmer Hub | GleanAgro', description: 'A practical entry point for farmer knowledge, support, tools, and agricultural opportunities.' },
   resources: { title: 'Resources | GleanAgro', description: 'Practical farming, business, technical, and market resources from GleanAgro.' },
@@ -234,6 +236,7 @@ export default function App() {
           {activeSection === 'our-approach' && <OurApproachPage onNavigatePage={handleNavigatePage} onOpenInquiryModal={handleOpenInquiry} />}
           {activeSection === 'our-values' && <OurValuesPage onNavigatePage={handleNavigatePage} onOpenInquiryModal={handleOpenInquiry} />}
           {activeSection === 'our-team' && <OurTeamPage onNavigatePage={handleNavigatePage} onOpenInquiryModal={handleOpenInquiry} />}
+          {activeSection === 'advisors' && <AdvisorsPage onNavigatePage={handleNavigatePage} onOpenInquiryModal={handleOpenInquiry} />}
           {activeSection === 'innovation-farm' && <InnovationFarmPage onNavigatePage={handleNavigatePage} onOpenInquiryModal={handleOpenInquiry} />}
           {activeSection === 'resources' && <ResourcesPage onNavigatePage={handleNavigatePage} onOpenInquiryModal={handleOpenInquiry} />}
           {activeSection === 'partnerships' && <PartnershipsPage onNavigatePage={handleNavigatePage} onOpenInquiryModal={handleOpenInquiry} />}

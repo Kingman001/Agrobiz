@@ -4,6 +4,7 @@ import { Hero } from '../components/Hero';
 import { PartnershipsSection } from '../components/PartnershipsSection';
 import { ArrowRight, Sprout, Warehouse, TrendingUp, Users, Leaf, HandCoins, Stethoscope, CircleDollarSign, BriefcaseBusiness, BookOpenText, Coins, Cpu, Store, UserRound } from 'lucide-react';
 import innovationFarmImage from '../assets/images/smallholder_farmer_hub_1784882677913.jpg';
+import { PartnersCarousel } from '../components/PartnersCarousel';
 
 interface HomePageProps {
   companySettings: CompanySettings;
@@ -325,6 +326,8 @@ export const HomePage: React.FC<HomePageProps> = ({
             initialProduceInterest=""
           />
         </section>
+
+        <PartnersCarousel />
 
         <section id="insights" className="pt-2">
           <div className="mx-auto max-w-3xl text-center">

@@ -5,8 +5,6 @@ import {
   Handshake,
   HeartHandshake,
   Lightbulb,
-  Mail,
-  MapPin,
   Sprout,
   Target,
   Users,
@@ -15,6 +13,15 @@ import {
 import { PageHeader } from '../components/PageHeader';
 import { InquiryCallback } from '../types';
 import fieldImage from '../assets/images/smallholder_farmer_hub_1784882677913.jpg';
+import ishakuImage from '../assets/team/ishaku-elijah-audu.jpg';
+import murtalaImage from '../assets/team/murtala-muazu.jpg';
+import hannatuImage from '../assets/team/hannatu-yusuf.jpg';
+import johnImage from '../assets/team/john-shijah-bala.jpg';
+import seyiImage from '../assets/team/seyi-edwards.jpg';
+import amakaImage from '../assets/team/amaka-obehi.jpg';
+import appoloImage from '../assets/team/appolo-goma.jpg';
+import dipoImage from '../assets/team/dipo-fasawe.jpg';
+import toyosiImage from '../assets/team/toyosi-orunmuyi.jpg';
 
 interface PageProps {
   onNavigatePage: (pageId: string) => void;
@@ -116,7 +123,35 @@ export const OurTeamPage: React.FC<PageProps> = ({ onNavigatePage, onOpenInquiry
   <div className={pageShell}>
     <PageHeader title="Our Team" subtitle="Meet the people and partners contributing to practical agricultural solutions." categoryTag="About GleanAgro" breadcrumbs={[{ label: 'About', pageId: 'about' }, { label: 'Our Team' }]} onNavigatePage={onNavigatePage} />
     <div className={`${contentShell} space-y-10`}>
-      <section className="rounded-3xl border border-stone-200 bg-white p-8 sm:p-12"><Users className="mb-5 h-10 w-10 text-emerald-700" /><h2 className="text-3xl font-bold">People behind the work</h2><p className="mt-4 max-w-2xl text-base leading-relaxed text-stone-600">We are preparing a current team profile for publication. Until roles and biographies are confirmed, we will not publish names or claims that may be out of date.</p><p className="mt-4 text-sm text-stone-500">This section is intentionally editable and ready for verified team data.</p><div className="mt-7"><CTA onNavigatePage={onNavigatePage} onOpenInquiryModal={onOpenInquiryModal} label="Connect With GleanAgro" /></div></section>
+      <SectionHeading eyebrow="Leadership" title="People behind the work" copy="The GleanAgro management team brings together leadership, commercial, people, and field operations experience." />
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          [ishakuImage, 'Ishaku Elijah Audu', 'CEO & Founder'],
+          [murtalaImage, "Murtala Mu'azu", 'Commercial Manager'],
+          [hannatuImage, 'Hannatu Yusuf', 'Director of People and Culture'],
+          [johnImage, 'John Shijah Bala', 'Field Operations Lead'],
+        ].map(([image, name, role]) => <article key={name} className="agro-card overflow-hidden"><img src={image} alt={`${name}, ${role}`} className="h-64 w-full object-cover object-top" /><div className="p-5"><h2 className="text-lg font-bold">{name}</h2><p className="mt-1 text-sm font-semibold text-emerald-700">{role}</p></div></article>)}
+      </div>
+      <section className="rounded-3xl border border-stone-200 bg-white p-8 sm:p-12"><Users className="mb-5 h-10 w-10 text-emerald-700" /><h2 className="text-3xl font-bold">Work with the team</h2><p className="mt-4 max-w-2xl text-base leading-relaxed text-stone-600">For current enquiries, partnerships, and agricultural support requests, contact the GleanAgro team directly.</p><div className="mt-7"><CTA onNavigatePage={onNavigatePage} onOpenInquiryModal={onOpenInquiryModal} label="Connect With GleanAgro" /></div></section>
+    </div>
+  </div>
+);
+
+export const AdvisorsPage: React.FC<PageProps> = ({ onNavigatePage, onOpenInquiryModal }) => (
+  <div className={pageShell}>
+    <PageHeader title="Advisors" subtitle="Experienced professionals who contribute perspective and guidance to GleanAgro’s work." categoryTag="About GleanAgro" breadcrumbs={[{ label: 'About', pageId: 'about' }, { label: 'Advisors' }]} onNavigatePage={onNavigatePage} />
+    <div className={`${contentShell} space-y-10`}>
+      <SectionHeading eyebrow="Advisory network" title="Experience that strengthens decision-making" copy="The advisors listed below are published on GleanAgro’s current website. Their experience spans planning, procurement, finance, consulting, technology, and business leadership." />
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {[
+          [seyiImage, 'Seyi Edwards', 'Country Director for Planning, Procurement and Logistics, Mouka.'],
+          [amakaImage, 'Amaka Obehi, CPA', 'Senior Manager, Plan International Canada.'],
+          [appoloImage, 'Appolo Goma', 'Founder/CEO APG Consult.'],
+          [dipoImage, 'Dipo Fasawe', 'Co-Founder Satsapp.'],
+          [toyosiImage, 'Toyosi Orunmuyi', 'CEO Pentagrant Ltd.'],
+        ].map(([image, name, role]) => <article key={name} className="agro-card overflow-hidden"><img src={image} alt={`${name}, advisor`} className="h-64 w-full object-cover object-top" /><div className="p-5"><h2 className="text-lg font-bold">{name}</h2><p className="mt-2 text-sm leading-relaxed text-stone-600">{role}</p></div></article>)}
+      </div>
+      <div className="rounded-3xl bg-emerald-950 p-8 text-white sm:p-10"><h2 className="text-3xl font-bold">Bring a perspective to the table</h2><p className="mt-3 max-w-2xl text-emerald-100/80">If your expertise can support practical agricultural solutions, we welcome a conversation.</p><div className="mt-7"><CTA onNavigatePage={onNavigatePage} onOpenInquiryModal={onOpenInquiryModal} label="Discuss Collaboration" /></div></div>
     </div>
   </div>
 );
