@@ -1,27 +1,22 @@
 import React from 'react';
-import { CompanySettings } from '../types';
-import { PageHeader } from '../components/PageHeader';
 import {
-  Sprout,
-  ShieldCheck,
-  Users,
-  Target,
-  Award,
-  Leaf,
+  ArrowRight,
+  Check,
+  ChevronRight,
+  CircleCheck,
+  Handshake,
   HeartHandshake,
-  Globe,
-  Building2,
+  Leaf,
+  Lightbulb,
+  LineChart,
   MapPin,
-  CheckCircle2,
-  Fish,
-  Bird,
-  Beef,
-  Warehouse,
-  Handshake
+  Sprout,
+  Target,
+  Users,
+  Wheat,
 } from 'lucide-react';
-import smallholderHubImage from '../assets/images/smallholder_farmer_hub_1784882677913.jpg';
-
-import { InquiryCallback } from '../types';
+import { CompanySettings, InquiryCallback } from '../types';
+import heroImage from '../assets/images/smallholder_farmer_hub_1784882677913.jpg';
 
 interface AboutPageProps {
   companySettings: CompanySettings;
@@ -29,299 +24,194 @@ interface AboutPageProps {
   onNavigatePage: (pageId: string) => void;
 }
 
+const solutions = [
+  ['Farm Inputs', 'Helping farmers explore suitable inputs and use them effectively.', Sprout],
+  ['Training & Technical Support', 'Practical knowledge, demonstrations, and technical guidance for better decisions.', Lightbulb],
+  ['Irrigation & Agricultural Technology', 'Appropriate technologies for water management, efficiency, and resilience.', LineChart],
+  ['Agricultural Finance', 'Helping farmers and enterprises understand financial needs and relevant opportunities.', Target],
+  ['Storage & Post-Harvest', 'Better handling, storage, packaging, and preservation of harvested produce.', Wheat],
+  ['Market Access & Bulk Off-Take', 'Preparing farmers and enterprises for buyers, markets, and aggregation opportunities.', Handshake],
+  ['Agribusiness & Enterprise Development', 'Planning, improved systems, and support for agricultural ideas and businesses.', Users],
+];
+
+const audiences = [
+  ['Smallholder Farmers', 'Practical solutions to improve productivity, sustainability, and market participation.'],
+  ['Women in Agriculture', 'Support for women in farming, processing, trading, agribusiness, and services.'],
+  ['Youth Agripreneurs', 'A pathway for entrepreneurship, innovation, employment, and impact.'],
+  ['Farmer Cooperatives', 'Stronger production systems, aggregation, market access, and collective opportunities.'],
+  ['Agricultural Enterprises', 'Support for businesses in production, processing, technology, logistics, and storage.'],
+  ['Development & Market Partners', 'Practical ways to contribute to stronger systems and market opportunities.'],
+];
+
+const approach = ['Understand', 'Assess', 'Test', 'Learn', 'Adapt', 'Demonstrate', 'Scale'];
+const values = [
+  ['Partners First', 'We build relationships around trust, mutual value, and the needs of our partners.'],
+  ['Integrity in Service', 'We communicate clearly, act honestly, and deliver with accountability.'],
+  ['Shared Prosperity', 'Agricultural growth should create value for farmers, communities, and partners.'],
+  ['Continuous Improvement', 'We learn from our work and improve our solutions over time.'],
+  ['Eliminate Complexity', 'We simplify processes so people can understand and use solutions effectively.'],
+];
+const whyDescriptions = {
+  'Farmer-Centered': 'We focus on the needs, realities, and goals of farmers and enterprises.',
+  Practical: 'We seek solutions that can be understood, adopted, maintained, and used.',
+  Connected: 'We connect inputs, knowledge, technology, finance, storage, markets, and enterprise development.',
+  Sustainable: 'We consider long-term value, resource use, resilience, and usefulness over time.',
+  'Innovation-Minded': 'We remain open to better ideas, technologies, systems, and approaches.',
+  'Partnership-Driven': 'We collaborate with farmers, businesses, communities, experts, institutions, and markets.',
+} as const;
+
 export const AboutPage: React.FC<AboutPageProps> = ({
-  companySettings,
   onOpenInquiryModal,
-  onNavigatePage
+  onNavigatePage,
 }) => {
+  const goToSolutions = () => onNavigatePage('solutions');
+
   return (
-    <div className="min-h-screen bg-stone-50 pb-20">
-      {/* Page Header */}
-      <PageHeader
-        title="About Glean Agro Nigeria Limited"
-        subtitle="Redefining African agribusiness through high-standard commercial production, climate-smart post-harvest logistics, and an empowered smallholder farmer ecosystem."
-        categoryTag="Glean Agro Company Profile"
-        breadcrumbs={[{ label: "About Glean Agro" }]}
-        onNavigatePage={onNavigatePage}
-      />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 space-y-16">
-        
-        {/* Main Narrative Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-emerald-100 text-emerald-900 rounded-full text-xs font-bold uppercase tracking-wider">
-              <Sprout className="w-4 h-4 text-emerald-700" />
-              <span>Glean Agro Origin & Mission</span>
+    <div className="bg-[#f9f7f1] text-stone-900">
+      <section className="relative overflow-hidden bg-emerald-950 text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(201,149,69,0.2),transparent_38%)]" />
+        <div className="agro-shell relative grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_.95fr] lg:py-24">
+          <div className="space-y-7">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-emerald-300">
+              <Sprout className="h-4 w-4" /> About GleanAgro
             </div>
-
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-stone-900 tracking-tight leading-tight">
-              Transforming Nigeria's Agricultural Value Chain From Farm-Gate to National Markets
-            </h2>
-
-            <div className="space-y-4 text-stone-600 text-sm sm:text-base leading-relaxed">
-              <p>
-                <strong className="text-stone-900 font-semibold">{companySettings.name} (Glean Agro Nigeria Limited)</strong> was founded to solve two fundamental challenges facing African food security: the lack of high-quality, bio-secure domestic produce and the extreme vulnerability of rural smallholder farmers to post-harvest decay and price exploitation.
-              </p>
-
-              <p>
-                Operating from our flagship agro-industrial facilities in <strong className="text-emerald-800">Gazara, Makarfi, Kaduna State, Nigeria</strong> (with corporate offices at <strong className="text-emerald-800">Old Sokoto Road, Zaria</strong>), we run vertically integrated commercial operations spanning <strong className="text-emerald-800">Aquaculture (Fish Hatcheries & RAS Ponds)</strong>, <strong className="text-emerald-800">Biosecure Poultry (Broilers & Layer Eggs)</strong>, <strong className="text-emerald-800">Cattle Rearing & Pasture Management</strong>, and <strong className="text-emerald-800">Arable Crop Cultivation (Maize, Cassava & Soybeans)</strong>.
-              </p>
-
-              <p>
-                By mastering our own 120-hectare flagship farm first, Glean Agro established direct, guaranteed off-take contracts with major hotel chains, processors, supermarkets, and export partners across Nigeria.
-              </p>
-            </div>
-
-            {/* Mission & Vision Callout Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="p-5 bg-white rounded-2xl border border-stone-200 shadow-sm space-y-2">
-                <div className="flex items-center gap-2 text-emerald-800 font-bold text-sm">
-                  <Target className="w-5 h-5 text-emerald-700" />
-                  <span>Our Mission</span>
-                </div>
-                <p className="text-xs text-stone-600 leading-relaxed">
-                  To produce premium, antibiotic-free food products while integrating 15,000+ rural smallholder farmers into a profitable, climate-resilient agribusiness network.
-                </p>
-              </div>
-
-              <div className="p-5 bg-white rounded-2xl border border-stone-200 shadow-sm space-y-2">
-                <div className="flex items-center gap-2 text-emerald-800 font-bold text-sm">
-                  <Award className="w-5 h-5 text-emerald-700" />
-                  <span>Our Vision</span>
-                </div>
-                <p className="text-xs text-stone-600 leading-relaxed">
-                  To become West Africa's leading sustainable agribusiness ecosystem, eliminating post-harvest loss through solar cold logistics and direct market linkages.
-                </p>
-              </div>
-            </div>
-
-            <div className="pt-2">
-              <button
-                onClick={() => onOpenInquiryModal('Impact Investor')}
-                className="px-6 py-3.5 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl font-bold text-sm transition-all shadow-md cursor-pointer"
-              >
-                Partner With Glean Agro
+            <h1 className="max-w-3xl text-5xl font-bold leading-[1.02] tracking-[-0.06em] sm:text-6xl lg:text-7xl">
+              Growing Agriculture. <span className="text-[#f4d39a]">Growing Possibilities.</span>
+            </h1>
+            <p className="max-w-2xl text-lg leading-relaxed text-emerald-50/80 sm:text-xl">
+              GleanAgro is an agricultural solutions company helping farmers, agripreneurs, women, and youth become more productive, self-sustaining, and commercially connected through practical, sustainable, and technology-enabled solutions.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <button onClick={goToSolutions} className="inline-flex items-center gap-2 rounded-full bg-[#c99545] px-5 py-3 text-sm font-bold text-emerald-950 transition hover:bg-[#f4d39a]">
+                Explore Our Solutions <ArrowRight className="h-4 w-4" />
+              </button>
+              <button onClick={() => onOpenInquiryModal('General')} className="rounded-full border border-emerald-300/40 px-5 py-3 text-sm font-bold text-white transition hover:bg-white/10">
+                Work With GleanAgro
               </button>
             </div>
           </div>
-
-          {/* Right Image Graphic Showcase */}
-          <div className="lg:col-span-5">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-200 group">
-              <img
-                src={smallholderHubImage}
-                alt="Glean Agro Agricultural Hub"
-                className="w-full h-[520px] object-cover group-hover:scale-105 transition-transform duration-700"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent" />
-
-              <div className="absolute bottom-6 left-6 right-6 text-white space-y-3">
-                <div className="p-5 bg-stone-900/90 backdrop-blur-md rounded-2xl border border-stone-700 space-y-2">
-                  <span className="text-[11px] font-mono text-emerald-400 uppercase font-bold">
-                    Official Web Portal • gleanagrong.com
-                  </span>
-                  <h4 className="font-serif font-bold text-xl text-stone-100">
-                    Glean Agro Nigeria Limited
-                  </h4>
-                  <p className="text-xs text-stone-300">
-                    Sustainable Food Production • Smallholder Outgrower Scheme • Solar Cold Logistics
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Core Values Section */}
-        <div className="space-y-8">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-mono font-bold uppercase text-emerald-800">
-              Guiding Principles
-            </span>
-            <h3 className="text-3xl font-serif font-bold text-stone-900">
-              The Four Pillars of Glean Agro
-            </h3>
-            <p className="text-sm text-stone-600">
-              Every crop harvested, fish raised, and farmer assisted is guided by our core corporate principles.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-6 bg-white rounded-2xl border border-stone-200 shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <h4 className="font-bold text-stone-900 text-base">Uncompromising Quality</h4>
-              <p className="text-xs text-stone-600 leading-relaxed">
-                100% hormone-free growth, biosecure poultry housing, organic fish feed, and traceable batch hatchery logs.
-              </p>
-            </div>
-
-            <div className="p-6 bg-white rounded-2xl border border-stone-200 shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-900 flex items-center justify-center font-bold">
-                <Leaf className="w-6 h-6" />
-              </div>
-              <h4 className="font-bold text-stone-900 text-base">Climate Resilience</h4>
-              <p className="text-xs text-stone-600 leading-relaxed">
-                Zero-waste water recirculation for aquaculture, solar-powered cold pods, and organic fodder paddocks.
-              </p>
-            </div>
-
-            <div className="p-6 bg-white rounded-2xl border border-stone-200 shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
-                <HeartHandshake className="w-6 h-6" />
-              </div>
-              <h4 className="font-bold text-stone-900 text-base">Smallholder First</h4>
-              <p className="text-xs text-stone-600 leading-relaxed">
-                Providing collateral-free input credit, non-predatory equipment leasing, and pre-agreed floor buyback prices.
-              </p>
-            </div>
-
-            <div className="p-6 bg-white rounded-2xl border border-stone-200 shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-stone-100 text-stone-800 flex items-center justify-center font-bold">
-                <Globe className="w-6 h-6" />
-              </div>
-              <h4 className="font-bold text-stone-900 text-base">Community Empowerment</h4>
-              <p className="text-xs text-stone-600 leading-relaxed">
-                Training local youth machine operators, empowering women agronomy cooperatives, and creating rural jobs.
-              </p>
+          <div className="relative">
+            <div className="absolute -inset-3 rounded-[2rem] border border-[#f4d39a]/30" />
+            <img src={heroImage} alt="Farmer working in a GleanAgro field" className="relative h-[420px] w-full rounded-[1.75rem] object-cover shadow-2xl sm:h-[500px]" />
+            <div className="absolute bottom-5 left-5 rounded-xl bg-emerald-950/90 px-4 py-3 text-sm text-emerald-50 backdrop-blur">
+              <span className="block text-xs font-bold uppercase tracking-wider text-[#f4d39a]">Our belief</span>
+              Practical opportunity can unlock agricultural potential.
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Operational Hubs Across Nigeria */}
-        <div className="bg-stone-900 text-white rounded-3xl p-8 border border-stone-800 space-y-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-800 pb-6">
-            <div>
-              <span className="text-xs font-mono font-bold uppercase text-emerald-400">
-                Operational Footprint
-              </span>
-              <h3 className="text-2xl font-serif font-bold text-stone-100">
-                Glean Agro Agribusiness Hubs Across Nigeria
-              </h3>
-            </div>
-            <span className="text-xs text-stone-400">
-              Office: Zaria, Kaduna State | Farm: Gazara, Makarfi
-            </span>
-          </div>
+      <section className="agro-shell grid gap-12 py-20 lg:grid-cols-[.8fr_1.2fr] lg:py-28">
+        <div>
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">Who we are</p>
+          <h2 className="text-4xl font-bold leading-tight tracking-[-0.05em] sm:text-5xl">Agriculture Is More Than Production</h2>
+          <p className="mt-6 border-l-4 border-[#c99545] pl-5 text-xl font-semibold leading-relaxed text-emerald-900">We help connect agricultural potential with practical opportunity.</p>
+        </div>
+        <div className="space-y-5 text-lg leading-relaxed text-stone-600">
+          <p>Agriculture supports livelihoods, communities, businesses, and the future of food systems. Yet many farmers and agricultural enterprises face challenges that go beyond the farm.</p>
+          <p>They may need better access to inputs, practical knowledge, suitable technology, financing, storage, market opportunities, and business support. GleanAgro exists to help connect these needs.</p>
+          <p>We provide practical agricultural solutions that help farmers and enterprises improve productivity, strengthen operations, make better decisions, and build toward sustainable growth.</p>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 bg-stone-950 rounded-2xl border border-stone-800 space-y-3">
-              <div className="flex items-center gap-2 text-emerald-400 text-xs font-mono font-bold">
-                <MapPin className="w-4 h-4" />
-                <span>Gazara, Makarfi Farm Hub</span>
-              </div>
-              <h4 className="font-serif font-bold text-lg text-stone-100">
-                Flagship Agro-Industrial Farm
-              </h4>
-              <p className="text-xs text-stone-300 leading-relaxed">
-                Houses our aquaculture RAS ponds, biosecure poultry housing, cattle pasture paddocks, and grain drying silos in Kaduna State.
-              </p>
-            </div>
+      <section className="bg-white py-20">
+        <div className="agro-shell grid gap-8 lg:grid-cols-2">
+          <article className="rounded-3xl bg-emerald-950 p-8 text-white sm:p-10">
+            <Target className="mb-6 h-9 w-9 text-[#f4d39a]" />
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-emerald-300">Our mission</p>
+            <h2 className="text-3xl font-bold leading-tight">To revolutionize the agricultural sector by providing innovative and sustainable solutions that help smallholder farmers become more productive, achieve self-sustainability, and create better opportunities for women and youth in agriculture.</h2>
+          </article>
+          <article className="rounded-3xl border border-emerald-900/10 bg-[#f2efe6] p-8 sm:p-10">
+            <Leaf className="mb-6 h-9 w-9 text-emerald-700" />
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">Our vision</p>
+            <h2 className="text-3xl font-bold leading-tight text-emerald-950">A stronger agricultural ecosystem where farmers and agricultural enterprises have the knowledge, resources, technology, and market connections needed to thrive.</h2>
+          </article>
+        </div>
+        <div className="agro-shell mt-10 grid gap-3 text-sm text-stone-600 sm:grid-cols-3 lg:grid-cols-6">
+          {['Practical', 'Understandable', 'Affordable where possible', 'Locally suitable', 'Sustainable', 'Connected to need'].map((item) => (
+            <div key={item} className="flex items-center gap-2 rounded-xl border border-stone-200 bg-stone-50 p-3"><Check className="h-4 w-4 shrink-0 text-emerald-700" />{item}</div>
+          ))}
+        </div>
+      </section>
 
-            <div className="p-6 bg-stone-950 rounded-2xl border border-stone-800 space-y-3">
-              <div className="flex items-center gap-2 text-emerald-400 text-xs font-mono font-bold">
-                <MapPin className="w-4 h-4" />
-                <span>Zaria Corporate Office</span>
-              </div>
-              <h4 className="font-serif font-bold text-lg text-stone-100">
-                Old Sokoto Road Secretariat
-              </h4>
-              <p className="text-xs text-stone-300 leading-relaxed">
-                Central administration, smallholder outgrower coordination, equipment leasing management, and off-take contracting office.
-              </p>
-            </div>
+      <section className="agro-shell py-20 lg:py-28">
+        <div className="max-w-2xl">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">What we do</p>
+          <h2 className="text-4xl font-bold tracking-[-0.05em] sm:text-5xl">Connecting the Pieces of Agricultural Growth</h2>
+          <p className="mt-5 text-lg leading-relaxed text-stone-600">Agricultural challenges are rarely solved by one service alone. We bring together practical support across key areas of the agricultural value chain.</p>
+        </div>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {solutions.map(([title, description, Icon]) => {
+            const SolutionIcon = Icon as React.ElementType;
+            return <article key={title as string} className="agro-card p-6"><SolutionIcon className="mb-5 h-7 w-7 text-emerald-700" /><h3 className="text-lg font-bold">{title as string}</h3><p className="mt-2 text-sm leading-relaxed text-stone-600">{description as string}</p></article>;
+          })}
+        </div>
+        <button onClick={goToSolutions} className="mt-8 inline-flex items-center gap-2 font-bold text-emerald-800 hover:text-emerald-950">Explore All Solutions <ArrowRight className="h-4 w-4" /></button>
+      </section>
 
-            <div className="p-6 bg-stone-950 rounded-2xl border border-stone-800 space-y-3">
-              <div className="flex items-center gap-2 text-emerald-400 text-xs font-mono font-bold">
-                <MapPin className="w-4 h-4" />
-                <span>National Off-Take Logistics</span>
-              </div>
-              <h4 className="font-serif font-bold text-lg text-stone-100">
-                Cold Chain & Market Dispatch
-              </h4>
-              <p className="text-xs text-stone-300 leading-relaxed">
-                Refrigerated cold storage and transport network connecting smallholder harvests to food processors and bulk buyers across Nigeria.
-              </p>
-            </div>
+      <section className="bg-[#f2efe6] py-20">
+        <div className="agro-shell">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">Who we serve</p>
+          <h2 className="text-4xl font-bold tracking-[-0.05em] sm:text-5xl">People at the Heart of Agriculture</h2>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {audiences.map(([title, description]) => <article key={title} className="rounded-2xl bg-white p-6 shadow-sm"><Users className="mb-5 h-6 w-6 text-emerald-700" /><h3 className="text-lg font-bold">{title}</h3><p className="mt-2 text-sm leading-relaxed text-stone-600">{description}</p></article>)}
           </div>
         </div>
+      </section>
 
-        {/* Team & Leadership Spotlights */}
-        <div className="space-y-8">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-mono font-bold uppercase text-emerald-800">
-              Experienced Leadership
-            </span>
-            <h3 className="text-3xl font-serif font-bold text-stone-900">
-              Guided by Agronomists, Veterinarians & Supply Chain Experts
-            </h3>
+      <section className="agro-shell py-20 lg:py-28">
+        <div className="grid gap-14 lg:grid-cols-[.8fr_1.2fr]">
+          <div>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">Our approach</p>
+            <h2 className="text-4xl font-bold tracking-[-0.05em] sm:text-5xl">Practical Solutions. Stronger Agricultural Systems.</h2>
+            <p className="mt-5 text-lg leading-relaxed text-stone-600">We begin with the real situation of the farmer or enterprise, then learn and adapt before pursuing responsible growth.</p>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-6 bg-white rounded-2xl border border-stone-200 shadow-sm space-y-3">
-              <div className="w-12 h-12 rounded-full bg-emerald-800 text-emerald-200 font-bold flex items-center justify-center text-lg">
-                KA
-              </div>
-              <h4 className="font-bold text-stone-900 text-base">Dr. Kenneth Adebayo</h4>
-              <span className="text-xs text-emerald-700 font-mono font-bold block">Principal Aquaculture & Hatchery Specialist</span>
-              <p className="text-xs text-stone-600 leading-relaxed">
-                Over 15 years developing recirculating aquaculture systems (RAS) and fish breeding programs across West Africa.
-              </p>
-            </div>
-
-            <div className="p-6 bg-white rounded-2xl border border-stone-200 shadow-sm space-y-3">
-              <div className="w-12 h-12 rounded-full bg-amber-800 text-amber-200 font-bold flex items-center justify-center text-lg">
-                FE
-              </div>
-              <h4 className="font-bold text-stone-900 text-base">Dr. Florence Eke</h4>
-              <span className="text-xs text-amber-700 font-mono font-bold block">Lead Avian Veterinarian & Biosecurity Director</span>
-              <p className="text-xs text-stone-600 leading-relaxed">
-                Specialist in poultry flock health, biosecure housing design, and disease prevention in commercial broiler operations.
-              </p>
-            </div>
-
-            <div className="p-6 bg-white rounded-2xl border border-stone-200 shadow-sm space-y-3">
-              <div className="w-12 h-12 rounded-full bg-stone-800 text-stone-200 font-bold flex items-center justify-center text-lg">
-                MH
-              </div>
-              <h4 className="font-bold text-stone-900 text-base">Engr. Musa Haruna</h4>
-              <span className="text-xs text-stone-700 font-mono font-bold block">Livestock Pasture & Agronomy Engineer</span>
-              <p className="text-xs text-stone-600 leading-relaxed">
-                Pioneer in enclosed fodder cultivation, hydroponic green feed, and cattle weight optimization.
-              </p>
-            </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {approach.map((step, index) => <div key={step} className="flex items-start gap-4 rounded-2xl border border-stone-200 bg-white p-5"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-800">{index + 1}</span><div><h3 className="font-bold">{step}</h3><p className="mt-1 text-sm text-stone-600">{['Understand the context and challenge.', 'Assess options, risks, and costs.', 'Explore through trials or demonstrations.', 'Pay attention to what works.', 'Improve the solution for its context.', 'Share lessons and evidence.', 'Grow with capacity, demand, and sustainability.'][index]}</p></div></div>)}
           </div>
         </div>
+        <p className="mt-8 text-center text-sm font-bold tracking-wide text-emerald-800">{approach.join('  →  ')}</p>
+      </section>
 
-        {/* Partnership Callout */}
-        <div className="bg-gradient-to-r from-emerald-900 via-stone-900 to-emerald-950 text-white rounded-3xl p-8 border border-emerald-800 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg">
-          <div className="space-y-2 text-center md:text-left">
-            <span className="px-3 py-1 bg-emerald-800 text-emerald-200 rounded-full text-xs font-bold uppercase tracking-wider">
-              Work With Glean Agro
-            </span>
-            <h3 className="text-2xl font-serif font-bold text-white">
-              Ready to Partner or Secure Wholesale Off-Take Supply?
-            </h3>
-            <p className="text-stone-300 text-sm max-w-xl">
-              Connect with our business development leads to arrange farm visits, off-take agreements, or impact investment discussions.
-            </p>
+      <section className="bg-emerald-950 py-20 text-white">
+        <div className="agro-shell">
+          <div className="max-w-2xl"><p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-emerald-300">Why GleanAgro</p><h2 className="text-4xl font-bold tracking-[-0.05em] sm:text-5xl">Why Work With GleanAgro?</h2></div>
+          <div className="mt-10 grid gap-x-8 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
+            {Object.entries(whyDescriptions).map(([item, description]) => <div key={item} className="border-t border-emerald-800 pt-5"><CircleCheck className="mb-4 h-6 w-6 text-[#f4d39a]" /><h3 className="text-xl font-bold">{item}</h3><p className="mt-2 text-sm leading-relaxed text-emerald-100/70">{description}</p></div>)}
           </div>
-
-          <button
-            onClick={() => onOpenInquiryModal('Impact Investor')}
-            className="px-6 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-stone-950 rounded-xl font-bold text-sm shadow-md transition-all shrink-0 flex items-center gap-2 cursor-pointer"
-          >
-            <Handshake className="w-5 h-5" />
-            <span>Contact Partnership Leads</span>
-          </button>
         </div>
+      </section>
 
-      </div>
+      <section className="agro-shell grid gap-12 py-20 lg:grid-cols-2 lg:py-28">
+        <div><p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">Our values</p><h2 className="text-4xl font-bold tracking-[-0.05em] sm:text-5xl">The Principles That Guide Our Work</h2><p className="mt-5 text-lg leading-relaxed text-stone-600">We seek to make agricultural growth more useful, inclusive, and durable for the people and enterprises involved.</p></div>
+        <div className="space-y-3">{values.map(([title, description]) => <div key={title} className="rounded-2xl border border-stone-200 bg-white p-5"><h3 className="font-bold text-emerald-900">{title}</h3><p className="mt-1 text-sm leading-relaxed text-stone-600">{description}</p></div>)}</div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="agro-shell grid gap-12 lg:grid-cols-2">
+          <div><p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">Women & youth</p><h2 className="text-4xl font-bold tracking-[-0.05em] sm:text-5xl">Creating Space for the Next Generation of Agriculture</h2><p className="mt-5 text-lg leading-relaxed text-stone-600">Women and young people have important roles to play in the future of agriculture. We seek to support their participation through practical knowledge, enterprise development, technology opportunities, market connections, and relevant resources.</p></div>
+          <div className="grid content-start gap-3 sm:grid-cols-2">{['Agricultural entrepreneurship', 'Practical skills development', 'Enterprise planning', 'Access to technology', 'Market participation', 'Leadership and innovation', 'Value addition and processing', 'Employment and income opportunities'].map((item) => <div key={item} className="flex gap-2 rounded-xl bg-[#f2efe6] p-3 text-sm"><Check className="h-4 w-4 shrink-0 text-emerald-700" />{item}</div>)}</div>
+        </div>
+      </section>
+
+      <section className="agro-shell py-20 lg:py-28">
+        <div className="grid items-center gap-12 lg:grid-cols-[.9fr_1.1fr]">
+          <img src={heroImage} alt="Learning by doing on a GleanAgro farm" className="h-[360px] w-full rounded-3xl object-cover shadow-lg" />
+          <div><p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">The Innovation Farm</p><h2 className="text-4xl font-bold tracking-[-0.05em] sm:text-5xl">Learning by Doing</h2><p className="mt-5 text-lg leading-relaxed text-stone-600">GleanAgro’s Innovation Farm provides an opportunity to explore agricultural practices, technologies, enterprise systems, and practical solutions in a real operating environment.</p><div className="mt-6 flex flex-wrap gap-2">{['Test', 'Learn', 'Adapt', 'Demonstrate', 'Scale'].map((item) => <span key={item} className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-bold text-emerald-900">{item}</span>)}</div><button onClick={goToSolutions} className="mt-7 inline-flex items-center gap-2 rounded-full bg-emerald-800 px-5 py-3 text-sm font-bold text-white hover:bg-emerald-900">Explore the Innovation Farm <ArrowRight className="h-4 w-4" /></button></div>
+        </div>
+      </section>
+
+      <section className="bg-[#f2efe6] py-20">
+        <div className="agro-shell text-center">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">Our broader vision</p><h2 className="text-4xl font-bold tracking-[-0.05em] sm:text-5xl">A More Connected Agricultural Ecosystem</h2>
+          <div className="mx-auto mt-10 flex max-w-4xl flex-wrap items-center justify-center gap-3">{['Knowledge', 'Inputs', 'Technology', 'Finance', 'Storage', 'Markets', 'Enterprise Development'].map((item) => <React.Fragment key={item}><span className="rounded-full bg-white px-4 py-3 text-sm font-bold text-emerald-900 shadow-sm">{item}</span><ChevronRight className="hidden h-4 w-4 text-[#c99545] sm:block" /></React.Fragment>)}</div>
+          <div className="mx-auto mt-8 max-w-md space-y-2"><div className="rounded-2xl bg-emerald-900 p-4 font-bold text-white">Stronger Agricultural Businesses</div><div className="text-2xl text-[#c99545]">↓</div><div className="rounded-2xl bg-white p-4 font-bold text-emerald-900">Improved Livelihoods</div><div className="text-2xl text-[#c99545]">↓</div><div className="rounded-2xl bg-[#c99545] p-4 font-bold text-emerald-950">More Resilient Communities</div></div>
+        </div>
+      </section>
+
+      <section className="bg-emerald-950 px-4 py-20 text-center text-white sm:px-6 lg:py-24">
+        <div className="mx-auto max-w-3xl"><MapPin className="mx-auto mb-5 h-8 w-8 text-[#f4d39a]" /><h2 className="text-4xl font-bold tracking-[-0.05em] sm:text-5xl">Let’s Grow Agriculture Together</h2><p className="mt-5 text-lg leading-relaxed text-emerald-100/80">Whether you are a farmer, agripreneur, cooperative, technical partner, market actor, investor, or organisation interested in agricultural development, we invite you to explore how we can work together.</p><div className="mt-8 flex flex-wrap justify-center gap-3"><button onClick={goToSolutions} className="rounded-full bg-[#c99545] px-6 py-3 font-bold text-emerald-950 hover:bg-[#f4d39a]">Explore Our Solutions</button><button onClick={() => onOpenInquiryModal('General')} className="rounded-full border border-emerald-300/40 px-6 py-3 font-bold hover:bg-white/10">Contact GleanAgro</button></div></div>
+      </section>
     </div>
   );
 };

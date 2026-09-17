@@ -29,21 +29,22 @@ const solutionsList = [
 ];
 
 const aboutList = [
-  'Who We Are',
-  'Our Team',
-  'Advisors',
-  'Partners',
-  'Careers'
+  { id: 'about', label: 'Who We Are' },
+  { id: 'our-story', label: 'Our Story' },
+  { id: 'our-approach', label: 'Our Approach' },
+  { id: 'our-values', label: 'Our Values' },
+  { id: 'our-team', label: 'Our Team' }
 ];
 
 const navItems = [
   { id: 'home', label: 'Home' },
   { id: 'solutions', label: 'Solutions' },
-  { id: 'for-farmers', label: 'For Farmers' },
-  { id: 'innovation', label: 'Innovation' },
-  { id: 'impact', label: 'Impact' },
+  { id: 'farmer-hub', label: 'Farmer Hub' },
+  { id: 'innovation-farm', label: 'Innovation Farm' },
+  { id: 'resources', label: 'Resources' },
   { id: 'about', label: 'About' },
-  { id: 'insights', label: 'Insights' }
+  { id: 'partnerships', label: 'Partnerships' },
+  { id: 'contact', label: 'Contact' }
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -148,11 +149,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                     <div className="absolute left-0 mt-2 min-w-[200px] bg-white border border-stone-200 rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
                       {aboutList.map((a) => (
                         <button
-                          key={a}
-                          onClick={() => handleNavClick('about')}
+                          key={a.id}
+                          onClick={() => handleNavClick(a.id)}
                           className="w-full text-left px-3 py-2 text-sm text-stone-700 hover:bg-stone-50"
                         >
-                          {a}
+                          {a.label}
                         </button>
                       ))}
                     </div>
@@ -201,6 +202,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2.5 rounded-lg text-stone-700 hover:bg-stone-100 transition-colors"
               aria-label="Toggle navigation menu"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -210,7 +213,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer Navigation (mobile-specific list per spec) */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-stone-900 text-white border-b border-stone-800 px-4 pt-3 pb-6 space-y-3">
+        <div id="mobile-navigation" className="lg:hidden bg-stone-900 text-white border-b border-stone-800 px-4 pt-3 pb-6 space-y-3">
           <div className="pb-2 border-b border-stone-800 flex items-center justify-between">
             <span className="text-xs text-stone-400 font-mono uppercase tracking-wider">Menu</span>
             <button onClick={() => setMobileMenuOpen(false)} className="text-stone-400 text-xs">Close</button>
@@ -243,20 +246,20 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </div>
 
-            <button onClick={() => handleNavClick('for-farmers')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'for-farmers' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
-              For Farmers
+            <button onClick={() => handleNavClick('farmer-hub')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'farmer-hub' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
+              Farmer Hub
             </button>
 
-            <button onClick={() => handleNavClick('innovation')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'innovation' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
-              Innovation
+            <button onClick={() => handleNavClick('innovation-farm')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'innovation-farm' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
+              Innovation Farm
             </button>
 
-            <button onClick={() => handleNavClick('impact')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'impact' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
-              Impact
+            <button onClick={() => handleNavClick('resources')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'resources' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
+              Resources
             </button>
 
-            <button onClick={() => handleNavClick('women-youth')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'women-youth' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
-              Women & Youth
+            <button onClick={() => handleNavClick('partnerships')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'partnerships' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
+              Partnerships
             </button>
 
             {/* About with nested items */}
@@ -269,8 +272,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
               <div className="pl-4 pt-2 pb-2 space-y-1">
                 {aboutList.map((a) => (
-                  <button key={a} onClick={() => { handleNavClick('about'); setMobileMenuOpen(false); }} className="w-full text-left px-3 py-2 rounded-lg text-sm text-stone-200 hover:bg-stone-800">
-                    {a}
+                  <button key={a.id} onClick={() => { handleNavClick(a.id); setMobileMenuOpen(false); }} className="w-full text-left px-3 py-2 rounded-lg text-sm text-stone-200 hover:bg-stone-800">
+                    {a.label}
                   </button>
                 ))}
               </div>

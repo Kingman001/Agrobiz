@@ -37,6 +37,15 @@ button {
   cursor: pointer;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--agro-gold);
+  outline-offset: 3px;
+}
+
 a {
   text-decoration: none;
 }

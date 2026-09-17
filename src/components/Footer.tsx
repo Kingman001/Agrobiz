@@ -88,6 +88,16 @@ export const Footer: React.FC<FooterProps> = ({
                   Ecosystem Roadmap
                 </button>
               </li>
+              <li>
+                <button onClick={() => onNavigateSection('resources')} className="hover:text-emerald-300 transition-colors cursor-pointer">
+                  Resources
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigateSection('partnerships')} className="hover:text-emerald-300 transition-colors cursor-pointer">
+                  Partnerships
+                </button>
+              </li>
             </ul>
           </div>
 

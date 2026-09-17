@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { CompanySettings, InquiryCallback, ProducePillar } from '../types';
 import { Hero } from '../components/Hero';
 import { PartnershipsSection } from '../components/PartnershipsSection';
 import { ArrowRight, Sprout, Warehouse, TrendingUp, Users, Leaf, HandCoins, Stethoscope, CircleDollarSign, BriefcaseBusiness, BookOpenText, Coins, Cpu, Store, UserRound } from 'lucide-react';
 import innovationFarmImage from '../assets/images/smallholder_farmer_hub_1784882677913.jpg';
-import hauwaImage from '../assets/images/smallholder_farmer_hub_1784882677913.jpg';
-import auwalImage from '../assets/images/smallholder_farmer_hub_1784882677913.jpg';
-import fatimaImage from '../assets/images/smallholder_farmer_hub_1784882677913.jpg';
 
 interface HomePageProps {
   companySettings: CompanySettings;
@@ -71,12 +68,6 @@ const womenYouthPaths = [
   { title: 'Grow', text: 'Access to market opportunities, business support and scaling pathways.' }
 ];
 
-const storyCards = [
-  { profile_pic: hauwaImage, name: 'Hauwa M.', location: 'Makarfi, Kaduna', focus: 'Poultry & household enterprise', quote: 'With better support and better planning, I can run a more stable farm business for my household.' },
-  { profile_pic: auwalImage, name: 'Auwal S.', location: 'Zaria, Kaduna', focus: 'Crop production & aggregation', quote: 'The real difference is getting systems that match the reality of how farmers work and produce.' },
-  { profile_pic: fatimaImage, name: 'Fatima A.', location: 'Kaduna South', focus: 'Women in agribusiness', quote: 'Good training and strong local support make it possible to start, learn and grow with confidence.' }
-];
-
 const insightCards = [
   'Farmer guidance',
   'Agriculture insights',
@@ -90,34 +81,6 @@ export const HomePage: React.FC<HomePageProps> = ({
   onOpenInquiryModal,
   onNavigatePage
 }) => {
-  const [impactValues, setImpactValues] = useState({ farmersReached: 0, financeAccessed: 0, inclusionRate: 0, storageQuality: 0 });
-
-  useEffect(() => {
-    const target = { farmersReached: 300, financeAccessed: 150, inclusionRate: 65, storageQuality: 98 };
-    const duration = 900;
-    const start = performance.now();
-    let rafId = 0;
-
-    const tick = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-
-      setImpactValues({
-        farmersReached: Math.round(target.farmersReached * eased),
-        financeAccessed: Math.round(target.financeAccessed * eased),
-        inclusionRate: Math.round(target.inclusionRate * eased),
-        storageQuality: Math.round(target.storageQuality * eased)
-      });
-
-      if (progress < 1) {
-        rafId = requestAnimationFrame(tick);
-      }
-    };
-
-    rafId = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafId);
-  }, []);
-
   return (
     <div className="space-y-8 pb-12 md:space-y-10">
       <Hero
@@ -324,15 +287,10 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {[
-              { key: 'farmersReached', prefix: '', value: impactValues.farmersReached, suffix: '+', label: 'Smallholder farmers supported' },
-              { key: 'financeAccessed', prefix:  '₦', value: impactValues.financeAccessed, suffix: 'M+', label: 'Input Finance Accessed' },
-              { key: 'inclusionRate', prefix: '', value: impactValues.inclusionRate, suffix: '%', label: 'Women & Youth Inclusion' },
-              { key: 'storageQuality', prefix: '', value: impactValues.storageQuality, suffix: '%', label: 'Storage Quality' }
-            ].map(({ key, prefix, value, suffix, label }) => (
-              <div key={key} className="metric-tile p-5 text-center text-white/90">
-                <div className="text-4xl font-bold tracking-[-0.06em] text-[var(--agro-gold-soft)]">{prefix}{value}{suffix}</div>
-                <div className="mt-2 text-sm text-white/80 uppercase tracking-[0.12em]">{label}</div>
+            {['Better-informed decisions', 'More practical support', 'Stronger connections', 'Long-term value'].map((label) => (
+              <div key={label} className="metric-tile p-5 text-center text-white/90">
+                <div className="text-xl font-bold tracking-[-0.04em] text-[var(--agro-gold-soft)]">{label}</div>
+                <div className="mt-2 text-sm text-white/80">A focus area for our work with farmers and partners.</div>
               </div>
             ))}
           </div>
@@ -342,20 +300,19 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">Farmer stories</p>
             <h2 className="mt-3 text-3xl font-bold tracking-[-0.05em] text-[var(--agro-charcoal)] sm:text-4xl">
-              Real farmers. Real decisions. Real change.
+              Agriculture works better when people have the right support.
             </h2>
           </div>
 
           <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {storyCards.map(({ profile_pic, name, location, focus, quote }) => (
-              <article key={name} className="agro-card overflow-hidden">
-                <img src={profile_pic} className="h-100 object-cover overflow-hidden z-index-0" alt={name}/>
-                <div className="p-5">
-                  <h3 className="text-xl font-bold tracking-[-0.04em] text-[var(--agro-charcoal)] z-index-10">{name}</h3>
-                  <p className="mt-1 text-sm text-[var(--agro-green-700)]">{location}</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.12em] text-[var(--agro-muted)]">{focus}</p>
-                  <p className="mt-3 text-sm leading-6 text-[var(--agro-muted)]">“{quote}”</p>
-                </div>
+            {[
+              ['Farmers', 'Practical guidance, inputs, technology, finance readiness, storage, and market support.'],
+              ['Agripreneurs', 'Enterprise development, planning, learning, and connections to relevant opportunities.'],
+              ['Partners', 'Clear collaboration pathways across the agricultural value chain.']
+            ].map(([title, copy]) => (
+              <article key={title} className="agro-card p-6">
+                <h3 className="text-xl font-bold tracking-[-0.04em] text-[var(--agro-charcoal)]">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-[var(--agro-muted)]">{copy}</p>
               </article>
             ))}
           </div>

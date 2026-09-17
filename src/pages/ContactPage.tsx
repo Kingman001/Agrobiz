@@ -87,7 +87,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   Inquiry Received!
                 </h3>
                 <p className="text-sm text-stone-700 max-w-md mx-auto">
-                  Thank you, <strong className="text-stone-900">{fullName}</strong>. A Glean Agro representative ({role}) will reach out to you within 24 hours at <span className="font-mono text-emerald-800">{email || phone}</span>.
+                  Thank you, <strong className="text-stone-900">{fullName}</strong>. Your enquiry has been prepared for the GleanAgro team ({role}). The current form is frontend-only; connect it to your preferred form service or backend before launch.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}

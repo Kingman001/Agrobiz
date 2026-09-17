@@ -20,6 +20,36 @@ import { AgriculturalFinancePage } from './pages/AgriculturalFinancePage';
 import { MarketAccessPage } from './pages/MarketAccessPage';
 import { StoragePage } from './pages/StoragePage';
 import { EnterpriseDevelopmentPage } from './pages/EnterpriseDevelopmentPage';
+import {
+  InnovationFarmPage,
+  OurApproachPage,
+  OurStoryPage,
+  OurTeamPage,
+  OurValuesPage,
+  PartnershipsPage,
+  ResourcesPage
+} from './pages/ContentPages';
+
+const routes = [
+  'home', 'solutions', 'agric-finance', 'farm-inputs', 'tech-support', 'irrigation',
+  'produce', 'market-access', 'storage', 'enterprise', 'roadmap', 'farmer-hub',
+  'about', 'our-story', 'our-approach', 'our-values', 'our-team', 'innovation-farm',
+  'resources', 'partnerships', 'contact'
+];
+
+const pageMetadata: Record<string, { title: string; description: string }> = {
+  home: { title: 'GleanAgro | Practical Agricultural Solutions', description: 'GleanAgro supports farmers, agripreneurs, and agricultural enterprises with practical solutions across production, technology, finance, storage, markets, and enterprise development.' },
+  about: { title: 'About GleanAgro | Agricultural Solutions in Nigeria', description: 'Learn who GleanAgro is, who we serve, and how we support stronger agricultural systems.' },
+  'our-story': { title: 'Our Story | GleanAgro', description: 'Understand why GleanAgro exists and the opportunity it sees across agriculture.' },
+  'our-approach': { title: 'Our Approach | GleanAgro', description: 'Explore GleanAgro’s practical, farmer-centered approach to agricultural solutions.' },
+  'our-values': { title: 'Our Values | GleanAgro', description: 'The principles guiding GleanAgro’s service, partnerships, and continuous improvement.' },
+  'our-team': { title: 'Our Team | GleanAgro', description: 'Meet the people and partners contributing to GleanAgro’s agricultural work.' },
+  'innovation-farm': { title: 'Innovation Farm | GleanAgro', description: 'Learning by doing through practical agricultural testing, demonstration, and improvement.' },
+  'farmer-hub': { title: 'Farmer Hub | GleanAgro', description: 'A practical entry point for farmer knowledge, support, tools, and agricultural opportunities.' },
+  resources: { title: 'Resources | GleanAgro', description: 'Practical farming, business, technical, and market resources from GleanAgro.' },
+  partnerships: { title: 'Partnerships | GleanAgro', description: 'Explore collaboration opportunities with GleanAgro across the agricultural ecosystem.' },
+  contact: { title: 'Contact GleanAgro | Work With Us', description: 'Contact GleanAgro about farmer support, training, technology, finance, markets, partnerships, or general enquiries.' }
+};
 
 export default function App() {
   const [companySettings] = useState<CompanySettings>(defaultCompanySettings);
@@ -28,8 +58,8 @@ export default function App() {
   const [activeSection, setActiveSection] = useState<string>(() => {
     try {
       const hash = window.location.hash.replace('#', '');
-      const route = hash.split('-')[0];
-      if (['home', 'solutions', 'agric-finance', 'farm-inputs', 'tech-support', 'irrigation', 'produce', 'market-access', 'storage', 'enterprise', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(route)) {
+      const route = hash || 'home';
+      if (routes.includes(route)) {
         return route;
       }
     } catch (e) {
@@ -46,14 +76,23 @@ export default function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
-      const route = hash.split('-')[0];
-      if (['home', 'solutions', 'agric-finance', 'farm-inputs', 'tech-support', 'irrigation', 'produce', 'market-access', 'storage', 'enterprise', 'roadmap', 'farmer-hub', 'about', 'contact'].includes(route)) {
+      const route = hash || 'home';
+      if (routes.includes(route)) {
         setActiveSection(route);
       }
     };
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
+
+  useEffect(() => {
+    const metadata = pageMetadata[activeSection] || pageMetadata.home;
+    document.title = metadata.title;
+    const description = document.querySelector('meta[name="description"]') || document.createElement('meta');
+    description.setAttribute('name', 'description');
+    description.setAttribute('content', metadata.description);
+    if (!description.parentElement) document.head.appendChild(description);
+  }, [activeSection]);
 
   const handleOpenInquiry = (role?: InquiryRole, produceName?: string) => {
     if (role) setInquiryModalRole(role);
@@ -81,6 +120,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-stone-100 text-stone-900 font-sans antialiased selection:bg-emerald-800 selection:text-emerald-100 flex flex-col justify-between">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:text-emerald-900 focus:shadow-lg">
+        Skip to main content
+      </a>
       
       <div>
         {/* Navigation Header */}
@@ -92,7 +134,7 @@ export default function App() {
         />
 
         {/* Page Content Router */}
-        <main className="transition-all duration-300">
+        <main id="main-content" tabIndex={-1} className="transition-all duration-300 focus:outline-none">
           {activeSection === 'home' && (
             <HomePage
               companySettings={companySettings}
@@ -187,6 +229,14 @@ export default function App() {
               onNavigatePage={handleNavigatePage}
             />
           )}
+
+          {activeSection === 'our-story' && <OurStoryPage onNavigatePage={handleNavigatePage} onOpenInquiryModal={handleOpenInquiry} />}
+          {activeSection === 'our-approach' && <OurApproachPage onNavigatePage={handleNavigatePage} onOpenInquiryModal={handleOpenInquiry} />}
+          {activeSection === 'our-values' && <OurValuesPage onNavigatePage={handleNavigatePage} onOpenInquiryModal={handleOpenInquiry} />}
+          {activeSection === 'our-team' && <OurTeamPage onNavigatePage={handleNavigatePage} onOpenInquiryModal={handleOpenInquiry} />}
+          {activeSection === 'innovation-farm' && <InnovationFarmPage onNavigatePage={handleNavigatePage} onOpenInquiryModal={handleOpenInquiry} />}
+          {activeSection === 'resources' && <ResourcesPage onNavigatePage={handleNavigatePage} onOpenInquiryModal={handleOpenInquiry} />}
+          {activeSection === 'partnerships' && <PartnershipsPage onNavigatePage={handleNavigatePage} onOpenInquiryModal={handleOpenInquiry} />}
 
           {activeSection === 'contact' && (
             <ContactPage
