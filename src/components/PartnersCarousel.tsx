@@ -34,7 +34,6 @@ export const PartnersCarousel: React.FC = () => {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">Our partners</p>
-          <p className="mt-3 max-w-2xl text-base text-[var(--agro-muted)]">We collaborate with financial institutions and other agribusinesses to help the famers access knowledge, finance, markets, and agricultural opportunity.</p>
         </div>
         <div className="flex gap-2" aria-label="Partner carousel controls">
           <button type="button" onClick={() => move(-1)} aria-label="Previous partner" className="rounded-full border border-stone-300 p-2 text-emerald-800 hover:bg-emerald-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"><ChevronLeft className="h-5 w-5" /></button>
