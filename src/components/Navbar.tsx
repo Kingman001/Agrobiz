@@ -43,6 +43,7 @@ const navItems = [
   { id: 'solutions', label: 'Solutions' },
   { id: 'farmer-hub', label: 'Farmer Hub' },
   { id: 'innovation-farm', label: 'Innovation Farm' },
+  /* { id: 'resources', label: 'Resources' }, */
   { id: 'about', label: 'About' },
   { id: 'partnerships', label: 'Partnerships' },
   { id: 'contact', label: 'Contact' }
@@ -270,9 +271,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               Innovation Farm
             </button>
 
-            <button onClick={() => handleNavClick('resources')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'resources' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
+            {/*<button onClick={() => handleNavClick('resources')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'resources' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
               Resources
-            </button>
+            </button>*/}
 
             <button onClick={() => handleNavClick('partnerships')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'partnerships' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
               Partnerships
