@@ -31,9 +31,9 @@ const solutionsList = [
 
 const aboutList = [
   { id: 'about', label: 'Who We Are' },
-  { id: 'our-story', label: 'Our Story' },
-  { id: 'our-approach', label: 'Our Approach' },
-  { id: 'our-values', label: 'Our Values' },
+  //{ id: 'our-story', label: 'Our Story' },
+ // { id: 'our-approach', label: 'Our Approach' },
+ // { id: 'our-values', label: 'Our Values' },
   { id: 'our-team', label: 'Our Team' },
   { id: 'advisors', label: 'Advisors' }
 ];
@@ -43,7 +43,7 @@ const navItems = [
   { id: 'solutions', label: 'Solutions' },
   { id: 'farmer-hub', label: 'Farmer Hub' },
   { id: 'innovation-farm', label: 'Innovation Farm' },
-  //{ id: 'resources', label: 'Resources' },
+  /* { id: 'resources', label: 'Resources' }, */
   { id: 'about', label: 'About' },
   { id: 'partnerships', label: 'Partnerships' },
   { id: 'contact', label: 'Contact' }
