@@ -287,14 +287,43 @@ export const HomePage: React.FC<HomePageProps> = ({
             </h2>
           </div>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {['Better-informed decisions', 'More practical support', 'Stronger connections', 'Long-term value'].map((label) => (
-              <div key={label} className="metric-tile p-5 text-center text-white/90">
-                <div className="text-xl font-bold tracking-[-0.04em] text-[var(--agro-gold-soft)]">{label}</div>
-                <div className="mt-2 text-sm text-white/80">A focus area for our work with farmers and partners.</div>
-              </div>
-            ))}
-          </div>
+          <div class="impact-grid">
+                <!-- Card 1 -->
+                <div class="impact-card">
+                    <div class="impact-number-wrapper">
+                        <span class="counter" data-target="300"  style="font-size:2.5rem">0</span>+
+                    </div>
+                    <h3 class="impact-label">Smallholders Supported</h3>
+                    <p class="impact-description">Smallholder farmers equipped with input financing and essential training.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="impact-card">
+                    <div class="impact-number-wrapper"  style="font-size:2.5rem">
+                        ₦<span class="counter" data-target="150"  style="font-size:2.5rem" >0</span>M+
+                    </div>
+                    <h3 class="impact-label">Input Financing</h3>
+                    <p class="impact-description">Low-cost seeds, fertilizers, and crop protection delivered straight to fields.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="impact-card">
+                    <div class="impact-number-wrapper">
+                        <span class="counter" data-target="65"  style="font-size:2.5rem">0</span>%
+                    </div>
+                    <h3 class="impact-label">Women & Youth</h3>
+                    <p class="impact-description">Active inclusion and leadership development across our training hubs.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="impact-card">
+                    <div class="impact-number-wrapper">
+                        <span class="counter" data-target="98"  style="font-size:2.5rem">0</span>%
+                    </div>
+                    <h3 class="impact-label">Storage Quality</h3>
+                    <p class="impact-description">Grains successfully protected from post-harvest waste using warehousing solutions.</p>
+                </div>
+            </div>
         </section>
 
         <section id="stories" className="pt-2">
