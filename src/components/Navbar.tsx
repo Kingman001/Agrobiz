@@ -43,7 +43,6 @@ const navItems = [
   { id: 'solutions', label: 'Solutions' },
   { id: 'farmer-hub', label: 'Farmer Hub' },
   { id: 'innovation-farm', label: 'Innovation Farm' },
-  /* { id: 'resources', label: 'Resources' }, */
   { id: 'about', label: 'About' },
   { id: 'partnerships', label: 'Partnerships' },
   { id: 'contact', label: 'Contact' }

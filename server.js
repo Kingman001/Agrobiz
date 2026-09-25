@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 import { GoogleGenAI } from '@google/genai';
 
 dotenv.config();
+GEMINI_API_KEY = "AIzaSyAGnJva34eTs1S0kzZpNtjx9C2gF7QngA8";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -53,7 +54,7 @@ const buildFallbackInsight = (payload = {}) => {
     summary: recommendationSummary,
     recommendations,
     nextActions,
-    geminiConfigured: Boolean(process.env.GEMINI_API_KEY),
+    geminiConfigured: Boolean(GEMINI_API_KEY),
     generatedAt: new Date().toISOString()
   };
 };
@@ -66,7 +67,7 @@ app.get('/api/health', (_req, res) => {
     ok: true,
     service: 'glean-agro-ai',
     timestamp: new Date().toISOString(),
-    geminiConfigured: Boolean(process.env.GEMINI_API_KEY)
+    geminiConfigured: Boolean(GEMINI_API_KEY)
   });
 });
 
@@ -82,9 +83,9 @@ app.post('/api/ai/opportunity', async (req, res) => {
 
   let insight = buildFallbackInsight(finalPayload);
 
-  if (process.env.GEMINI_API_KEY) {
+  if (GEMINI_API_KEY) {
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+      const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
       const prompt = `You are Glean Agro's agribusiness strategy advisor. Provide a concise, practical recommendation for a farmer or buyer in ${finalPayload.location}. They run a ${finalPayload.farmSize} ${normalizeEnterprise(finalPayload.enterprise)} project, with the goal of ${finalPayload.goal}. Budget available: ${finalPayload.budget} NGN. Recommend 3 actions, 2 priority next steps, and a short summary in plain English. Keep it realistic for Nigeria agriculture.`;
 
       const response = await ai.models.generateContent({
