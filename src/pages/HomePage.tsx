@@ -4,7 +4,11 @@ import { Hero } from '../components/Hero';
 import { PartnershipsSection } from '../components/PartnershipsSection';
 import { ArrowRight, Sprout, Warehouse, TrendingUp, Users, Leaf, HandCoins, Stethoscope, CircleDollarSign, BriefcaseBusiness, BookOpenText, Coins, Cpu, Store, UserRound } from 'lucide-react';
 import innovationFarmImage from '../assets/images/smallholder_farmer_hub_1784882677913.jpg';
+import FatimaImage from '../assets/images/fatima.jpg';
+import habibaAbasImage from '../assets/images/habiba.webp';
+import daudaImage from '../assets/images/dauda.jpg';
 import { PartnersCarousel } from '../components/PartnersCarousel';
+
 
 interface HomePageProps {
   companySettings: CompanySettings;
@@ -328,54 +332,17 @@ export const HomePage: React.FC<HomePageProps> = ({
 
         <section id="stories" className="pt-2">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">Farmer stories</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-[-0.05em] text-[var(--agro-charcoal)] sm:text-4xl">
-              Agriculture works better when people have the right support.
-            </h2>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">What Our Farmers Have To Say</p>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {[
+          [habibaAbasImage, 'Habiba Abas', '“Glean Agro helped me access financing in 2024, which enabled me to expand my production and grow my farm.”'],
+          [FatimaImage, 'Fatima Adamu', '“Through Glean Agro’s training and support, I have improved my farm yield by almost 50%.”'],
+          [daudaImage, 'Dauda Ibrahim', '“Glean Agro helped me connect with the right buyers for my farm produce, increasing my earnings by 25%.”'].map(([image, name, testimony]) => <article key={name} className="agro-card overflow-hidden"><img src={image} alt={`${name}, farmer`} className="h-64 w-full object-cover object-top" /><div className="p-5"><h2 className="text-lg font-bold">{name}</h2><p className="mt-2 text-sm leading-relaxed text-stone-600">{testimony}</p></div></article>)}
+      </div>
           </div>
-
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {[
-              ['Farmers', 'Practical guidance, inputs, technology, finance readiness, storage, and market support.'],
-              ['Agripreneurs', 'Enterprise development, planning, learning, and connections to relevant opportunities.'],
-              ['Partners', 'Clear collaboration pathways across the agricultural value chain.']
-            ].map(([title, copy]) => (
-              <article key={title} className="agro-card p-6">
-                <h3 className="text-xl font-bold tracking-[-0.04em] text-[var(--agro-charcoal)]">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-[var(--agro-muted)]">{copy}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="partners" className="pt-2">
-          <PartnershipsSection
-            companySettings={companySettings}
-            initialRole="Commercial Buyer"
-            initialProduceInterest=""
-          />
         </section>
 
         <PartnersCarousel />
-
-        <section id="insights" className="pt-2">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">Insights</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-[-0.05em] text-[var(--agro-charcoal)] sm:text-4xl">
-              Practical ideas from the field.
-            </h2>
-          </div>
-
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-            {insightCards.map((title, index) => (
-              <div key={title} className="agro-card p-5">
-                <div className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[rgba(201,149,69,0.12)] text-xs font-bold text-[var(--agro-gold)]">0{index + 1}</div>
-                <h3 className="text-xl font-bold tracking-[-0.04em] text-[var(--agro-charcoal)]">{title}</h3>
-                <p className="mt-2 text-sm leading-6 text-[var(--agro-muted)]">Thoughtful guidance for farmers, partners and institutions working in agriculture.</p>
-              </div>
-            ))}
-          </div>
-        </section>
 
         <section id="final-cta" className="pt-2">
           <div className="rounded-[2rem] border border-[rgba(29,90,66,0.12)] bg-[linear-gradient(135deg,#f4efe7_0%,#ffffff_100%)] p-6 text-center shadow-[var(--agro-shadow)] md:p-10">
