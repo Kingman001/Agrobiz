@@ -7,7 +7,8 @@ import {
   Phone,
   Tractor,
   Handshake,
-  ChevronRight
+  ChevronRight,
+  ChevronDown
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -30,9 +31,9 @@ const solutionsList = [
 
 const aboutList = [
   { id: 'about', label: 'Who We Are' },
- //{ id: 'our-story', label: 'Our Story' },
-  //{ id: 'our-approach', label: 'Our Approach' },
- // { id: 'our-values', label: 'Our Values' },
+  { id: 'our-story', label: 'Our Story' },
+  { id: 'our-approach', label: 'Our Approach' },
+  { id: 'our-values', label: 'Our Values' },
   { id: 'our-team', label: 'Our Team' },
   { id: 'advisors', label: 'Advisors' }
 ];
@@ -56,10 +57,17 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+  const [desktopSolutionsOpen, setDesktopSolutionsOpen] = useState(false);
+  const [desktopAboutOpen, setDesktopAboutOpen] = useState(false);
 
   const handleNavClick = (id: string) => {
     setActiveSection(id);
     setMobileMenuOpen(false);
+    setMobileSolutionsOpen(false);
+    setMobileAboutOpen(false);
+    setDesktopSolutionsOpen(false);
+    setDesktopAboutOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
     try {
       window.location.hash = id;
@@ -111,15 +119,18 @@ export const Navbar: React.FC<NavbarProps> = ({
             {navItems.map((item) => {
               if (item.id === 'solutions') {
                 return (
-                  <div key={item.id} className="relative group">
+                  <div key={item.id} className="relative">
                     <button
-                      onClick={() => handleNavClick(item.id)}
-                      className="px-3 py-2 rounded-lg text-sm font-semibold text-stone-700 hover:text-emerald-800 hover:bg-stone-50 transition-all"
+                      type="button"
+                      onClick={() => setDesktopSolutionsOpen((open) => !open)}
+                      aria-expanded={desktopSolutionsOpen}
+                      aria-haspopup="menu"
+                      className="inline-flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-semibold text-stone-700 hover:text-emerald-800 hover:bg-stone-50 transition-all"
                     >
-                      {item.label}
+                      {item.label} <ChevronDown className={`h-4 w-4 transition-transform ${desktopSolutionsOpen ? 'rotate-180' : ''}`} />
                     </button>
 
-                    <div className="absolute left-0 mt-2 min-w-[220px] bg-white border border-stone-200 rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                    {desktopSolutionsOpen && <div role="menu" className="absolute left-0 top-full mt-2 min-w-[220px] bg-white border border-stone-200 rounded-lg shadow-lg py-2 z-50">
                       {solutionsList.map((s) => {
                           const destination = s.id || 'solutions';
                           return (
@@ -132,22 +143,27 @@ export const Navbar: React.FC<NavbarProps> = ({
                             </button>
                           );
                         })}
-                    </div>
+                    </div>}
                   </div>
                 );
               }
 
               if (item.id === 'about') {
                 return (
-                  <div key={item.id} className="relative group">
+                  <div key={item.id} className="relative">
                     <button
-                      onClick={() => handleNavClick(item.id)}
-                      className="px-3 py-2 rounded-lg text-sm font-semibold text-stone-700 hover:text-emerald-800 hover:bg-stone-50 transition-all"
+                      type="button"
+                      onClick={() => setDesktopAboutOpen((open) => !open)}
+                      aria-expanded={desktopAboutOpen}
+                      aria-haspopup="menu"
+                      className={`inline-flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
+                        aboutList.some(({ id }) => activeSection === id) ? 'bg-emerald-50 text-emerald-800 border border-emerald-200/60 shadow-2xs' : 'text-stone-700 hover:text-emerald-800 hover:bg-stone-50'
+                      }`}
                     >
-                      {item.label}
+                      {item.label} <ChevronDown className={`h-4 w-4 transition-transform ${desktopAboutOpen ? 'rotate-180' : ''}`} />
                     </button>
 
-                    <div className="absolute left-0 mt-2 min-w-[200px] bg-white border border-stone-200 rounded-lg shadow-lg py-2 hidden group-hover:block z-50">
+                    {desktopAboutOpen && <div role="menu" className="absolute left-0 top-full mt-2 min-w-[200px] bg-white border border-stone-200 rounded-lg shadow-lg py-2 z-50">
                       {aboutList.map((a) => (
                         <button
                           key={a.id}
@@ -157,7 +173,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                           {a.label}
                         </button>
                       ))}
-                    </div>
+                    </div>}
                   </div>
                 );
               }
@@ -266,23 +282,20 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* About with nested items */}
             <div>
               <button
-                onClick={() => handleNavClick('about')}
+                onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+                aria-expanded={mobileAboutOpen}
                 className={`w-full flex items-center justify-between px-3 py-3 rounded-lg ${activeSection === 'about' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
                 <span>About</span>
-                <ChevronRight className="w-4 h-4 text-stone-500" />
+                <ChevronRight className={`w-4 h-4 text-stone-500 transition-transform ${mobileAboutOpen ? 'rotate-90' : ''}`} />
               </button>
-              <div className="pl-4 pt-2 pb-2 space-y-1">
+              {mobileAboutOpen && <div className="pl-4 pt-2 pb-2 space-y-1">
                 {aboutList.map((a) => (
-                  <button key={a.id} onClick={() => { handleNavClick(a.id); setMobileMenuOpen(false); }} className="w-full text-left px-3 py-2 rounded-lg text-sm text-stone-200 hover:bg-stone-800">
+                  <button key={a.id} onClick={() => handleNavClick(a.id)} className="w-full text-left px-3 py-2 rounded-lg text-sm text-stone-200 hover:bg-stone-800">
                     {a.label}
                   </button>
                 ))}
-              </div>
+              </div>}
             </div>
-
-            <button onClick={() => handleNavClick('insights')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'insights' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
-              Insights
-            </button>
 
             <button onClick={() => handleNavClick('contact')} className="w-full text-left px-3 py-3 rounded-lg text-stone-200 hover:bg-stone-800">
               Contact

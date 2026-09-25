@@ -111,6 +111,10 @@ export default function App() {
   };
 
   const handleNavigatePage = (pageId: string) => {
+    if (!routes.includes(pageId)) {
+      return;
+    }
+
     setActiveSection(pageId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
     try {

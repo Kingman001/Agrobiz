@@ -291,54 +291,40 @@ export const HomePage: React.FC<HomePageProps> = ({
             </h2>
           </div>
 
-          <div class="impact-grid">
-                <!-- Card 1 -->
-                <div class="impact-card">
-                    <div class="impact-number-wrapper">
-                        <span class="counter" data-target="300"  style="font-size:2.5rem">0</span>+
-                    </div>
-                    <h3 class="impact-label">Smallholders Supported</h3>
-                    <p class="impact-description">Smallholder farmers equipped with input financing and essential training.</p>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="impact-card">
-                    <div class="impact-number-wrapper"  style="font-size:2.5rem">
-                        ₦<span class="counter" data-target="150"  style="font-size:2.5rem" >0</span>M+
-                    </div>
-                    <h3 class="impact-label">Input Financing</h3>
-                    <p class="impact-description">Low-cost seeds, fertilizers, and crop protection delivered straight to fields.</p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="impact-card">
-                    <div class="impact-number-wrapper">
-                        <span class="counter" data-target="65"  style="font-size:2.5rem">0</span>%
-                    </div>
-                    <h3 class="impact-label">Women & Youth</h3>
-                    <p class="impact-description">Active inclusion and leadership development across our training hubs.</p>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="impact-card">
-                    <div class="impact-number-wrapper">
-                        <span class="counter" data-target="98"  style="font-size:2.5rem">0</span>%
-                    </div>
-                    <h3 class="impact-label">Storage Quality</h3>
-                    <p class="impact-description">Grains successfully protected from post-harvest waste using warehousing solutions.</p>
-                </div>
-            </div>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              ['300+', 'Smallholders Supported', 'Smallholder farmers equipped with input financing and essential training.'],
+              ['₦150M+', 'Input Financing', 'Low-cost seeds, fertilizers, and crop protection delivered straight to fields.'],
+              ['65%', 'Women & Youth', 'Active inclusion and leadership development across our training hubs.'],
+              ['98%', 'Storage Quality', 'Grains successfully protected from post-harvest waste using warehousing solutions.'],
+            ].map(([value, label, description]) => (
+              <div key={label} className="rounded-2xl border border-white/15 bg-white/10 p-5">
+                <div className="text-4xl font-bold tracking-[-0.05em] text-[var(--agro-gold-soft)]">{value}</div>
+                <h3 className="mt-3 text-sm font-bold text-white">{label}</h3>
+                <p className="mt-2 text-sm leading-6 text-emerald-100/80">{description}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section id="stories" className="pt-2">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">What Our Farmers Have To Say</p>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {[
-          [habibaAbasImage, 'Habiba Abas', '“Glean Agro helped me access financing in 2024, which enabled me to expand my production and grow my farm.”'],
-          [FatimaImage, 'Fatima Adamu', '“Through Glean Agro’s training and support, I have improved my farm yield by almost 50%.”'],
-          [daudaImage, 'Dauda Ibrahim', '“Glean Agro helped me connect with the right buyers for my farm produce, increasing my earnings by 25%.”'].map(([image, name, testimony]) => <article key={name} className="agro-card overflow-hidden"><img src={image} alt={`${name}, farmer`} className="h-64 w-full object-cover object-top" /><div className="p-5"><h2 className="text-lg font-bold">{name}</h2><p className="mt-2 text-sm leading-relaxed text-stone-600">{testimony}</p></div></article>)}
-      </div>
+              {[
+                [habibaAbasImage, 'Habiba Abas', '“Glean Agro helped me access financing in 2024, which enabled me to expand my production and grow my farm.”'],
+                [FatimaImage, 'Fatima Adamu', '“Through Glean Agro’s training and support, I have improved my farm yield by almost 50%.”'],
+                [daudaImage, 'Dauda Ibrahim', '“Glean Agro helped me connect with the right buyers for my farm produce, increasing my earnings by 25%.”'],
+              ].map(([image, name, testimony]) => (
+                <article key={name} className="agro-card overflow-hidden">
+                  <img src={image} alt={`${name}, farmer`} className="h-64 w-full object-cover object-top" />
+                  <div className="p-5">
+                    <h2 className="text-lg font-bold">{name}</h2>
+                    <p className="mt-2 text-sm leading-relaxed text-stone-600">{testimony}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
