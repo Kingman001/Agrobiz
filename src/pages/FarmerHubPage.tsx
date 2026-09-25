@@ -65,10 +65,11 @@ export const FarmerHubPage: React.FC<FarmerHubPageProps> = ({
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 space-y-10">
-        <AIOpportunityAdvisor />
+        {/*<AIOpportunityAdvisor />*/}
 
         {/* Navigation Tabs Bar */}
         <div className="bg-white p-4 rounded-2xl border border-stone-200 shadow-sm flex flex-wrap items-center justify-between gap-3">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">Farmer Tools</p>
           <div className="flex flex-wrap items-center gap-2">
             {([
               { id: 'prices', label: 'Live Market Prices', icon: TrendingUp },

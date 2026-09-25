@@ -35,7 +35,7 @@ export interface GrowthMetricPoint {
 
 export const yieldGrowthData: GrowthMetricPoint[] = [
   {
-    year: "2022 (Baseline)",
+    year: "2022",
     maizeYieldTonsPerHa: 1.8,
     smallholderIncomeNaira: 450000,
     postHarvestLossPercent: 38,
@@ -43,7 +43,7 @@ export const yieldGrowthData: GrowthMetricPoint[] = [
     aquacultureProductionTons: 25
   },
   {
-    year: "2023 (Phase 1)",
+    year: "2023",
     maizeYieldTonsPerHa: 3.2,
     smallholderIncomeNaira: 820000,
     postHarvestLossPercent: 24,
@@ -51,7 +51,7 @@ export const yieldGrowthData: GrowthMetricPoint[] = [
     aquacultureProductionTons: 60
   },
   {
-    year: "2024 (Phase 2)",
+    year: "2024",
     maizeYieldTonsPerHa: 4.8,
     smallholderIncomeNaira: 1450000,
     postHarvestLossPercent: 14,
@@ -59,7 +59,7 @@ export const yieldGrowthData: GrowthMetricPoint[] = [
     aquacultureProductionTons: 110
   },
   {
-    year: "2025 (Phase 3)",
+    year: "2025",
     maizeYieldTonsPerHa: 6.1,
     smallholderIncomeNaira: 2200000,
     postHarvestLossPercent: 8,
@@ -67,7 +67,7 @@ export const yieldGrowthData: GrowthMetricPoint[] = [
     aquacultureProductionTons: 180
   },
   {
-    year: "2026 (Current Projected)",
+    year: "2026",
     maizeYieldTonsPerHa: 7.5,
     smallholderIncomeNaira: 3100000,
     postHarvestLossPercent: 4,
