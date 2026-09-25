@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 import { GoogleGenAI } from '@google/genai';
 
 dotenv.config();
-GEMINI_API_KEY = "AIzaSyAGnJva34eTs1S0kzZpNtjx9C2gF7QngA8";
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY?.trim() || '';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
