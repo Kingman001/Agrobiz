@@ -76,10 +76,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <Sprout className="h-4 w-4" /> About GleanAgro
             </div>
             <h1 className="max-w-3xl text-5xl font-bold leading-[1.02] tracking-[-0.06em] sm:text-6xl lg:text-7xl">
-              Growing Agriculture. <span className="text-[#f4d39a]">Growing Possibilities.</span>
+              Practical support for <span className="text-[#f4d39a]">farmers and agribusinesses.</span>
             </h1>
             <p className="max-w-2xl text-lg leading-relaxed text-emerald-50/80 sm:text-xl">
-              GleanAgro is an agricultural solutions company helping farmers, agripreneurs, women, and youth become more productive, self-sustaining, and commercially connected through practical, sustainable, and technology-enabled solutions.
+              GleanAgro works with farmers and agricultural businesses to improve production and connect with the support, resources, and markets they need.
             </p>
             <div className="flex flex-wrap gap-3">
               <button onClick={goToSolutions} className="inline-flex items-center gap-2 rounded-full bg-[#c99545] px-5 py-3 text-sm font-bold text-emerald-950 transition hover:bg-[#f4d39a]">
@@ -95,7 +95,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <img src={heroImage} alt="Farmer working in a GleanAgro field" className="relative h-[420px] w-full rounded-[1.75rem] object-cover shadow-2xl sm:h-[500px]" />
             <div className="absolute bottom-5 left-5 rounded-xl bg-emerald-950/90 px-4 py-3 text-sm text-emerald-50 backdrop-blur">
               <span className="block text-xs font-bold uppercase tracking-wider text-[#f4d39a]">Our belief</span>
-              Practical opportunity can unlock agricultural potential.
+              Good support starts with what farmers need.
             </div>
           </div>
         </div>
@@ -119,12 +119,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           <article className="rounded-3xl bg-emerald-950 p-8 text-white sm:p-10">
             <Target className="mb-6 h-9 w-9 text-[#f4d39a]" />
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-emerald-300">Our mission</p>
-            <h2 className="text-3xl font-bold leading-tight">To revolutionize the agricultural sector by providing innovative and sustainable solutions that help smallholder farmers become more productive, achieve self-sustainability, and create better opportunities for women and youth in agriculture.</h2>
+            <h2 className="text-3xl font-bold leading-tight">To help smallholder farmers improve productivity and become more self-reliant, while creating better opportunities for women and young people in agriculture.</h2>
           </article>
           <article className="rounded-3xl border border-emerald-900/10 bg-[#f2efe6] p-8 sm:p-10">
             <Leaf className="mb-6 h-9 w-9 text-emerald-700" />
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">Our vision</p>
-            <h2 className="text-3xl font-bold leading-tight text-emerald-950">A stronger agricultural ecosystem where farmers and agricultural enterprises have the knowledge, resources, technology, and market connections needed to thrive.</h2>
+            <h2 className="text-3xl font-bold leading-tight text-emerald-950">An agricultural sector where farmers and businesses can access the knowledge, resources, and markets they need to grow.</h2>
           </article>
         </div>
         <div className="agro-shell mt-10 grid gap-3 text-sm text-stone-600 sm:grid-cols-3 lg:grid-cols-6">
@@ -137,7 +137,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       <section className="agro-shell py-20 lg:py-28">
         <div className="max-w-2xl">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">What we do</p>
-          <h2 className="text-4xl font-bold tracking-[-0.05em] sm:text-5xl">Connecting the Pieces of Agricultural Growth</h2>
+          <h2 className="text-4xl font-bold tracking-[-0.05em] sm:text-5xl">Support across the agricultural value chain</h2>
           <p className="mt-5 text-lg leading-relaxed text-stone-600">Agricultural challenges are rarely solved by one service alone. We bring together practical support across key areas of the agricultural value chain.</p>
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

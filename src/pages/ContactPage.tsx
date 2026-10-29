@@ -52,9 +52,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({
     <div className="min-h-screen bg-stone-50 pb-20">
       {/* Page Header */}
       <PageHeader
-        title="Contact Glean Agro & Partnerships Desk"
-        subtitle="Connect directly with our commercial off-take officers, smallholder extension leads, or executive investment teams."
-        categoryTag="Glean Agro Contact Hub"
+        title="Contact GleanAgro"
+        subtitle="Contact us about farm support, produce, or a partnership. The online form is not connected yet, so please email or call us to send your enquiry."
+        categoryTag="Get in touch"
         breadcrumbs={[{ label: "Contact & Partnerships" }]}
         onNavigatePage={onNavigatePage}
       />
@@ -68,13 +68,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           <div className="lg:col-span-7 bg-white rounded-3xl p-8 border border-stone-200 shadow-md space-y-6">
             <div className="space-y-1 border-b border-stone-200 pb-4">
               <span className="text-xs font-mono font-bold uppercase text-emerald-800">
-                Direct Communication Channel
+                Get in touch
               </span>
               <h2 className="text-2xl font-serif font-bold text-stone-900">
-                Submit an Official Inquiry
+                Prepare an enquiry
               </h2>
               <p className="text-xs text-stone-600">
-                Choose your role to help us direct your request to the right Glean Agro team member.
+                Choose the option that best describes you, then use the contact details shown after the form.
               </p>
             </div>
 
@@ -84,16 +84,16 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h3 className="text-2xl font-serif font-bold text-emerald-950">
-                  Inquiry Received!
+                  Thanks, {fullName}.
                 </h3>
                 <p className="text-sm text-stone-700 max-w-md mx-auto">
-                  Thank you, <strong className="text-stone-900">{fullName}</strong>. Your enquiry has been prepared for the GleanAgro team ({role}). The current form is frontend-only; connect it to your preferred form service or backend before launch.
+                  This form is not connected to the GleanAgro team yet, so your message has not been sent. Please email <a className="font-semibold text-emerald-800 underline" href={`mailto:${companySettings.email}`}>{companySettings.email}</a> or call <a className="font-semibold text-emerald-800 underline" href={`tel:${companySettings.phone}`}>{companySettings.phone}</a>.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
                   className="px-6 py-2.5 bg-emerald-800 text-white font-bold rounded-xl text-xs hover:bg-emerald-900 transition-all cursor-pointer"
                 >
-                  Submit Another Inquiry
+                  Send another message
                 </button>
               </div>
             ) : (
@@ -102,7 +102,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 {/* Role Selector Pills */}
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
-                    I am contacting Glean Agro as a:
+                    I am contacting GleanAgro as a:
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                     {([
@@ -223,7 +223,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   className="w-full py-4 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Send className="w-4 h-4 text-emerald-300" />
-                  <span>Send Inquiry to Glean Agro</span>
+                  <span>Show contact details</span>
                 </button>
               </form>
             )}
@@ -239,7 +239,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   Contact Information
                 </span>
                 <h3 className="text-2xl font-serif font-bold text-stone-100">
-                  Glean Agro Headquarters
+                  GleanAgro office
                 </h3>
               </div>
 
@@ -249,7 +249,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     <Globe className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs text-stone-400 block font-mono">Official Website</span>
+                    <span className="text-xs text-stone-400 block font-mono">                    Website</span>
                     <a
                       href="https://gleanagrong.com/"
                       target="_blank"
@@ -266,7 +266,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs text-stone-400 block font-mono">Official Email</span>
+                    <span className="text-xs text-stone-400 block font-mono">                    Email</span>
                     <a href={`mailto:${companySettings.email}`} className="font-bold text-stone-100 hover:text-emerald-300">
                       {companySettings.email}
                     </a>
@@ -278,7 +278,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs text-stone-400 block font-mono">Phone Calls</span>
+                    <span className="text-xs text-stone-400 block font-mono">                    Phone</span>
                     <a href="tel:+2348134407110" className="font-bold text-stone-100 hover:text-emerald-300 block">
                       +234 813 440 7110
                     </a>

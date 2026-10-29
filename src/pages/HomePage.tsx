@@ -102,7 +102,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               Smallholder farmers feed the country. They deserve systems built around their reality.
             </h2>
             <p className="mt-4 text-base text-[var(--agro-muted)]">
-              We work at the intersection of production, enterprise, knowledge, and market access — helping farmers move from just surviving to growing sustainably.
+              We work across production, farm business, practical knowledge, and market access to help farmers address the challenges that hold their businesses back.
             </p>
           </div>
 
@@ -123,10 +123,10 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="mx-auto max-w-4xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">Farmer ecosystem</p>
             <h2 className="mt-3 text-3xl font-bold tracking-[-0.05em] text-[var(--agro-charcoal)] sm:text-4xl">
-              One farmer. One ecosystem. Better opportunity.
+              Farmers need more than one kind of support.
             </h2>
             <p className="mt-4 text-base text-[var(--agro-muted)]">
-              We connect farmers with the practical support they need to produce more, earn more, learn more, and grow with greater confidence.
+              We bring together the inputs, knowledge, finance, technology, and market connections that farmers need to run stronger businesses.
             </p>
           </div>
 
@@ -186,7 +186,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">How it works</p>
             <h2 className="mt-3 text-3xl font-bold tracking-[-0.05em] text-[var(--agro-charcoal)] sm:text-4xl">
-              A clear journey from need to impact.
+              From a farm's needs to practical support.
             </h2>
           </div>
 
@@ -237,7 +237,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="relative min-h-[320px] overflow-hidden">
               <img
                 src={innovationFarmImage}
-                alt="Innovation farm with training, research and livestock systems"
+                alt="Crop field at the GleanAgro farm"
                 className="h-full w-full object-cover"
               />
             </div>
@@ -248,12 +248,12 @@ export const HomePage: React.FC<HomePageProps> = ({
                 We learn, test and improve before we scale.
               </h2>
               <p className="mt-4 text-base leading-7 text-[var(--agro-muted)]">
-                The farm is a strategic platform for production, research, demonstration, training and evidence-based field learning. It supports smarter agriculture and stronger decision-making for farmers and partners.
+                At the farm, we produce, test agricultural practices, and share what we learn with farmers and partners.
               </p>
               <ul className="mt-6 space-y-3 text-sm text-[var(--agro-charcoal)]">
-                <li className="flex items-start gap-3"><Leaf className="mt-0.5 h-4 w-4 text-[var(--agro-green-700)]" />Production and testing of practical systems and enterprise models.</li>
-                <li className="flex items-start gap-3"><Users className="mt-0.5 h-4 w-4 text-[var(--agro-green-700)]" />Designed for training, farmer engagement and shared learning.</li>
-                <li className="flex items-start gap-3"><Stethoscope className="mt-0.5 h-4 w-4 text-[var(--agro-green-700)]" />A platform for measured experimentation and continuous improvement.</li>
+                <li className="flex items-start gap-3"><Leaf className="mt-0.5 h-4 w-4 text-[var(--agro-green-700)]" />Testing production methods and farm business models.</li>
+                <li className="flex items-start gap-3"><Users className="mt-0.5 h-4 w-4 text-[var(--agro-green-700)]" />Sharing practical lessons with farmers and partners.</li>
+                <li className="flex items-start gap-3"><Stethoscope className="mt-0.5 h-4 w-4 text-[var(--agro-green-700)]" />Learning from field results and improving over time.</li>
               </ul>
             </div>
           </div>
@@ -263,7 +263,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">Women & youth</p>
             <h2 className="mt-3 text-3xl font-bold tracking-[-0.05em] text-[var(--agro-charcoal)] sm:text-4xl">
-              The future of agriculture is inclusive.
+              More ways for women and young people to take part in agriculture.
             </h2>
             <p className="mt-4 text-base text-[var(--agro-muted)]">
               Our pathway is simple: learn, launch, grow.

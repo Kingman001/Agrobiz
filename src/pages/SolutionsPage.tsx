@@ -99,7 +99,7 @@ const solutionCategories = [
     pageLink: 'market-access',
     accent: 'bg-[#d39a34]',
     icon: HandCoins,
-    highlight: 'This is one of the strongest direct pathways from farm output to real earnings.',
+    highlight: 'For farmers ready to sell, this can connect produce with potential buyers.',
   },
   {
     number: '06',
@@ -196,10 +196,10 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onOpenInquiryModal
             <div className="p-6 sm:p-8 lg:p-10">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--agro-green-700)]">Our solutions</p>
               <h1 className="mt-4 max-w-xl text-3xl font-bold tracking-[-0.06em] text-[var(--agro-charcoal)] sm:text-5xl">
-                Practical Solutions for a More Productive Agriculture
+                Practical support for farms and agricultural businesses
               </h1>
               <p className="mt-5 max-w-xl text-base leading-7 text-[var(--agro-muted)]">
-                From quality inputs and technical support to market access, finance and agricultural technology, we connect smallholder farmers and agricultural businesses to practical solutions designed around their realities.
+                We help farmers and agricultural businesses with inputs, technical support, finance, market access, and agricultural technology.
               </p>
               <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row">
                 <a href="#solution-categories" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--agro-green-700)] px-5 py-3.5 text-sm font-bold text-white transition hover:bg-[var(--agro-green-600)]">
@@ -208,7 +208,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onOpenInquiryModal
                 </a>
                 <button
                   type="button"
-                  onClick={() => onOpenInquiryModal('Commercial Buyer')}
+                  onClick={() => onOpenInquiryModal('General')}
                   className="inline-flex items-center justify-center gap-2 rounded-xl border border-[rgba(29,90,66,0.2)] bg-white px-5 py-3.5 text-sm font-bold text-[var(--agro-green-700)] transition hover:border-[var(--agro-green-700)]"
                 >
                   Talk to GleanAgro
@@ -233,13 +233,13 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onOpenInquiryModal
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">The problem</p>
             <h2 className="mt-3 text-3xl font-bold tracking-[-0.05em] text-[var(--agro-charcoal)] sm:text-4xl">
-              Agriculture Doesn’t Need More Complexity. It Needs Better Solutions.
+              Farming challenges are often connected.
             </h2>
             <p className="mt-4 text-base leading-7 text-[var(--agro-muted)]">
-              Smallholder farmers face interconnected challenges. Access to quality inputs, knowledge, finance, technology and reliable markets can determine whether a farm simply survives or becomes a sustainable business.
+              Access to inputs, practical knowledge, finance, technology, and buyers can all affect a farm's productivity and income.
             </p>
             <p className="mt-3 text-base leading-7 text-[var(--agro-muted)]">
-              GleanAgro brings these critical pieces together into practical solutions that farmers can understand, adopt and grow with.
+              We work across these areas so farmers can find support that fits the challenge they are facing.
             </p>
           </div>
 
@@ -257,7 +257,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onOpenInquiryModal
           <div className="mx-auto max-w-4xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">The GleanAgro solutions ecosystem</p>
             <h2 className="mt-3 text-3xl font-bold tracking-[-0.05em] text-[var(--agro-charcoal)] sm:text-4xl">
-              One Farmer. Multiple Solutions. Greater Opportunity.
+              Support that connects the parts of farming.
             </h2>
           </div>
 
@@ -313,7 +313,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onOpenInquiryModal
           </div>
 
           <p className="mx-auto mt-8 max-w-3xl text-center text-base leading-7 text-[var(--agro-muted)]">
-            Farmers rarely have just one problem. That’s why our approach looks beyond individual products to the broader agricultural ecosystem. We connect farmers to the resources, knowledge, technologies and markets they need to become more productive and build sustainable agricultural enterprises.
+            A farmer may need better inputs and market access, or finance alongside technical guidance. We connect these services so support can address more than one part of the business.
           </p>
         </section>
 
@@ -373,11 +373,11 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onOpenInquiryModal
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">How we create value</p>
             <h2 className="mt-3 text-3xl font-bold tracking-[-0.05em] text-[var(--agro-charcoal)] sm:text-4xl">
-              We Don’t Just Provide Products. We Build Pathways.
+              From a farm challenge to a practical next step.
             </h2>
           </div>
           <p className="mx-auto mt-6 max-w-3xl text-center text-base leading-7 text-[var(--agro-muted)]">
-            Our goal is not simply to provide a product or service. It is to help farmers move from a specific agricultural challenge toward measurable improvement and long-term sustainability.
+            We help farmers identify a challenge, consider useful support, put it into practice, and review what works.
           </p>
         </section>
 
@@ -464,17 +464,17 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onOpenInquiryModal
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">Women & youth</p>
             <h2 className="mt-3 text-3xl font-bold tracking-[-0.05em] text-[var(--agro-charcoal)] sm:text-4xl">
-              Agriculture Should Create Opportunity for Everyone.
+              Support for women and young people in agriculture.
             </h2>
             <p className="mt-4 text-base leading-7 text-[var(--agro-muted)]">
-              We are committed to creating pathways for women and young people to participate meaningfully in agriculture—not only as workers, but as skilled farmers, entrepreneurs, innovators and business owners.
+              We want women and young people to have more ways to build agricultural skills and businesses, with access to practical knowledge, technology, enterprise support, and market connections.
             </p>
             <button
               type="button"
-              onClick={() => onNavigatePage('farmer-hub')}
+              onClick={() => onNavigatePage('contact')}
               className="mt-6 inline-flex items-center gap-2 rounded-xl border border-[rgba(29,90,66,0.2)] bg-white px-5 py-3.5 text-sm font-bold text-[var(--agro-green-700)] transition hover:border-[var(--agro-green-700)]"
             >
-              Explore Women & Youth Opportunities
+              Discuss an opportunity
               <ArrowRight className="h-4 w-4" />
             </button>
           </div>
@@ -491,7 +491,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onOpenInquiryModal
             </p>
             <button
               type="button"
-              onClick={() => onOpenInquiryModal('Commercial Buyer')}
+              onClick={() => onOpenInquiryModal('General')}
               className="mt-7 inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--agro-gold)] px-6 py-3.5 text-sm font-bold text-[#1b2e28] transition hover:bg-[var(--agro-gold-soft)]"
             >
               Talk to GleanAgro

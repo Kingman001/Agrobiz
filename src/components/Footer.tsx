@@ -29,11 +29,11 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
 
             <p className="text-stone-400 text-xs leading-relaxed max-w-sm">
-              {companySettings.tagline}. Operating commercial Fishery, Poultry, and Cattle rearing while empowering smallholder farmers with storage, equipment leasing, and guaranteed market off-take.
+              {companySettings.tagline}. We run fishery, poultry, cattle, and crop enterprises, and work with smallholder farmers on access to practical agricultural support.
             </p>
 
             <div className="text-xs text-stone-500 font-mono">
-              Official Portal: <a href="https://gleanagrong.com/" target="_blank" rel="noreferrer" className="text-emerald-400 hover:underline">gleanagrong.com</a>
+              Website: <a href="https://gleanagrong.com/" target="_blank" rel="noreferrer" className="text-emerald-400 hover:underline">gleanagrong.com</a>
             </div>
           </div>
 
@@ -74,16 +74,6 @@ export const Footer: React.FC<FooterProps> = ({
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigateSection('farmer-hub')} className="hover:text-emerald-300 transition-colors cursor-pointer">
-                  Live Commodity Market Prices
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onNavigateSection('farmer-hub')} className="hover:text-emerald-300 transition-colors cursor-pointer">
-                  Equipment Lease Pool
-                </button>
-              </li>
-              <li>
                 <button onClick={() => onNavigateSection('roadmap')} className="hover:text-emerald-300 transition-colors cursor-pointer">
                   Ecosystem Roadmap
                 </button>
@@ -103,7 +93,7 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Contact Details */}
           <div className="space-y-3">
-            <h4 className="font-serif font-bold text-white text-sm">Contact Info</h4>
+            <h4 className="font-serif font-bold text-white text-sm">Contact</h4>
             <div className="space-y-2.5 text-xs text-stone-300">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />

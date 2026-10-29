@@ -8,6 +8,7 @@ import {
 import { PageHeader } from '../components/PageHeader';
 import { GrowthTracker } from '../components/GrowthTracker';
 import { AIOpportunityAdvisor } from '../components/AIOpportunityAdvisor';
+import { farmerHubFeatures } from '../data/farmerHubFeatures';
 import {
   Tractor,
   TrendingUp,
@@ -37,8 +38,21 @@ export const FarmerHubPage: React.FC<FarmerHubPageProps> = ({
   onOpenInquiryModal,
   onNavigatePage
 }) => {
-  const [activeTab, setActiveTab] = useState<'prices' | 'equipment' | 'training' | 'services'>('prices');
+  const [activeTab, setActiveTab] = useState<'prices' | 'equipment' | 'training' | 'services'>(
+    farmerHubFeatures.marketPrices ? 'prices' : 'services'
+  );
   const [priceSearch, setPriceSearch] = useState('');
+
+  const tabs = [
+    { id: 'prices' as const, label: 'Live Market Prices', icon: TrendingUp, enabled: farmerHubFeatures.marketPrices },
+    { id: 'equipment' as const, label: 'Farm Equipment & Tractor Leasing', icon: Tractor, enabled: farmerHubFeatures.equipmentLeasing },
+    { id: 'training' as const, label: 'Agronomy Training Academy', icon: BookOpen, enabled: farmerHubFeatures.agronomyTraining },
+    { id: 'services' as const, label: 'Outgrower Support Services', icon: HandCoins, enabled: true }
+  ].filter(tab => tab.enabled);
+  const availableServices = smallholderServices.filter(service =>
+    (service.category !== 'equipment' || farmerHubFeatures.equipmentLeasing) &&
+    (service.category !== 'training' || farmerHubFeatures.agronomyTraining)
+  );
   
   // Commodity calculator
   const [selectedCommodityId, setSelectedCommodityId] = useState(liveMarketPrices[0].id);
@@ -57,10 +71,10 @@ export const FarmerHubPage: React.FC<FarmerHubPageProps> = ({
     <div className="min-h-screen bg-stone-50 pb-20">
       {/* Page Header */}
       <PageHeader
-        title="Farmer Hub & Interactive Agribusiness Tools"
-        subtitle="Access live farm-gate commodity market prices, equipment & tractor leasing catalog, input credit, and expert agronomy training workshops."
-        categoryTag="Glean Agro Farmer Services"
-        breadcrumbs={[{ label: "Farmer Hub & Tools" }]}
+        title="Farmer Hub"
+        subtitle="Explore outgrower support, track farm progress, and contact our advisory desk."
+        categoryTag="GleanAgro Farmer Services"
+        breadcrumbs={[{ label: "Farmer Hub" }]}
         onNavigatePage={onNavigatePage}
       />
 
@@ -71,12 +85,7 @@ export const FarmerHubPage: React.FC<FarmerHubPageProps> = ({
         <div className="bg-white p-4 rounded-2xl border border-stone-200 shadow-sm flex flex-wrap items-center justify-between gap-3">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">Farmer Tools</p>
           <div className="flex flex-wrap items-center gap-2">
-            {([
-              { id: 'prices', label: 'Live Market Prices', icon: TrendingUp },
-              { id: 'equipment', label: 'Farm Equipment & Tractor Leasing', icon: Tractor },
-              { id: 'training', label: 'Agronomy Training Academy', icon: BookOpen },
-              { id: 'services', label: 'Outgrower Support Services', icon: HandCoins }
-            ] as const).map(tab => {
+            {tabs.map(tab => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
               return (
@@ -96,10 +105,6 @@ export const FarmerHubPage: React.FC<FarmerHubPageProps> = ({
             })}
           </div>
 
-          <div className="hidden lg:flex items-center gap-2 text-xs text-stone-500 font-mono">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-            <span>Live Regional Market Feed • Updated Daily</span>
-          </div>
         </div>
 
         {/* TAB 1: Live Market Commodity Prices */}
@@ -377,7 +382,7 @@ export const FarmerHubPage: React.FC<FarmerHubPageProps> = ({
         {/* TAB 4: Outgrower Support Services */}
         {activeTab === 'services' && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {smallholderServices.map((svc) => (
+            {availableServices.map((svc) => (
               <div key={svc.id} className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4 flex flex-col justify-between">
                 <div className="space-y-3">
                   <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-bold uppercase">

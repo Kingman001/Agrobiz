@@ -70,9 +70,9 @@ export const ProducePage: React.FC<ProducePageProps> = ({
     <div className="min-h-screen bg-stone-50 pb-20">
       {/* Page Banner Header */}
       <PageHeader
-        title="Commercial Produce & Agricultural Enterprises"
-        subtitle="Discover Glean Agro Nigeria's high-yield, bio-secure farming operations across Fishery, Poultry, Livestock Rearing, and Arable Crops."
-        categoryTag="Glean Agro Agricultural Enterprises"
+        title="Produce & Farm Enterprises"
+        subtitle="Learn about GleanAgro's fishery, poultry, cattle, and crop enterprises."
+        categoryTag="GleanAgro Enterprises"
         breadcrumbs={[{ label: "Produce & Enterprises" }]}
         onNavigatePage={onNavigatePage}
       />
@@ -247,14 +247,14 @@ export const ProducePage: React.FC<ProducePageProps> = ({
             <div className="space-y-1">
               <div className="inline-flex items-center gap-2 text-emerald-400 text-xs font-mono font-bold uppercase">
                 <Calculator className="w-4 h-4" />
-                <span>Commercial Off-Take Estimator</span>
+                <span>Order Volume Planner</span>
               </div>
               <h3 className="text-2xl font-serif font-bold text-stone-100">
-                Bulk Produce Order & Schedule Calculator
+                Plan a Produce Enquiry
               </h3>
             </div>
             <span className="text-xs text-stone-400">
-              Glean Agro Direct Wholesale Hub
+              GleanAgro produce
             </span>
           </div>
 
@@ -300,14 +300,14 @@ export const ProducePage: React.FC<ProducePageProps> = ({
               </div>
 
               <p className="text-xs text-stone-400">
-                * Note: Minimum order quantities apply for farm-gate dispatch. Cold-chain transportation available across Oyo, Lagos, Ogun, and regional markets.
+                Minimum order quantities may apply. Contact us to confirm availability and delivery options for your location.
               </p>
             </div>
 
             {/* Calculated Output Box */}
             <div className="md:col-span-5 bg-stone-950 p-6 rounded-2xl border border-stone-800 space-y-4 text-center md:text-left">
               <span className="text-xs text-emerald-400 font-mono uppercase font-bold">
-                Off-take Logistics Profile
+                Order details
               </span>
               <div>
                 <div className="text-xs text-stone-400">Selected Enterprise</div>
@@ -315,12 +315,12 @@ export const ProducePage: React.FC<ProducePageProps> = ({
               </div>
               <div className="grid grid-cols-2 gap-3 pt-2 border-t border-stone-800 text-xs">
                 <div>
-                  <span className="text-stone-400 block">Supply Window</span>
-                  <span className="font-bold text-emerald-300">Weekly Scheduled</span>
+                  <span className="text-stone-400 block">Availability</span>
+                  <span className="font-bold text-emerald-300">Confirm with our team</span>
                 </div>
                 <div>
-                  <span className="text-stone-400 block">Cold Chain Transit</span>
-                  <span className="font-bold text-emerald-300">Included</span>
+                  <span className="text-stone-400 block">Delivery options</span>
+                  <span className="font-bold text-emerald-300">Ask about availability</span>
                 </div>
               </div>
 
@@ -329,22 +329,22 @@ export const ProducePage: React.FC<ProducePageProps> = ({
                 className="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl font-bold text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Handshake className="w-4 h-4" />
-                <span>Submit Custom Order Request</span>
+                <span>Discuss this order</span>
               </button>
             </div>
 
           </div>
         </div>
 
-        {/* Quality & Biosecurity Certifications Grid */}
+        {/* Farm and handling practices */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
           <div className="p-6 bg-white rounded-2xl border border-stone-200 shadow-sm space-y-3">
             <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
               <ShieldCheck className="w-6 h-6" />
             </div>
-            <h4 className="font-bold text-stone-900 text-base">Biosecure Farm Protocols</h4>
+            <h4 className="font-bold text-stone-900 text-base">Biosecurity practices</h4>
             <p className="text-xs text-stone-600 leading-relaxed">
-              Strict footbath sanitation, veterinary audits, and zero antibiotic growth promoters across all poultry and livestock pens.
+              Farm protocols include footbath sanitation, veterinary audits, and no antibiotic growth promoters in poultry and livestock pens.
             </p>
           </div>
 
@@ -352,9 +352,9 @@ export const ProducePage: React.FC<ProducePageProps> = ({
             <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold">
               <Truck className="w-6 h-6" />
             </div>
-            <h4 className="font-bold text-stone-900 text-base">Cool-Chain Logistics</h4>
+            <h4 className="font-bold text-stone-900 text-base">Cold storage and transport</h4>
             <p className="text-xs text-stone-600 leading-relaxed">
-              Temperature-monitored refrigerated trucks and solar cold storage pods ensure farm-fresh produce delivers with zero spoilage.
+              Refrigerated transport and solar cold storage are listed among our post-harvest options. Contact us to confirm what is available for your location.
             </p>
           </div>
 
@@ -362,9 +362,9 @@ export const ProducePage: React.FC<ProducePageProps> = ({
             <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
               <Award className="w-6 h-6" />
             </div>
-            <h4 className="font-bold text-stone-900 text-base">Full Traceability</h4>
+            <h4 className="font-bold text-stone-900 text-base">Product records</h4>
             <p className="text-xs text-stone-600 leading-relaxed">
-              Every batch of fingerlings, eggs, and grains is recorded with harvest timestamps and hatchery logs for complete transparency.
+              Our listed records include harvest dates and hatchery logs. Ask us about records for a specific product or order.
             </p>
           </div>
         </div>

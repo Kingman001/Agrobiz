@@ -5,6 +5,7 @@ import {
   equipmentCatalog,
   trainingCourses
 } from '../data/agribusinessData';
+import { farmerHubFeatures } from '../data/farmerHubFeatures';
 import {
   Calculator,
   Warehouse,
@@ -31,6 +32,12 @@ export const FarmerHubTools: React.FC<FarmerHubToolsProps> = ({
   onOpenInquiryModal
 }) => {
   const [activeTab, setActiveTab] = useState<'calculator' | 'storage' | 'prices' | 'equipment' | 'training'>('calculator');
+  const tabs = [
+    { id: 'calculator' as const, label: 'Yield & Income Boost Calculator', icon: Calculator, enabled: true },
+    { id: 'prices' as const, label: 'Live Commodity Market Board', icon: TrendingUp, enabled: farmerHubFeatures.marketPrices },
+    { id: 'equipment' as const, label: 'Equipment & Supplies Lease', icon: Tractor, enabled: farmerHubFeatures.equipmentLeasing },
+    { id: 'training' as const, label: 'Agronomy Workshops & Guides', icon: BookOpen, enabled: farmerHubFeatures.agronomyTraining }
+  ].filter(tab => tab.enabled);
 
   // Calculator State
   const [enterpriseType, setEnterpriseType] = useState<'catfish' | 'poultry' | 'maize' | 'cattle'>('catfish');
@@ -139,7 +146,7 @@ export const FarmerHubTools: React.FC<FarmerHubToolsProps> = ({
             <span>Interactive Smallholder Support Suite</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-stone-900 tracking-tight">
-            Farmer Hub: Yield Calculators, Market Prices & Equipment Leasing
+            Farmer Hub: Farm planning tools and support
           </h2>
           <p className="text-stone-600 text-base leading-relaxed">
             Test how our ecosystem tools can increase your farm yield, protect your harvests from post-harvest rot, and connect you directly to commercial buyers.
@@ -148,12 +155,7 @@ export const FarmerHubTools: React.FC<FarmerHubToolsProps> = ({
 
         {/* Feature Navigation Tabs */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-          {([
-            { id: 'calculator', label: 'Yield & Income Boost Calculator', icon: Calculator },
-            { id: 'prices', label: 'Live Commodity Market Board', icon: TrendingUp },
-            { id: 'equipment', label: 'Equipment & Supplies Lease', icon: Tractor },
-            { id: 'training', label: 'Agronomy Workshops & Guides', icon: BookOpen }
-          ] as const).map((tab) => {
+          {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
             return (

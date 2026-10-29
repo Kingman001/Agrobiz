@@ -14,7 +14,7 @@ import cropsImage from '../assets/images/smallholder_farmer_hub_1784882677913.jp
 
 export const defaultCompanySettings: CompanySettings = {
   name: "Glean Agro",
-  tagline: "Redefining Agribusiness & Smallholder Ecosystems in Nigeria",
+  tagline: "Practical agricultural support for farmers and businesses in Nigeria",
   foundingYear: "2023",
   location: "Office: No. 5B Old Sokoto Road MTD Hanwa Zaria, Kaduna State | Farm: Gazara, Makarfi, Kaduna State, Nigeria",
   officeAddress: "No. 5B Old Sokoto Road MTD Hanwa Zaria, Kaduna State, Nigeria",
@@ -95,8 +95,8 @@ export const producePillars: ProducePillar[] = [
   },
   {
     id: "poultry",
-    title: "Sustainable Poultry Enterprise",
-    subtitle: "Broiler Meat Production, Fresh Farm Eggs & Organic Poultry Feed",
+    title: "Poultry & Egg Production",
+    subtitle: "Broilers, farm eggs, and poultry feed",
     category: "poultry",
     icon: "Bird",
     image: poultryImage,
@@ -119,12 +119,12 @@ export const producePillars: ProducePillar[] = [
   },
   {
     id: "cattle",
-    title: "Holistic Cattle & Livestock Rearing",
-    subtitle: "Ethical Beef Cattle, Pasture Milk & Genetic Improvement",
+    title: "Cattle Rearing",
+    subtitle: "Cattle for meat and milk, raised on managed pasture",
     category: "cattle",
     icon: "Beef",
     image: cattleImage,
-    description: "Focusing on zero-grazing paddocks and intensive pasture management to rear healthier cattle with high meat-to-bone ratios and clean milk yields, while eliminating farmer-herder conflicts.",
+    description: "We use zero-grazing paddocks and managed pasture to raise cattle for meat and milk, reducing reliance on open grazing.",
     keyFeatures: [
       "High-Yield Cross-Breeds (Friesian, White Fulani, Brahman)",
       "Enclosed Fodder & Hydroponic Green Feed Production",
@@ -143,7 +143,7 @@ export const producePillars: ProducePillar[] = [
   },
   {
     id: "crops",
-    title: "Arable Produce & Grains",
+    title: "Crops & Grains",
     subtitle: "Yellow Maize, Cassava Tubers, Soybeans & Fresh Vegetables",
     category: "crops",
     icon: "Sprout",
@@ -475,19 +475,19 @@ export const trainingCourses: TrainingCourse[] = [
 
 export const faqItems = [
   {
-    q: "How does Glean Agro ensure high-quality product supply without delays?",
-    a: "Glean Agro operates integrated commercial farming facilities across Nigeria in catfish, tilapia, broiler poultry, egg production, and cattle fattening. This guarantees immediate, high-volume produce supply while our smallholder outgrower aggregator network scales across rural farming clusters."
+    q: "What does GleanAgro produce?",
+    a: "GleanAgro's commercial farming operations include catfish, tilapia, poultry, eggs, cattle, and crops. Availability and quantities vary, so contact us to discuss a specific product."
   },
   {
     q: "How can smallholder farmers join your support network?",
-    a: "Farmers can register through our online Smallholder Hub, visit our physical regional farm centers, or contact our extension officers. Once enrolled, farmers gain access to training, subsidized equipment leasing, and off-take buyback contracts."
+    a: "Contact us with your location, the type of farming you do, and the support you need. Our team can discuss current options with you."
   },
   {
-    q: "Can commercial buyers or hotels lock in off-take supply contracts?",
-    a: "Yes! We specialize in formal off-take contracts for commercial kitchens, supermarkets, food processors, and exporters. We guarantee consistent weekly deliveries with strict quality and hygiene standards."
+    q: "Can buyers discuss regular produce orders?",
+    a: "Yes. Tell us what produce you need, the quantity, and your delivery requirements. We can confirm current availability and discuss next steps."
   },
   {
-    q: "How can impact investors or NGOs partner with your platform?",
-    a: "We welcome partnerships with impact investors, multilateral donor organizations, and agricultural development agencies to expand our solar cold storage pods, equipment fleets, and input credit pools."
+    q: "Can organisations discuss a partnership with GleanAgro?",
+    a: "Yes. We welcome conversations with organisations interested in contributing knowledge, finance, technology, market connections, or other relevant support."
   }
 ];

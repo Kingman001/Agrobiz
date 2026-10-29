@@ -39,8 +39,8 @@ interface GrowthTrackerProps {
 
 export const GrowthTracker: React.FC<GrowthTrackerProps> = ({
   onOpenInquiryModal,
-  title = "Glean Agro Productivity & Yield Growth Tracker",
-  subtitle = "Tracking real agricultural yield gains, smallholder income surge, and post-harvest loss elimination across Nigeria from 2022 to 2026."
+  title = "Farm Progress Tracker",
+  subtitle = "Compare the figures shown for crop yields, farmer income, post-harvest losses, and the outgrower network. Confirm current figures with GleanAgro before relying on them."
 }) => {
   const [activeMetric, setActiveMetric] = useState<'yield' | 'income' | 'loss' | 'network'>('yield');
   const [chartType, setChartType] = useState<'area' | 'bar' | 'line'>('area');
@@ -113,7 +113,7 @@ export const GrowthTracker: React.FC<GrowthTrackerProps> = ({
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 text-emerald-900 rounded-full text-xs font-mono font-bold uppercase tracking-wider mb-2">
             <TrendingUp className="w-3.5 h-3.5 text-emerald-700" />
-            <span>Verified Impact & Growth Analytics</span>
+            <span>Farm Progress</span>
           </div>
           <h3 className="text-2xl sm:text-3xl font-serif font-bold text-stone-900 tracking-tight">
             {title}
@@ -155,7 +155,7 @@ export const GrowthTracker: React.FC<GrowthTrackerProps> = ({
         >
           <div className="flex items-center justify-between">
             <span className={`text-xs font-mono font-bold uppercase ${activeMetric === 'yield' ? 'text-emerald-200' : 'text-emerald-800'}`}>
-              Crop Yield Gain
+              Crop Yield
             </span>
             <Sprout className={`w-4 h-4 ${activeMetric === 'yield' ? 'text-emerald-300' : 'text-emerald-700'}`} />
           </div>
@@ -360,7 +360,7 @@ export const GrowthTracker: React.FC<GrowthTrackerProps> = ({
           <div className="flex items-center gap-2">
             <Award className="w-4 h-4 text-emerald-700 shrink-0" />
             <span>
-              <strong>Key Growth Driver:</strong> Certified hybrid seed inputs, Mechanized tractor leasing, quality storage facilities, and guaranteed buybacks at farm-gate.
+              <strong>Factors to consider:</strong> Seed choice, machinery, storage, and potential buyer arrangements.
             </span>
           </div>
         </div>

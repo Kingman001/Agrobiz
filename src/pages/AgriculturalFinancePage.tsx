@@ -13,7 +13,7 @@ export const AgriculturalFinancePage: React.FC<AgriculturalFinancePageProps> = (
   return (
     <div className="min-h-screen bg-stone-50 pb-20">
       <PageHeader
-        title="Helping Farmers Access the Capital They Need to Grow"
+        title="Helping Farmers Prepare for Finance"
         subtitle="GleanAgro helps farmers understand their financial needs, prepare for financing and connect with appropriate funding opportunities to support productive growth."
         categoryTag="Agricultural Finance"
         breadcrumbs={[{ label: 'Agricultural Finance' }]}
@@ -26,7 +26,7 @@ export const AgriculturalFinancePage: React.FC<AgriculturalFinancePageProps> = (
         <section className="overflow-hidden rounded-[1.5rem] border border-stone-200 bg-white shadow-[0_18px_40px_rgba(15,47,43,0.06)] lg:flex lg:items-center">
           <div className="p-8 lg:flex-1">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">AGRICULTURAL FINANCE</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-[-0.04em] text-[var(--agro-charcoal)] sm:text-4xl">Capital for Better Agricultural Opportunities</h2>
+            <h2 className="mt-4 text-3xl font-bold tracking-[-0.04em] text-[var(--agro-charcoal)] sm:text-4xl">Plan for the Capital Your Farm Needs</h2>
             <p className="mt-4 text-base leading-7 text-[var(--agro-muted)]">We help farmers and agricultural enterprises understand their financial needs, prepare for financing and connect with appropriate funding opportunities to support productive growth.</p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -34,7 +34,7 @@ export const AgriculturalFinancePage: React.FC<AgriculturalFinancePageProps> = (
               <button onClick={() => onOpenInquiryModal('General')} className="inline-flex items-center gap-2 rounded-xl border border-[rgba(29,90,66,0.12)] px-5 py-3.5 text-sm font-bold">Talk to GleanAgro</button>
             </div>
 
-            <p className="mt-6 text-sm text-[var(--agro-muted)]">GleanAgro is not necessarily the financier — we act as a bridge between farmers and appropriate financing opportunities while helping farmers become finance-ready.</p>
+            <p className="mt-6 text-sm text-[var(--agro-muted)]">GleanAgro is not a lender. We help farmers understand their needs, prepare for financing, and explore options with relevant providers.</p>
           </div>
 
           <div className="relative lg:w-1/2 min-h-[260px] overflow-hidden bg-stone-900">
@@ -73,7 +73,7 @@ export const AgriculturalFinancePage: React.FC<AgriculturalFinancePageProps> = (
             </div>
           </div>
 
-          <div className="mt-6 mx-auto max-w-3xl text-center text-sm text-[var(--agro-muted)]">The problem isn't always simply "there is no money." Sometimes it's: the farmer isn't ready for the money. That gives GleanAgro a much more valuable role.</div>
+          <div className="mt-6 mx-auto max-w-3xl text-center text-sm text-[var(--agro-muted)]">Good records and a realistic plan can help farmers explain what they need and assess whether financing is suitable.</div>
         </section>
 
         {/* OUR SOLUTION */}
@@ -226,7 +226,7 @@ export const AgriculturalFinancePage: React.FC<AgriculturalFinancePageProps> = (
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">Financing pathways</p>
             <h3 className="mt-3 text-3xl font-bold tracking-[-0.04em] text-[var(--agro-charcoal)] sm:text-4xl">Different Needs. Different Financing Pathways.</h3>
-            <p className="mt-4 text-sm text-[var(--agro-muted)]">Instead of one generic loan option, show pathways that match the purpose of financing.</p>
+            <p className="mt-4 text-sm text-[var(--agro-muted)]">The right option depends on what the farm needs to finance and what it can reasonably repay.</p>
           </div>
 
           <div className="mt-6 mx-auto max-w-4xl grid gap-4 md:grid-cols-2 lg:grid-cols-3">

@@ -48,7 +48,7 @@ export const RoadmapPage: React.FC<RoadmapPageProps> = ({
       {/* Page Header */}
       <PageHeader
         title="Smallholder Ecosystem Roadmap & Outgrower Scheme"
-        subtitle="A phased, sustainable strategy transforming rural farming through anchor enterprise farming, solar cold storage, shared tractors, input credit, and guaranteed market off-take."
+        subtitle="A phased plan for farm production, storage, equipment, finance, and market connections."
         categoryTag="Glean Agro Smallholder Strategy"
         breadcrumbs={[{ label: "Smallholder Roadmap" }]}
         onNavigatePage={onNavigatePage}

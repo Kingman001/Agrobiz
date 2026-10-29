@@ -71,7 +71,7 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="relative min-h-[360px] overflow-hidden rounded-[2rem] border border-white/15 bg-stone-900/40 shadow-2xl shadow-black/30 sm:min-h-[470px]">
             <img
               src={heroBannerImage}
-              alt="African farmers working in a field with a modern agricultural ecosystem"
+              alt="Farmers working in a field"
               className="h-full min-h-[360px] w-full object-cover object-center transition-transform duration-[4000ms] hover:scale-105 sm:min-h-[470px]"
               referrerPolicy="no-referrer"
             />
