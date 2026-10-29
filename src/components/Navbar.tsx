@@ -195,24 +195,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             })}
           </nav>
 
-          {/* Header Action Buttons */}
-          <div className="hidden sm:flex items-center gap-3">
-            <button
-              onClick={() => onOpenInquiryModal('Smallholder Farmer')}
-              className="px-4 py-2 rounded-lg border border-emerald-700 text-emerald-800 hover:bg-emerald-50 text-sm font-bold transition-all flex items-center gap-1.5 cursor-pointer"
-            >
-              <Tractor className="w-4 h-4 text-emerald-700" />
-              <span>Farmer Hub</span>
-            </button>
-            <button
-              onClick={() => onOpenInquiryModal('Commercial Buyer')}
-              className="px-4 py-2 rounded-lg bg-emerald-800 hover:bg-emerald-900 text-white text-sm font-bold shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
-            >
-              <Handshake className="w-4 h-4 text-emerald-300" />
-              <span>Bulk Off-Take</span>
-            </button>
-          </div>
-
+          
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-2">
             <button
@@ -299,33 +282,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <button onClick={() => handleNavClick('contact')} className="w-full text-left px-3 py-3 rounded-lg text-stone-200 hover:bg-stone-800">
               Contact
-            </button>
-
-            <button onClick={() => { setMobileMenuOpen(false); onOpenInquiryModal('General'); }} className="w-full text-left px-3 py-3 rounded-lg bg-emerald-700 text-white font-bold">
-              Partner With Us
-            </button>
-          </div>
-
-          <div className="pt-3 border-t border-stone-800 grid grid-cols-2 gap-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenInquiryModal('Smallholder Farmer');
-              }}
-              className="w-full py-2.5 px-3 bg-stone-800 hover:bg-stone-700 text-emerald-300 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5"
-            >
-              <Tractor className="w-4 h-4" />
-              Farmer Hub
-            </button>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenInquiryModal('Commercial Buyer');
-              }}
-              className="w-full py-2.5 px-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold flex items-center justify-center gap-1.5"
-            >
-              <Handshake className="w-4 h-4" />
-              Bulk Off-Take
             </button>
           </div>
         </div>

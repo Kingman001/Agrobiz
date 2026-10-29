@@ -20,8 +20,8 @@ export const defaultCompanySettings: CompanySettings = {
   officeAddress: "No. 5B Old Sokoto Road MTD Hanwa Zaria, Kaduna State, Nigeria",
   farmLocation: "Gazara, Makarfi, Kaduna State, Nigeria",
   email: "info@gleanagrong.com",
-  phone: "+234 813 440 7110",
-  whatsapp: "+234 703 596 1713"
+  phone: "+234 905 078 5803",
+  whatsapp: "+234 809 935 8250"
 };
 
 export interface GrowthMetricPoint {
@@ -35,43 +35,35 @@ export interface GrowthMetricPoint {
 
 export const yieldGrowthData: GrowthMetricPoint[] = [
   {
-    year: "2022",
-    maizeYieldTonsPerHa: 1.8,
-    smallholderIncomeNaira: 450000,
-    postHarvestLossPercent: 38,
-    outgrowerNetworkCount: 1200,
-    aquacultureProductionTons: 25
-  },
-  {
     year: "2023",
     maizeYieldTonsPerHa: 3.2,
-    smallholderIncomeNaira: 820000,
+    smallholderIncomeNaira: 180000,
     postHarvestLossPercent: 24,
-    outgrowerNetworkCount: 3800,
+    outgrowerNetworkCount: 150,
     aquacultureProductionTons: 60
   },
   {
     year: "2024",
-    maizeYieldTonsPerHa: 4.8,
-    smallholderIncomeNaira: 1450000,
+    maizeYieldTonsPerHa: 3.5,
+    smallholderIncomeNaira: 200000,
     postHarvestLossPercent: 14,
-    outgrowerNetworkCount: 7500,
+    outgrowerNetworkCount: 300,
     aquacultureProductionTons: 110
   },
   {
     year: "2025",
-    maizeYieldTonsPerHa: 6.1,
-    smallholderIncomeNaira: 2200000,
+    maizeYieldTonsPerHa: 3.8,
+    smallholderIncomeNaira: 375000,
     postHarvestLossPercent: 8,
-    outgrowerNetworkCount: 11200,
+    outgrowerNetworkCount: 400,
     aquacultureProductionTons: 180
   },
   {
     year: "2026",
-    maizeYieldTonsPerHa: 7.5,
-    smallholderIncomeNaira: 3100000,
-    postHarvestLossPercent: 4,
-    outgrowerNetworkCount: 15000,
+    maizeYieldTonsPerHa: 4.7,
+    smallholderIncomeNaira: 725000,
+    postHarvestLossPercent: 2,
+    outgrowerNetworkCount: 500,
     aquacultureProductionTons: 250
   }
 ];

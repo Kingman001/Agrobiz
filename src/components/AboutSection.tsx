@@ -47,11 +47,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               </p>
 
               <p>
-                To solve this at scale, we started as a high-yield commercial producer in <strong className="text-emerald-800">Fishery</strong>, <strong className="text-emerald-800">Poultry</strong>, <strong className="text-emerald-800">Cattle rearing</strong>, and <strong className="text-emerald-800">Arable grains</strong>. By building and mastering our own 120-hectare flagship operation, we established direct commercial off-take contracts with hotels, supermarkets, and processors.
+                To solve this at scale, we started as a high-yield commercial producer in <strong className="text-emerald-800">Fishery</strong>, <strong className="text-emerald-800">Poultry</strong>, <strong className="text-emerald-800">Cattle rearing</strong>, and <strong className="text-emerald-800">Arable grains</strong>.
               </p>
 
               <p>
-                Now, we are opening our value chain to rural smallholders — offering decentralized solar cold storage, shared equipment leasing, input credit, and guaranteed market off-take.
+                Now, we are opening our value chain to rural smallholders — offering shared equipment leasing, input credit, and guaranteed market off-take.
               </p>
             </div>
 

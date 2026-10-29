@@ -19,7 +19,7 @@ import princessImage from '../assets/team/princess-adaeze.jpg';
 import murtalaImage from '../assets/team/murtala-muazu.jpg';
 import hannatuImage from '../assets/team/hannatu-yusuf.jpg';
 import johnImage from '../assets/team/john-shijah-bala.jpg';
-import joshuaImage from '../assets/team/joshua-ishaku.png';
+import joshuaImage from '../assets/team/joshua-ishaku.jpg';
 import seyiImage from '../assets/team/seyi-edwards.jpg';
 import amakaImage from '../assets/team/amaka-obehi.jpg';
 import appoloImage from '../assets/team/appolo-goma.jpg';
@@ -135,7 +135,7 @@ export const OurTeamPage: React.FC<PageProps> = ({ onNavigatePage, onOpenInquiry
           [murtalaImage, "Murtala Mu'azu", 'Commercial Manager'],
           [hannatuImage, 'Hannatu Yusuf', 'Director of People and Culture'],
           [johnImage, 'John Shijah Bala', 'Field Operations Lead'],
-    [joshuaImage, 'Ishaku Joshua Audu', 'Product Lead'],
+    [joshuaImage, 'Ishaku Joshua Audu', 'Chief Technology Officer'],
         ].map(([image, name, role]) => <article key={name} className="agro-card overflow-hidden"><img src={image} alt={`${name}, ${role}`} className="h-64 w-full object-cover object-top" /><div className="p-5"><h2 className="text-lg font-bold">{name}</h2><p className="mt-1 text-sm font-semibold text-emerald-700">{role}</p></div></article>)}
       </div>
       <section className="rounded-3xl border border-stone-200 bg-white p-8 sm:p-12"><Users className="mb-5 h-10 w-10 text-emerald-700" /><h2 className="text-3xl font-bold">Work with the team</h2><p className="mt-4 max-w-2xl text-base leading-relaxed text-stone-600">For current enquiries, partnerships, and agricultural support requests, contact the GleanAgro team directly.</p><div className="mt-7"><CTA onNavigatePage={onNavigatePage} onOpenInquiryModal={onOpenInquiryModal} label="Connect With GleanAgro" /></div></section>

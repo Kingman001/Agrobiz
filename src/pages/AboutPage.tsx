@@ -16,7 +16,7 @@ import {
   Wheat,
 } from 'lucide-react';
 import { CompanySettings, InquiryCallback } from '../types';
-import heroImage from '../assets/images/smallholder_farmer_hub_1784882677913.jpg';
+import heroImage from '../assets/images/hero-img.jpg';
 
 interface AboutPageProps {
   companySettings: CompanySettings;

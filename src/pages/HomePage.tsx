@@ -3,7 +3,7 @@ import { CompanySettings, InquiryCallback, ProducePillar } from '../types';
 import { Hero } from '../components/Hero';
 import { PartnershipsSection } from '../components/PartnershipsSection';
 import { ArrowRight, Sprout, Warehouse, TrendingUp, Users, Leaf, HandCoins, Stethoscope, CircleDollarSign, BriefcaseBusiness, BookOpenText, Coins, Cpu, Store, UserRound } from 'lucide-react';
-import innovationFarmImage from '../assets/images/smallholder_farmer_hub_1784882677913.jpg';
+import innovationFarmImage from '../assets/images/farm.jpg';
 import FatimaImage from '../assets/images/fatima.jpg';
 import habibaAbasImage from '../assets/images/habiba.webp';
 import daudaImage from '../assets/images/dauda.jpg';
@@ -102,7 +102,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               Smallholder farmers feed the country. They deserve systems built around their reality.
             </h2>
             <p className="mt-4 text-base text-[var(--agro-muted)]">
-              We work at the intersection of production, enterprise, knowledge and market access so farmers can move from survival to sustainable growth.
+              We work at the intersection of production, enterprise, knowledge, and market access — helping farmers move from just surviving to growing sustainably.
             </p>
           </div>
 
@@ -126,7 +126,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               One farmer. One ecosystem. Better opportunity.
             </h2>
             <p className="mt-4 text-base text-[var(--agro-muted)]">
-              We connect the practical support farmers need to produce, earn, learn and grow more confidently.
+              We connect farmers with the practical support they need to produce more, earn more, learn more, and grow with greater confidence.
             </p>
           </div>
 
@@ -293,7 +293,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              ['300+', 'Smallholders Supported', 'Smallholder farmers equipped with input financing and essential training.'],
+              ['1,000+', 'Smallholders Supported To Date', 'Smallholder farmers equipped with input financing and essential training.'],
               ['₦150M+', 'Input Financing', 'Low-cost seeds, fertilizers, and crop protection delivered straight to fields.'],
               ['65%', 'Women & Youth', 'Active inclusion and leadership development across our training hubs.'],
               ['98%', 'Storage Quality', 'Grains successfully protected from post-harvest waste using warehousing solutions.'],

@@ -73,7 +73,7 @@ export const FarmerHubPage: React.FC<FarmerHubPageProps> = ({
           <div className="flex flex-wrap items-center gap-2">
             {([
               { id: 'prices', label: 'Live Market Prices', icon: TrendingUp },
-              { id: 'equipment', label: 'Equipment & Tractor Leasing', icon: Tractor },
+              { id: 'equipment', label: 'Farm Equipment & Tractor Leasing', icon: Tractor },
               { id: 'training', label: 'Agronomy Training Academy', icon: BookOpen },
               { id: 'services', label: 'Outgrower Support Services', icon: HandCoins }
             ] as const).map(tab => {
@@ -185,7 +185,7 @@ export const FarmerHubPage: React.FC<FarmerHubPageProps> = ({
                   <span>Interactive Commodity Value Calculator</span>
                 </div>
                 <h4 className="text-xl font-serif font-bold text-stone-100">
-                  Calculate Estimated Farm-Gate Harvest Value
+                  Calculate Estimated Harvest Value
                 </h4>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -426,11 +426,11 @@ export const FarmerHubPage: React.FC<FarmerHubPageProps> = ({
           </div>
 
           <a
-            href="tel:+2348134407110"
+            href="tel:+2349050785803"
             className="px-6 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-stone-950 rounded-xl font-bold text-sm shadow-md transition-all shrink-0 flex items-center gap-2"
           >
             <Phone className="w-5 h-5" />
-            <span>Call +234 813 440 7110</span>
+            <span>Call +234 905 078 5803</span>
           </a>
         </div>
 

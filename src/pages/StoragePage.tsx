@@ -19,7 +19,7 @@ import {
   Wheat,
 } from 'lucide-react';
 import { InquiryCallback } from '../types';
-import heroImage from '../assets/images/agribusiness_hero_banner_1784882619239.jpg';
+import heroImage from '../assets/images/harvest.jpeg';
 
 interface StoragePageProps {
   onOpenInquiryModal: InquiryCallback;

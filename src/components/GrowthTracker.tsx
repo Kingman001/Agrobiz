@@ -160,7 +160,7 @@ export const GrowthTracker: React.FC<GrowthTrackerProps> = ({
             <Sprout className={`w-4 h-4 ${activeMetric === 'yield' ? 'text-emerald-300' : 'text-emerald-700'}`} />
           </div>
           <div className="text-2xl font-serif font-bold">
-            7.5 <span className="text-xs font-normal">Tons / Ha</span>
+            4.7 <span className="text-xs font-normal">Tons / Ha</span>
           </div>
           <div className={`text-[11px] font-medium flex items-center gap-1 ${activeMetric === 'yield' ? 'text-emerald-200' : 'text-emerald-700'}`}>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -184,11 +184,11 @@ export const GrowthTracker: React.FC<GrowthTrackerProps> = ({
             <Sparkles className={`w-4 h-4 ${activeMetric === 'income' ? 'text-amber-300' : 'text-amber-700'}`} />
           </div>
           <div className="text-2xl font-serif font-bold">
-            ₦3.1 Million <span className="text-xs font-normal">/ year</span>
+            ₦725,000 <span className="text-xs font-normal">/ year</span>
           </div>
           <div className={`text-[11px] font-medium flex items-center gap-1 ${activeMetric === 'income' ? 'text-amber-200' : 'text-amber-700'}`}>
             <ArrowUpRight className="w-3.5 h-3.5" />
-            <span>+588% smallholder revenue</span>
+            <span>+302% smallholder revenue</span>
           </div>
         </button>
 
@@ -208,10 +208,10 @@ export const GrowthTracker: React.FC<GrowthTrackerProps> = ({
             <ShieldCheck className={`w-4 h-4 ${activeMetric === 'loss' ? 'text-rose-300' : 'text-rose-700'}`} />
           </div>
           <div className="text-2xl font-serif font-bold">
-            4% <span className="text-xs font-normal">Loss (Down from 38%)</span>
+            2% <span className="text-xs font-normal">Loss (Down from 24%)</span>
           </div>
           <div className={`text-[11px] font-medium flex items-center gap-1 ${activeMetric === 'loss' ? 'text-rose-200' : 'text-rose-700'}`}>
-            <span>Solar cold pods + direct off-take</span>
+            <span>Market linkage + direct off-take</span>
           </div>
         </button>
 
@@ -231,7 +231,7 @@ export const GrowthTracker: React.FC<GrowthTrackerProps> = ({
             <Users className={`w-4 h-4 ${activeMetric === 'network' ? 'text-sky-300' : 'text-sky-700'}`} />
           </div>
           <div className="text-2xl font-serif font-bold">
-            300+ <span className="text-xs font-normal">Farmers</span>
+            1,000+ <span className="text-xs font-normal">Farmers</span>
           </div>
           <div className={`text-[11px] font-medium flex items-center gap-1 ${activeMetric === 'network' ? 'text-sky-200' : 'text-sky-700'}`}>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -249,7 +249,7 @@ export const GrowthTracker: React.FC<GrowthTrackerProps> = ({
             {getMetricTitle()}
           </span>
           <span className="text-xs font-mono text-stone-500">
-            Historical Data (2022–2026)
+            Historical Data (2023–2026)
           </span>
         </div>
 
@@ -360,19 +360,9 @@ export const GrowthTracker: React.FC<GrowthTrackerProps> = ({
           <div className="flex items-center gap-2">
             <Award className="w-4 h-4 text-emerald-700 shrink-0" />
             <span>
-              <strong>Key Growth Driver:</strong> Certified hybrid seed inputs, Mechanized tractor leasing, solar cold pods, and guaranteed floor buybacks at farm-gate.
+              <strong>Key Growth Driver:</strong> Certified hybrid seed inputs, Mechanized tractor leasing, quality storage facilities, and guaranteed buybacks at farm-gate.
             </span>
           </div>
-
-          {onOpenInquiryModal && (
-            <button
-              onClick={() => onOpenInquiryModal('Impact Investor')}
-              className="text-emerald-800 font-bold hover:underline shrink-0 text-xs cursor-pointer flex items-center gap-1"
-            >
-              <span>Download Impact Audit Report</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </button>
-          )}
         </div>
 
       </div>
