@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { use } from 'react';
 import { ArrowRight, CircleDollarSign, CheckCircle2, Users, Leaf, BriefcaseBusiness, HandCoins, Cpu } from 'lucide-react';
-import heroImage from '../assets/images/agribusiness_hero_banner_1784882619239.jpg';
+import heroImage from '../assets/images/money.jpg';
 import { PageHeader } from '../components/PageHeader';
 import { InquiryCallback } from '../types';
 
@@ -30,7 +30,6 @@ export const AgriculturalFinancePage: React.FC<AgriculturalFinancePageProps> = (
             <p className="mt-4 text-base leading-7 text-[var(--agro-muted)]">We help farmers and agricultural enterprises understand their financial needs, prepare for financing and connect with appropriate funding opportunities to support productive growth.</p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <button onClick={() => onOpenInquiryModal('Smallholder Farmer')} className="inline-flex items-center gap-2 rounded-xl bg-[var(--agro-green-700)] px-5 py-3.5 text-sm font-bold text-white">Explore Financing Support →</button>
               <button onClick={() => onOpenInquiryModal('General')} className="inline-flex items-center gap-2 rounded-xl border border-[rgba(29,90,66,0.12)] px-5 py-3.5 text-sm font-bold">Talk to GleanAgro</button>
             </div>
 
@@ -205,13 +204,8 @@ export const AgriculturalFinancePage: React.FC<AgriculturalFinancePageProps> = (
             </div>
 
             <div className="rounded-2xl border bg-white p-6 shadow-sm text-left">
-              <div className="mb-3 font-bold text-[var(--agro-green-700)]">👩🏾‍💼 Women Agripreneurs</div>
-              <div className="text-sm text-[var(--agro-muted)]">Access business planning and financing pathways designed to support sustainable agricultural enterprises.</div>
-            </div>
-
-            <div className="rounded-2xl border bg-white p-6 shadow-sm text-left">
-              <div className="mb-3 font-bold text-[var(--agro-green-700)]">👨🏾‍💻 Youth Agripreneurs</div>
-              <div className="text-sm text-[var(--agro-muted)]">Develop the financial and business capabilities required to turn agricultural ideas into viable enterprises.</div>
+              <div className="mb-3 font-bold text-[var(--agro-green-700)]">👩🏾‍💼 Women & Youth Agripreneurs</div>
+              <div className="text-sm text-[var(--agro-muted)]">Access business planning and financing pathways designed to support sustainable agricultural enterprises and turn agricultural ideas into viable enterprises..</div>
             </div>
 
             <div className="rounded-2xl border bg-white p-6 shadow-sm text-left">
@@ -237,7 +231,7 @@ export const AgriculturalFinancePage: React.FC<AgriculturalFinancePageProps> = (
 
             <div className="rounded-2xl border bg-white p-4 shadow-sm">
               <div className="font-semibold text-[var(--agro-green-700)]">⚙️ Assets</div>
-              <div className="text-sm text-[var(--agro-muted)]">For productive equipment and infrastructure. Examples: irrigation, solar systems, processing equipment.</div>
+              <div className="text-sm text-[var(--agro-muted)]">For productive equipment and infrastructure. Examples: irrigation, solar systems, farming equipment.</div>
             </div>
 
             <div className="rounded-2xl border bg-white p-4 shadow-sm">
@@ -382,7 +376,6 @@ export const AgriculturalFinancePage: React.FC<AgriculturalFinancePageProps> = (
           <h3 className="text-2xl font-bold text-[var(--agro-charcoal)]">Ready to Strengthen Your Farm's Financial Future?</h3>
           <p className="mt-3 text-sm text-[var(--agro-muted)]">Tell us about your agricultural enterprise and what you're trying to achieve. We'll help you understand your needs and explore the next step.</p>
           <div className="mt-6 flex items-center justify-center gap-3">
-            <button onClick={() => onOpenInquiryModal('Smallholder Farmer')} className="inline-flex items-center gap-2 rounded-xl bg-[var(--agro-green-700)] px-5 py-3.5 text-sm font-bold text-white">Explore Financing Support →</button>
             <button onClick={() => onOpenInquiryModal('General')} className="inline-flex items-center gap-2 rounded-xl border border-[rgba(29,90,66,0.12)] px-5 py-3.5 text-sm font-bold">Talk to GleanAgro</button>
           </div>
         </section>

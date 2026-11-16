@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import { PageHeader } from '../components/PageHeader';
 import { InquiryCallback } from '../types';
-import fieldImage from '../assets/images/smallholder_farmer_hub_1784882677913.jpg';
+import fieldImage from '../assets/images/farm.jpg';
 import ishakuImage from '../assets/team/ishaku-elijah-audu.jpg';
 import sindalmaImage from '../assets/team/dave-sindalma.jpg';
 import princessImage from '../assets/team/princess-adaeze.jpg';
@@ -169,6 +169,22 @@ export const InnovationFarmPage: React.FC<PageProps> = ({ onNavigatePage, onOpen
       <section className="grid items-center gap-10 lg:grid-cols-2"><div><SectionHeading eyebrow="What it is" title="A place to test, learn, adapt, and demonstrate." copy="The Innovation Farm provides an opportunity to explore agricultural practices, technologies, enterprise systems, and practical solutions in conditions that reflect real agricultural work." /><div className="mt-7"><CTA onNavigatePage={onNavigatePage} onOpenInquiryModal={onOpenInquiryModal} label="Ask About the Innovation Farm" /></div></div><img src={fieldImage} alt="Crops growing in an agricultural field" className="h-[380px] w-full rounded-3xl object-cover shadow-lg" /></section>
       <section><SectionHeading eyebrow="Areas of learning" title="Practical questions, not technology for its own sake." /><div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{['Production planning', 'Farm budgeting', 'Irrigation and water management', 'Appropriate technology', 'Aquaculture and livestock management', 'Post-harvest handling', 'Market preparation', 'Farm records and enterprise development'].map((item) => <div key={item} className="agro-card p-5"><Wheat className="mb-4 h-6 w-6 text-emerald-700" /><h3 className="font-bold">{item}</h3></div>)}</div></section>
       <section className="rounded-3xl bg-[#f2efe6] p-8 text-center sm:p-12"><h2 className="text-3xl font-bold">Test → Learn → Adapt → Demonstrate → Scale</h2><p className="mx-auto mt-4 max-w-2xl text-stone-600">Only solutions that fit the local context, available capacity, and real agricultural needs should move forward.</p></section>
+      <section id="stories" className="pt-2">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">What Our Farmers Have To Say</p>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                [habibaAbasImage, 'Habiba Abas'],
+                [FatimaImage, 'Fatima Adamu'],
+                [daudaImage, 'Dauda Ibrahim'],
+              ].map(([image, description]) => (
+                <article key={description} className="agro-card overflow-hidden">
+                  <img src={image} alt={description} className="h-64 w-full object-cover object-top" />
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
     </div>
   </div>
 );

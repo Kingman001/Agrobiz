@@ -14,7 +14,7 @@ import {
   Users,
   Warehouse,
 } from 'lucide-react';
-import heroImage from '../assets/images/hero-img.jpg';
+import heroImage from '../assets/images/5.jpg';
 import { PageHeader } from '../components/PageHeader';
 import { InquiryCallback } from '../types';
 
