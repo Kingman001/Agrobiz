@@ -126,21 +126,25 @@ const relatedCards = [
     title: 'Training & Technical Support',
     text: 'Get the knowledge to use better production practices.',
     icon: BookOpenText,
+    link: 'tech-support',
   },
-  {
+  /*{
     title: 'Agricultural Technology',
     text: 'Explore practical technologies that can improve efficiency.',
     icon: Cpu,
-  },
+    link: 'contact',
+  },*/
   {
     title: 'Agricultural Finance',
     text: 'Explore pathways to finance your agricultural enterprise.',
     icon: CircleDollarSign,
+    link: 'agric-finance',
   },
   {
     title: 'Market Access',
     text: 'Connect production to market opportunities.',
     icon: Store,
+    link: 'market-access',
   },
 ];
 
@@ -148,8 +152,8 @@ export const FarmInputsPage: React.FC<FarmInputsPageProps> = ({ onOpenInquiryMod
   return (
     <div className="min-h-screen bg-stone-50 pb-20">
       <PageHeader
-        title="Farm Inputs"
-        subtitle="Access reliable agricultural inputs selected to support healthier production, better farm management and sustainable growth."
+        title=""
+        subtitle=""
         categoryTag="Farm Inputs"
         breadcrumbs={[{ label: 'Farm Inputs' }]}
         onNavigatePage={onNavigatePage}
@@ -174,13 +178,6 @@ export const FarmInputsPage: React.FC<FarmInputsPageProps> = ({ onOpenInquiryMod
                 >
                   Get Started
                   <ArrowRight className="h-4 w-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => onOpenInquiryModal('Commercial Buyer')}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-[rgba(29,90,66,0.2)] bg-white px-5 py-3.5 text-sm font-bold text-[var(--agro-green-700)] transition hover:border-[var(--agro-green-700)]"
-                >
-                  Talk to GleanAgro
                 </button>
               </div>
             </div>
@@ -380,13 +377,20 @@ export const FarmInputsPage: React.FC<FarmInputsPageProps> = ({ onOpenInquiryMod
           </div>
 
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {relatedCards.map(({ title, text, icon: Icon }) => (
+            {relatedCards.map(({ title, text, icon: Icon , link}) => (
               <div key={title} className="rounded-[1.5rem] border border-[rgba(29,90,66,0.12)] bg-white p-5 shadow-sm">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[rgba(29,90,66,0.08)] text-[var(--agro-green-700)]">
                   <Icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-4 text-xl font-bold tracking-[-0.04em] text-[var(--agro-charcoal)]">{title}</h3>
                 <p className="mt-3 text-sm leading-6 text-[var(--agro-muted)]">{text}</p>
+                <button
+                  type="button"
+                  onClick={() => onNavigatePage(link)}
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--agro-green-700)]"
+                >
+                  Learn more <ArrowRight className="h-4 w-4" />
+                </button>
               </div>
             ))}
           </div>
@@ -409,14 +413,14 @@ export const FarmInputsPage: React.FC<FarmInputsPageProps> = ({ onOpenInquiryMod
                 Talk to GleanAgro
                 <ArrowRight className="h-4 w-4" />
               </button>
-              <button
+              {/*<button
                 type="button"
                 onClick={() => onNavigatePage('farmer-hub')}
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/25 bg-transparent px-5 py-3.5 text-sm font-bold text-white transition hover:bg-white/5"
               >
                 Join Farmer Hub
                 <ArrowRight className="h-4 w-4" />
-              </button>
+              </button>*/}
             </div>
           </div>
         </section>

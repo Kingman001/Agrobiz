@@ -41,9 +41,9 @@ const aboutList = [
 const navItems = [
   { id: 'home', label: 'Home' },
   { id: 'solutions', label: 'Solutions' },
-  { id: 'farmer-hub', label: 'Farmer Hub' },
+  /*{ id: 'farmer-hub', label: 'Farmer Hub' },
   { id: 'innovation-farm', label: 'Innovation Farm' },
-  /* { id: 'resources', label: 'Resources' }, */
+  { id: 'resources', label: 'Resources' }, */
   { id: 'about', label: 'About' },
   { id: 'partnerships', label: 'Partnerships' },
   { id: 'contact', label: 'Contact' }
@@ -246,9 +246,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </div>
 
-            <button onClick={() => handleNavClick('farmer-hub')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'farmer-hub' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
+            {/*<button onClick={() => handleNavClick('farmer-hub')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'farmer-hub' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
               Farmer Hub
-            </button>
+            </button>*/}
 
             <button onClick={() => handleNavClick('innovation-farm')} className={`w-full text-left px-3 py-3 rounded-lg ${activeSection === 'innovation-farm' ? 'bg-emerald-900 text-emerald-200 font-bold' : 'text-stone-200 hover:bg-stone-800'}`}>
               Innovation Farm

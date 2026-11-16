@@ -4,8 +4,8 @@ import { Hero } from '../components/Hero';
 import { PartnershipsSection } from '../components/PartnershipsSection';
 import { ArrowRight, Sprout, Warehouse, TrendingUp, Users, Leaf, HandCoins, Stethoscope, CircleDollarSign, BriefcaseBusiness, BookOpenText, Coins, Cpu, Store, UserRound } from 'lucide-react';
 import innovationFarmImage from '../assets/images/farm.jpg';
-import FatimaImage from '../assets/images/fatima.jpg';
-import habibaAbasImage from '../assets/images/habiba.webp';
+import FatimaImage from '../assets/images/female-avatar.jpeg';
+import habibaAbasImage from '../assets/images/female-avatar.jpeg';
 import daudaImage from '../assets/images/dauda.jpg';
 import { PartnersCarousel } from '../components/PartnersCarousel';
 
@@ -59,12 +59,12 @@ const journeyStages = [
 ];
 
 const solutionCards = [
-  { title: 'Farm Inputs', text: 'Targeted inputs, agronomy support and practical field guidance for productive seasons.' },
-  { title: 'Agricultural Finance', text: 'Flexible financing pathways that support working capital and business growth.' },
-  { title: 'Training & Support', text: 'Hands-on training, technical mentoring and farmer learning programmes.' },
-  { title: 'Irrigation & Greenhouse', text: 'Water, climate-smart systems and protected cultivation for higher consistency.' },
-  { title: 'Storage & Post-Harvest', text: 'Better handling and storage systems to reduce loss and improve quality.' },
-  { title: 'Market Access', text: 'Aggregation, buyer linkages and stronger value-chain coordination.' }
+  { title: 'Farm Inputs', text: 'Targeted inputs, agronomy support and practical field guidance for productive seasons.', link: 'farm-inputs' },
+  { title: 'Agricultural Finance', text: 'Flexible financing pathways that support working capital and business growth.', link: 'agric-finance' },
+  { title: 'Training & Support', text: 'Hands-on training, technical mentoring and farmer learning programmes.', link: 'tech-support' },
+  { title: 'Irrigation & Greenhouse', text: 'Water, climate-smart systems and protected cultivation for higher consistency.', link: 'irrigation' },
+  { title: 'Storage & Post-Harvest', text: 'Better handling and storage systems to reduce loss and improve quality.', link: 'storage' },
+  { title: 'Market Access', text: 'Aggregation, buyer linkages and stronger value-chain coordination.',link: 'market-access' }
 ];
 
 const womenYouthPaths = [
@@ -213,7 +213,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {solutionCards.map(({ title, text }) => (
+            {solutionCards.map(({ title, text, link }) => (
               <div key={title} className="agro-card p-5">
                 <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(201,149,69,0.12)] text-[var(--agro-gold)]">
                   <Sprout className="h-4 w-4" />
@@ -222,7 +222,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <p className="mt-2 text-sm leading-6 text-[var(--agro-muted)]">{text}</p>
                 <button
                   type="button"
-                  onClick={() => onNavigatePage('solutions')}
+                  onClick={() => onNavigatePage(link)}
                   className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--agro-green-700)]"
                 >
                   Learn more <ArrowRight className="h-4 w-4" />
