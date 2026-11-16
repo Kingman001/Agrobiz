@@ -26,6 +26,15 @@ import appoloImage from '../assets/team/appolo-goma.jpg';
 import dipoImage from '../assets/team/dipo-fasawe.jpg';
 import toyosiImage from '../assets/team/toyosi-orunmuyi.jpg';
 
+/*Farm Images Import*/
+import maize1 from '../assets/images/Farm-Images/Maize1.jpg';
+import poultry1 from '../assets/images/Farm-Images/Poultry1.jpg';
+import poultry2 from '../assets/images/Farm-Images/Poultry2.jpg';
+import groundnut1 from '../assets/images/Farm-Images/Groundnut-farm.jpg';
+import groundnut2 from '../assets/images/Farm-Images/Groundnut-farm2.jpg';
+import cucumber from '../assets/images/Farm-Images/Cucumber.jpg';
+import eggs from '../assets/images/Farm-Images/Eggs.jpg';
+
 interface PageProps {
   onNavigatePage: (pageId: string) => void;
   onOpenInquiryModal: InquiryCallback;
@@ -174,9 +183,13 @@ export const InnovationFarmPage: React.FC<PageProps> = ({ onNavigatePage, onOpen
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--agro-green-700)]">What Our Farmers Have To Say</p>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {[
-                [habibaAbasImage, 'Habiba Abas'],
-                [FatimaImage, 'Fatima Adamu'],
-                [daudaImage, 'Dauda Ibrahim'],
+                [maize1, 'maize'],
+                [groundnut1, 'groundnut'],
+                [poultry1, 'poultry'],
+                [eggs, 'eggs'],
+                [cucumber, 'cucumber']
+                [poultry2, 'poultry'],
+                [groundnut2, 'groundnut']
               ].map(([image, description]) => (
                 <article key={description} className="agro-card overflow-hidden">
                   <img src={image} alt={description} className="h-64 w-full object-cover object-top" />
