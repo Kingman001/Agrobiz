@@ -53,7 +53,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
       {/* Page Header */}
       <PageHeader
         title="Contact GleanAgro"
-        subtitle="Contact us about farm support, produce, or a partnership. The online form is not connected yet, so please email or call us to send your enquiry."
+        subtitle="Contact us about farm support, produce, partnership, or to schedule a visit to our innovation farm."
         categoryTag="Get in touch"
         breadcrumbs={[{ label: "Contact & Partnerships" }]}
         onNavigatePage={onNavigatePage}
@@ -70,12 +70,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               <span className="text-xs font-mono font-bold uppercase text-emerald-800">
                 Get in touch
               </span>
-              <h2 className="text-2xl font-serif font-bold text-stone-900">
-                Prepare an enquiry
-              </h2>
-              <p className="text-xs text-stone-600">
-                Choose the option that best describes you, then use the contact details shown after the form.
-              </p>
             </div>
 
             {submitted ? (
@@ -104,6 +98,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
                     I am contacting GleanAgro as a:
                   </label>
+              <p className="text-xs text-stone-600">
+                Choose the option that best describes you.
+              </p>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                     {([
                       'Commercial Buyer',
@@ -151,7 +148,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     <input
                       type="tel"
                       required
-                      placeholder="e.g. +234 813 440 7110"
+                      placeholder="e.g. +234 812 345 6789"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className="w-full p-3 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-700 bg-stone-50"
@@ -223,7 +220,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   className="w-full py-4 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Send className="w-4 h-4 text-emerald-300" />
-                  <span>Show contact details</span>
+                  <span>Send</span>
                 </button>
               </form>
             )}
@@ -279,8 +276,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   </div>
                   <div>
                     <span className="text-xs text-stone-400 block font-mono">                    Phone</span>
-                    <a href="tel:+2348134407110" className="font-bold text-stone-100 hover:text-emerald-300 block">
-                      +234 813 440 7110
+                    <a href={`tel:${companySettings.phone}`} className="font-bold text-stone-100 hover:text-emerald-300 block">
+                      {companySettings.phone}
                     </a>
                   </div>
                 </div>
@@ -292,12 +289,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <div>
                     <span className="text-xs text-stone-400 block font-mono">WhatsApp Support Desk</span>
                     <a
-                      href="https://wa.me/2347035961713"
+                      href={`https://wa.me/${companySettings.whatsapp}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="font-bold text-emerald-400 hover:underline"
                     >
-                      +234 703 596 1713
+                      {companySettings.whatsapp}
                     </a>
                   </div>
                 </div>

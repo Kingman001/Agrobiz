@@ -4,6 +4,34 @@ import heroImage from '../assets/images/money.jpg';
 import { PageHeader } from '../components/PageHeader';
 import { InquiryCallback } from '../types';
 
+
+const relatedCards = [
+  {
+    title: 'Farm Inputs',
+    text: 'Targeted inputs, agronomy support and practical field guidance for productive seasons.',
+    icon: Sprout,
+    link: 'farm-inputs',
+  },
+  {
+    title: 'Training & Technical Support',
+    text: 'Get the knowledge to use better production practices.',
+    icon: BookOpenText,
+    link: 'tech-support',
+  },
+  /*{
+    title: 'Agricultural Technology',
+    text: 'Explore practical technologies that can improve efficiency.',
+    icon: Cpu,
+    link: 'contact',
+  },*/
+  {
+    title: 'Market Access',
+    text: 'Connect production to market opportunities.',
+    icon: Store,
+    link: 'market-access',
+  },
+];
+
 interface AgriculturalFinancePageProps {
   onOpenInquiryModal: InquiryCallback;
   onNavigatePage: (pageId: string) => void;
@@ -363,11 +391,23 @@ export const AgriculturalFinancePage: React.FC<AgriculturalFinancePageProps> = (
             <h3 className="mt-3 text-3xl font-bold text-[var(--agro-charcoal)]">Finance Is Part of a Bigger Agricultural System</h3>
           </div>
 
-          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-2xl border bg-white p-5 shadow-sm text-center">Farm Inputs</div>
-            <div className="rounded-2xl border bg-white p-5 shadow-sm text-center">Training & Technical Support</div>
-            <div className="rounded-2xl border bg-white p-5 shadow-sm text-center">Agricultural Technology</div>
-            <div className="rounded-2xl border bg-white p-5 shadow-sm text-center">Market Access</div>
+          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {relatedCards.map(({ title, text, icon:Icon, link}) => (
+              <div key={title} className="rounded-[1.5rem] border border-[rgba(29,90,66,0.12)] bg-white p-5 shadow-sm">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[rgba(29,90,66,0.08)] text-[var(--agro-green-700)]">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-4 text-xl font-bold tracking-[-0.04em] text-[var(--agro-charcoal)]">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-[var(--agro-muted)]">{text}</p>
+                <button
+                  type="button"
+                  onClick={() => onNavigatePage(link)}
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--agro-green-700)]"
+                >
+                  Learn more <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
+            ))}
           </div>
         </section>
 
