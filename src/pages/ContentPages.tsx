@@ -187,11 +187,11 @@ export const InnovationFarmPage: React.FC<PageProps> = ({ onNavigatePage, onOpen
                 [groundnut1, 'groundnut'],
                 [poultry1, 'poultry'],
                 [eggs, 'eggs'],
-                [cucumber, 'cucumber']
+                [cucumber, 'cucumber'],
                 [poultry2, 'poultry'],
                 [groundnut2, 'groundnut']
               ].map(([image, description]) => (
-                <article key={description} className="agro-card overflow-hidden">
+                <article key={`${description}-${image}`} className="agro-card overflow-hidden">
                   <img src={image} alt={description} className="h-64 w-full object-cover object-top" />
                 </article>
               ))}
