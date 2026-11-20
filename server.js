@@ -71,6 +71,28 @@ app.get('/api/health', (_req, res) => {
   });
 });
 
+app.post('/api/inquiries', async (req, res) => {
+  const formApiUrl = (process.env.FORM_API_URL || 'http://127.0.0.1:8000').replace(/\/+$/, '');
+
+  try {
+    const response = await fetch(`${formApiUrl}/api/inquiries`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(req.body)
+    });
+    const responseBody = await response.text();
+
+    res.status(response.status);
+    res.set('Content-Type', response.headers.get('content-type') || 'application/json');
+    res.send(responseBody);
+  } catch (error) {
+    console.error('Form submission service unavailable:', error);
+    res.status(503).json({
+      detail: 'Submissions are temporarily unavailable. Please try again later.'
+    });
+  }
+});
+
 app.post('/api/ai/opportunity', async (req, res) => {
   const payload = req.body || {};
   const finalPayload = {

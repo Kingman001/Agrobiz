@@ -39,13 +39,42 @@ export const ContactPage: React.FC<ContactPageProps> = ({
   const [produceInterest, setProduceInterest] = useState<string>(initialProduceInterest);
   const [message, setMessage] = useState<string>('');
   const [submitted, setSubmitted] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [submitError, setSubmitError] = useState<string>('');
 
   // FAQ state
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const response = await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName,
+          email,
+          phone,
+          organization,
+          role,
+          produceInterest,
+          message
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('The submission could not be saved.');
+      }
+
+      setSubmitted(true);
+    } catch {
+      setSubmitError('We could not send your message. Please try again or contact us directly by email or phone.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -81,17 +110,25 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   Thanks, {fullName}.
                 </h3>
                 <p className="text-sm text-stone-700 max-w-md mx-auto">
-                  This form is not connected to the GleanAgro team yet, so your message has not been sent. Please email <a className="font-semibold text-emerald-800 underline" href={`mailto:${companySettings.email}`}>{companySettings.email}</a> or call <a className="font-semibold text-emerald-800 underline" href={`tel:${companySettings.phone}`}>{companySettings.phone}</a>.
+                  Your message has been received. Our team will be in touch soon.
                 </p>
                 <button
-                  onClick={() => setSubmitted(false)}
+                  onClick={() => {
+                    setSubmitted(false);
+                    setFullName('');
+                    setEmail('');
+                    setPhone('');
+                    setOrganization('');
+                    setProduceInterest('');
+                    setMessage('');
+                  }}
                   className="px-6 py-2.5 bg-emerald-800 text-white font-bold rounded-xl text-xs hover:bg-emerald-900 transition-all cursor-pointer"
                 >
                   Send another message
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-5" aria-busy={isSubmitting}>
                 
                 {/* Role Selector Pills */}
                 <div>
@@ -217,12 +254,18 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                  disabled={isSubmitting}
+                  className="w-full py-4 bg-emerald-800 hover:bg-emerald-900 disabled:opacity-60 text-white font-bold rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:cursor-wait"
                 >
                   <Send className="w-4 h-4 text-emerald-300" />
-                  <span>Send</span>
+                  <span>{isSubmitting ? 'Sending...' : 'Send'}</span>
                 </button>
               </form>
+            )}
+            {submitError && (
+              <p role="alert" className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl p-3">
+                {submitError} Please email <a className="font-semibold underline" href={`mailto:${companySettings.email}`}>{companySettings.email}</a> or call <a className="font-semibold underline" href={`tel:${companySettings.phone}`}>{companySettings.phone}</a>.
+              </p>
             )}
           </div>
 
