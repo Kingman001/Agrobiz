@@ -1,5 +1,5 @@
 import React, { use } from 'react';
-import { ArrowRight, CircleDollarSign, CheckCircle2, Users, Leaf, BriefcaseBusiness, HandCoins, Cpu } from 'lucide-react';
+import { ArrowRight, CircleDollarSign, CheckCircle2, Users, Leaf, BriefcaseBusiness, HandCoins, Cpu, BookOpenText, Sprout, Store } from 'lucide-react';
 import heroImage from '../assets/images/money.jpg';
 import { PageHeader } from '../components/PageHeader';
 import { InquiryCallback } from '../types';

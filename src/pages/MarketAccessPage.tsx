@@ -17,12 +17,13 @@ import {
   Wheat,
 } from 'lucide-react';
 import { InquiryCallback } from '../types';
-import marketHeroImage from '../assets/images/agribusiness_hero_banner_1784882619239.jpg';
+import marketHeroImage from '../assets/images/warehouse3.jpg';
 
 interface MarketAccessPageProps {
   onOpenInquiryModal: InquiryCallback;
   onNavigatePage: (pageId: string) => void;
 }
+
 
 const challenges = [
   ['Limited market information', 'Timely information about buyer requirements, demand, pricing, and quality expectations is not always available.'],
@@ -129,9 +130,9 @@ export const MarketAccessPage: React.FC<MarketAccessPageProps> = ({ onOpenInquir
         <div className="grid grid-cols-2 md:grid-cols-6 gap-3 mb-14">
           {['Understand', 'Prepare', 'Aggregate', 'Connect', 'Deliver', 'Grow'].map((step, index) => <div key={step} className="relative rounded-xl bg-emerald-50 p-4 text-center font-bold text-emerald-900">{index < 5 && <span className="hidden md:block absolute -right-3 top-1/2 text-emerald-400">→</span>}<span className="block text-xs text-emerald-600 mb-1">0{index + 1}</span>{step}</div>)}
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/*} <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map(([title, copy, Icon]) => { const ServiceIcon = Icon as React.ElementType; return <article key={title} className="agro-card p-6"><ServiceIcon className="w-7 h-7 text-emerald-700" /><h3 className="mt-5 font-bold">{title}</h3><p className="mt-2 text-sm text-stone-600 leading-relaxed">{copy}</p></article>; })}
-        </div>
+        </div>*/}
       </div>
     </section>
 
@@ -163,12 +164,12 @@ export const MarketAccessPage: React.FC<MarketAccessPageProps> = ({ onOpenInquir
       </div>
     </section>
 
-    <section className="py-20 bg-white">
+    {/* <section className="py-20 bg-white">
       <div className="agro-shell">
         <SectionHeading title="How We Work" copy="A practical process for moving from a market objective to better preparation and informed commercial decisions." />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">{process.map(([title, copy], index) => <article key={title} className="agro-card p-6"><span className="inline-flex w-9 h-9 items-center justify-center rounded-full bg-emerald-800 text-white font-bold">{index + 1}</span><h3 className="mt-5 font-bold">{title}</h3><p className="mt-2 text-sm text-stone-600 leading-relaxed">{copy}</p></article>)}</div>
       </div>
-    </section>
+    </section> */}
 
     <section className="py-20 agro-shell">
       <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
