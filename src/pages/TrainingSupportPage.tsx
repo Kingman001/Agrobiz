@@ -17,6 +17,7 @@ import {
   Warehouse,
 } from 'lucide-react';
 import heroImage from '../assets/images/hero-img.jpg';
+import farmImage from '../assets/images/farm.jpg';
 import { PageHeader } from '../components/PageHeader';
 import { InquiryCallback } from '../types';
 
@@ -152,10 +153,9 @@ const impactCards = [
 ];
 
 const relatedCards = [
-  { title: 'Farm Inputs', text: 'Get access to the resources needed to put better practices into action.', icon: Sprout },
-  { title: 'Agricultural Technology', text: 'Discover practical tools and technologies that can improve efficiency.', icon: Cpu },
-  { title: 'Agricultural Finance', text: 'Explore pathways to finance your agricultural enterprise.', icon: CircleDollarSign },
-  { title: 'Market Access', text: 'Connect improved production with viable market opportunities.', icon: Store },
+  { title: 'Farm Inputs', text: 'Get access to the resources needed to put better practices into action.', icon: Sprout, link: 'farm-inputs' },
+  { title: 'Agricultural Finance', text: 'Explore pathways to finance your agricultural enterprise.', icon: CircleDollarSign, link: 'agric-finance' },
+  { title: 'Market Access', text: 'Connect improved production with viable market opportunities.', icon: Store, link:'market-access'},
 ];
 
 export const TrainingSupportPage: React.FC<TrainingSupportPageProps> = ({ onOpenInquiryModal, onNavigatePage }) => {
@@ -187,14 +187,6 @@ export const TrainingSupportPage: React.FC<TrainingSupportPageProps> = ({ onOpen
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--agro-green-700)] px-5 py-3.5 text-sm font-bold text-white transition hover:bg-[var(--agro-green-600)]"
                 >
                   Get Training Support
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => onNavigatePage('farmer-hub')}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-[rgba(29,90,66,0.2)] bg-white px-5 py-3.5 text-sm font-bold text-[var(--agro-green-700)] transition hover:border-[var(--agro-green-700)]"
-                >
-                  Join Farmer Hub
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </div>
@@ -398,7 +390,7 @@ export const TrainingSupportPage: React.FC<TrainingSupportPageProps> = ({ onOpen
         <section className="mt-14 overflow-hidden rounded-[2rem] border border-[rgba(29,90,66,0.12)] bg-white shadow-[var(--agro-shadow)]">
           <div className="grid items-center gap-0 lg:grid-cols-[1fr_1.1fr]">
             <div className="relative min-h-[340px] overflow-hidden bg-stone-900">
-              <img src={heroImage} alt="Innovation farm demonstrating practical agricultural learning" className="h-full w-full object-cover" />
+              <img src={farmImage} alt="Innovation farm demonstrating practical agricultural learning" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f2f2b]/85 via-[#0f2f2b]/25 to-transparent" />
             </div>
             <div className="p-6 sm:p-8 lg:p-10">
@@ -425,7 +417,7 @@ export const TrainingSupportPage: React.FC<TrainingSupportPageProps> = ({ onOpen
               </div>
               <button
                 type="button"
-                onClick={() => onNavigatePage('roadmap')}
+                onClick={() => onNavigatePage('innovation-farm')}
                 className="mt-7 inline-flex items-center gap-2 rounded-xl bg-[var(--agro-green-700)] px-5 py-3.5 text-sm font-bold text-white transition hover:bg-[var(--agro-green-600)]"
               >
                 Explore Our Innovation Farm
@@ -462,14 +454,22 @@ export const TrainingSupportPage: React.FC<TrainingSupportPageProps> = ({ onOpen
           </div>
 
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {relatedCards.map(({ title, text, icon: Icon }) => (
+            {relatedCards.map(({ title, text, icon: Icon, link }) => (
               <article key={title} className="rounded-[1.5rem] border border-[rgba(29,90,66,0.12)] bg-white p-5 shadow-[0_18px_40px_rgba(15,47,43,0.06)]">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[rgba(29,90,66,0.08)] text-[var(--agro-green-700)]">
                   <Icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-4 text-xl font-bold tracking-[-0.04em] text-[var(--agro-charcoal)]">{title}</h3>
                 <p className="mt-3 text-sm leading-6 text-[var(--agro-muted)]">{text}</p>
-              </article>
+              <button
+                  type="button"
+                  onClick={() => onNavigatePage(link)}
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--agro-green-700)]"
+                >
+                  Learn more <ArrowRight className="h-4 w-4" />
+                </button>
+                  
+                </article>
             ))}
           </div>
         </section>
@@ -490,14 +490,6 @@ export const TrainingSupportPage: React.FC<TrainingSupportPageProps> = ({ onOpen
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 text-sm font-bold text-[var(--agro-green-700)] transition hover:bg-emerald-50"
               >
                 Get Training Support
-                <ArrowRight className="h-4 w-4" />
-              </button>
-              <button
-                type="button"
-                onClick={() => onNavigatePage('farmer-hub')}
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-transparent px-5 py-3.5 text-sm font-bold text-white transition hover:border-white/40 hover:bg-white/5"
-              >
-                Join Farmer Hub
                 <ArrowRight className="h-4 w-4" />
               </button>
             </div>

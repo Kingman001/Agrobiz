@@ -193,21 +193,12 @@ export const EnterpriseDevelopmentPage: React.FC<EnterpriseDevelopmentPageProps>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{principles.map(([title, text]) => <article key={title} className="rounded-2xl bg-stone-100 p-5"><h3 className="font-bold text-emerald-900">{title}</h3><p className="mt-2 text-sm leading-6 text-stone-600">{text}</p></article>)}</div>
       </section>
 
-      <section className="grid gap-10 lg:grid-cols-[0.8fr_1fr] lg:items-center">
-        <div className="overflow-hidden rounded-[2rem]"><img src={heroImage} alt="Practical agricultural enterprise learning environment" className="h-full min-h-[280px] w-full object-cover" /></div>
-        <div><SectionHeading eyebrow="Innovation Farm connection" title="A Practical Space for Learning and Enterprise Development" copy="GleanAgro's Innovation Farm can serve as a practical learning environment where agricultural ideas are tested, documented, improved, and demonstrated." /><div className="mt-6 flex flex-wrap items-center gap-2 text-sm font-bold text-emerald-800">{['Test', 'Learn', 'Adapt', 'Demonstrate', 'Scale'].map((item, index) => <React.Fragment key={item}><span className="rounded-full bg-emerald-50 px-3 py-2">{item}</span>{index < 4 && <ArrowRight className="h-4 w-4 text-amber-500" />}</React.Fragment>)}</div><p className="mt-6 text-sm leading-6 text-stone-600">Potential learning areas include production planning, farm budgeting, cost and income records, labour management, input use, livestock and poultry management, aquaculture, irrigation and energy decisions, post-harvest handling, market preparation, and enterprise performance review.</p><p className="mt-4 rounded-xl border-l-4 border-amber-500 bg-amber-50 p-4 text-sm leading-6 text-stone-700">Specific results, technologies, production figures, or business outcomes should only be published when properly recorded and verified.</p></div>
-      </section>
-
       <section>
         <SectionHeading centered eyebrow="Outcomes" title="What Enterprise Development Can Support" />
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{outcomes.map((title) => <div key={title} className="flex items-start gap-3 rounded-2xl border border-emerald-900/10 bg-white p-5"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-700" /><div><h3 className="font-bold">{title}</h3><p className="mt-2 text-sm text-stone-600">Practical support can help enterprises make more informed, deliberate progress in this area.</p></div></div>)}</div>
       </section>
 
-      <section className="rounded-[2rem] bg-stone-900 p-7 text-white sm:p-10">
-        <SectionHeading eyebrow="Connected ecosystem" title="Strong Agricultural Enterprises Need a Connected Ecosystem" copy="Knowledge, inputs, technology, finance, market access, and storage can come together to support better enterprise planning, improved operations, market-ready products, and sustainable agricultural enterprise." />
-        <div className="mt-8 flex flex-wrap items-center gap-3 text-sm font-bold text-emerald-100">{['Knowledge', 'Inputs', 'Technology', 'Finance', 'Market Access', 'Storage'].map((item) => <span key={item} className="rounded-full border border-white/15 bg-white/10 px-4 py-2">{item}</span>)}<ArrowDown className="hidden h-5 w-5 text-amber-400 sm:block" /><span className="rounded-full bg-amber-500 px-4 py-2 text-stone-950">Sustainable Agricultural Enterprise</span></div>
-        <div className="mt-6 flex flex-wrap gap-2 text-sm text-stone-300">{['Farm Inputs', 'Training & Technical Support', 'Irrigation & Agricultural Technology', 'Agricultural Finance', 'Storage & Post-Harvest', 'Market Access & Bulk Off-Take'].map((item) => <span key={item} className="rounded-lg bg-white/5 px-3 py-2">{item}</span>)}</div>
-      </section>
+  
 
       <section className="rounded-[2rem] bg-amber-500 p-8 text-stone-950 sm:p-12">
         <h2 className="max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">Ready to Strengthen Your Agricultural Enterprise?</h2>

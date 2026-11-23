@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { CompanySettings, InquiryCallback } from '../types';
 import heroImage from '../assets/images/hero-img.jpg';
+import farmImage from '../assets/images/farm.jpg';
 
 interface AboutPageProps {
   companySettings: CompanySettings;
@@ -196,7 +197,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
       <section className="agro-shell py-20 lg:py-28">
         <div className="grid items-center gap-12 lg:grid-cols-[.9fr_1.1fr]">
-          <img src={heroImage} alt="Learning by doing on a GleanAgro farm" className="h-[360px] w-full rounded-3xl object-cover shadow-lg" />
+          <img src={farmImage} alt="Learning by doing on a GleanAgro farm" className="h-[360px] w-full rounded-3xl object-cover shadow-lg" />
           <div><p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">The Innovation Farm</p><h2 className="text-4xl font-bold tracking-[-0.05em] sm:text-5xl">Learning by Doing</h2><p className="mt-5 text-lg leading-relaxed text-stone-600">GleanAgro’s Innovation Farm provides an opportunity to explore agricultural practices, technologies, enterprise systems, and practical solutions in a real operating environment.</p><div className="mt-6 flex flex-wrap gap-2">{['Test', 'Learn', 'Adapt', 'Demonstrate', 'Scale'].map((item) => <span key={item} className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-bold text-emerald-900">{item}</span>)}</div><button onClick={goToSolutions} className="mt-7 inline-flex items-center gap-2 rounded-full bg-emerald-800 px-5 py-3 text-sm font-bold text-white hover:bg-emerald-900">Explore the Innovation Farm <ArrowRight className="h-4 w-4" /></button></div>
         </div>
       </section>

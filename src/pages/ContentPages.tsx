@@ -61,7 +61,7 @@ const CTA: React.FC<{ onNavigatePage: (id: string) => void; onOpenInquiryModal: 
 const SectionHeading: React.FC<{ eyebrow: string; title: string; copy?: string }> = ({ eyebrow, title, copy }) => (
   <div className="max-w-3xl">
     <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">{eyebrow}</p>
-    <h2 className="mt-3 text-3xl font-bold tracking-[-0.05em] text-stone-900 sm:text-4xl">{title}</h2>
+    <h2 className="mt-3 text-3xl font-bold tracking-[-0.05em] text-stone-650 sm:text-4xl">{title}</h2>
     {copy && <p className="mt-4 text-base leading-relaxed text-stone-600">{copy}</p>}
   </div>
 );
@@ -147,7 +147,6 @@ export const OurTeamPage: React.FC<PageProps> = ({ onNavigatePage, onOpenInquiry
     [joshuaImage, 'Ishaku Joshua Audu', 'Chief Technology Officer'],
         ].map(([image, name, role]) => <article key={name} className="agro-card overflow-hidden"><img src={image} alt={`${name}, ${role}`} className="h-64 w-full object-cover object-top" /><div className="p-5"><h2 className="text-lg font-bold">{name}</h2><p className="mt-1 text-sm font-semibold text-emerald-700">{role}</p></div></article>)}
       </div>
-      <section className="rounded-3xl border border-stone-200 bg-white p-8 sm:p-12"><Users className="mb-5 h-10 w-10 text-emerald-700" /><h2 className="text-3xl font-bold">Work with the team</h2><p className="mt-4 max-w-2xl text-base leading-relaxed text-stone-600">For current enquiries, partnerships, and agricultural support requests, contact the GleanAgro team directly.</p><div className="mt-7"><CTA onNavigatePage={onNavigatePage} onOpenInquiryModal={onOpenInquiryModal} label="Connect With GleanAgro" /></div></section>
     </div>
   </div>
 );
@@ -156,7 +155,7 @@ export const AdvisorsPage: React.FC<PageProps> = ({ onNavigatePage, onOpenInquir
   <div className={pageShell}>
     <PageHeader title="Advisors" subtitle="Experienced professionals who contribute perspective and guidance to GleanAgro’s work." categoryTag="About GleanAgro" breadcrumbs={[{ label: 'About', pageId: 'about' }, { label: 'Advisors' }]} onNavigatePage={onNavigatePage} />
     <div className={`${contentShell} space-y-10`}>
-      <SectionHeading eyebrow="Advisory network" title="Experience that strengthens decision-making" copy="The advisors listed below are published on GleanAgro’s current website. Their experience spans planning, procurement, finance, consulting, technology, and business leadership." />
+      <SectionHeading eyebrow="Advisory network" title="Experience that strengthens decision-making" copy="Their experience spans planning, procurement, finance, consulting, technology, and business leadership." />
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {[
           [seyiImage, 'Seyi Edwards', 'Country Director for Planning, Procurement and Logistics, Mouka.'],
@@ -217,7 +216,9 @@ export const PartnershipsPage: React.FC<PageProps> = ({ onNavigatePage, onOpenIn
     <PageHeader title="Partnerships" subtitle="Working with people and organisations that want to contribute to stronger agricultural systems." categoryTag="Work With GleanAgro" breadcrumbs={[{ label: 'Partnerships' }]} onNavigatePage={onNavigatePage} />
     <div className={`${contentShell} space-y-14`}>
       <SectionHeading eyebrow="Why partnerships matter" title="Agricultural challenges are connected. Progress is collaborative." copy="GleanAgro welcomes conversations with organisations that can contribute knowledge, resources, technology, finance, market relationships, or implementation capacity." />
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{['Farmer organisations and cooperatives', 'Technical experts and training institutions', 'Financial institutions', 'Market actors and agricultural businesses', 'Development organisations', 'Technology and service providers'].map((item) => <article key={item} className="agro-card p-6"><Handshake className="mb-5 h-7 w-7 text-emerald-700" /><h2 className="text-lg font-bold">{item}</h2><p className="mt-2 text-sm text-stone-600">Explore where shared capabilities and clear objectives could create value.</p></article>)}</div>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <p className="mt-2 text-xs uppercase text-emerald-700 font-bold">Who we partner with</p>
+        {['Farmer organisations and cooperatives', 'Technical experts and training institutions', 'Financial institutions', 'Market actors and agricultural businesses', 'Development organisations', 'Technology and service providers'].map((item) => <article key={item} className="agro-card p-6"><Handshake className="mb-5 h-7 w-7 text-emerald-700" /><h2 className="text-lg font-bold">{item}</h2></article>)}</div>
       <section className="rounded-3xl bg-emerald-950 p-8 text-white sm:p-12"><SectionHeading eyebrow="Partnership principles" title="Clear expectations. Shared value. Responsible growth." copy="We aim to build partnerships around a defined need, transparent communication, realistic commitments, learning, and respect for the people and communities involved." /><div className="mt-8"><CTA onNavigatePage={onNavigatePage} onOpenInquiryModal={onOpenInquiryModal} label="Start a Partnership Conversation" /></div></section>
     </div>
   </div>

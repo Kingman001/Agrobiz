@@ -26,7 +26,6 @@ const solutionsList = [
   { id: 'storage', label: 'Storage & Post-Harvest' },
   { id: 'market-access', label: 'Market Access' },
   { id: 'enterprise', label: 'Enterprise Development' },
-  { id: 'partnerships', label: 'Investment & Partnerships' },
 ];
 
 const aboutList = [

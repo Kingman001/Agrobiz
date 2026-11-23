@@ -15,7 +15,7 @@ import {
   Users,
   Warehouse,
 } from 'lucide-react';
-import innovationFarmImage from '../assets/images/smallholder_farmer_hub_1784882677913.jpg';
+import innovationFarmImage from '../assets/images/farm.jpg';
 import { PageHeader } from '../components/PageHeader';
 import { InquiryCallback } from '../types';
 

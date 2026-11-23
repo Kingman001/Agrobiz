@@ -11,7 +11,7 @@ import {
   Wrench,
   Activity
 } from 'lucide-react';
-import heroImage from '../assets/images/hero-img.jpg';
+import heroImage from '../assets/images/farm.jpg';
 import { PageHeader } from '../components/PageHeader';
 import { InquiryCallback } from '../types';
 
@@ -32,43 +32,37 @@ const solutionCards = [
     id: 'irrigation-systems',
     title: 'Irrigation & Water Management',
     text: 'Practical irrigation solutions to improve water availability, distribution and efficiency (drip, sprinkler, storage, pumping, planning).',
-    icon: Droplet,
-    cta: 'Explore Irrigation →'
+    icon: Droplet
   },
   {
     id: 'solar-agriculture',
     title: 'Solar-Powered Agriculture',
     text: 'We help farmers identify and implement appropriate solar solutions through our technical partners (pumping, lighting, cold storage where appropriate).',
-    icon: Sun,
-    cta: 'Explore Solar →'
+    icon: Sun
   },
   {
     id: 'greenhouse',
     title: 'Greenhouse & Protected Production',
     text: 'Protected systems that help manage growing conditions and extend productive opportunities (greenhouses, shade, nursery, monitoring).',
-    icon: Home,
-    cta: 'Explore Protected Agriculture →'
-  },
+    icon: Home
+    },
   {
     id: 'automation',
     title: 'Farm Automation & Efficiency',
     text: 'Simple automation to reduce labour and improve consistency (timers, controllers, basic monitoring).',
-    icon: Cpu,
-    cta: 'Explore Automation →'
+    icon: Cpu
   },
   {
     id: 'aquaculture',
     title: 'Water & Aquaculture Technology',
     text: 'Practical aquaculture technologies for water management, aeration, feeding and monitoring.',
-    icon: Fish,
-    cta: 'Explore Aquaculture →'
+    icon: Fish
   },
   {
     id: 'data-tools',
     title: 'Farm Data & Digital Tools',
     text: 'Simple digital tools to record activities, track costs and monitor production to support better decisions.',
-    icon: Wrench,
-    cta: 'Explore Digital Tools →'
+    icon: Wrench
   }
 ];
 
@@ -109,13 +103,6 @@ export const IrrigationPage: React.FC<IrrigationPageProps> = ({ onOpenInquiryMod
               <p className="mt-5 max-w-xl text-base leading-7 text-[var(--agro-muted)]">We help farmers and agricultural enterprises explore practical technologies that improve water management, production efficiency, resource use and farm resilience.</p>
 
               <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row">
-                <button
-                  type="button"
-                  onClick={() => onNavigatePage('solutions')}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--agro-green-700)] px-5 py-3.5 text-sm font-bold text-white transition hover:bg-[var(--agro-green-600)]"
-                >
-                  Explore Technology →
-                </button>
                 <button
                   type="button"
                   onClick={() => onOpenInquiryModal('Smallholder Farmer')}
@@ -183,7 +170,7 @@ export const IrrigationPage: React.FC<IrrigationPageProps> = ({ onOpenInquiryMod
           </div>
 
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {solutionCards.map(({ id, title, text, icon: Icon, cta }) => (
+            {solutionCards.map(({ id, title, text, icon: Icon }) => (
               <article key={id} className="rounded-[1.5rem] border border-[rgba(29,90,66,0.12)] bg-white p-5 shadow-[0_18px_40px_rgba(15,47,43,0.06)]">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[rgba(29,90,66,0.08)] text-[var(--agro-green-700)]">
                   <Icon className="h-5 w-5" />
@@ -191,7 +178,6 @@ export const IrrigationPage: React.FC<IrrigationPageProps> = ({ onOpenInquiryMod
                 <h3 className="mt-4 text-xl font-bold tracking-[-0.04em] text-[var(--agro-charcoal)]">{title}</h3>
                 <p className="mt-3 text-sm leading-6 text-[var(--agro-muted)]">{text}</p>
                 <div className="mt-4">
-                  <button onClick={() => onNavigatePage('solutions')} className="text-sm font-bold text-[var(--agro-green-700)]">{cta} <ArrowRight className="inline-block h-4 w-4"/></button>
                 </div>
               </article>
             ))}
@@ -327,7 +313,7 @@ export const IrrigationPage: React.FC<IrrigationPageProps> = ({ onOpenInquiryMod
           <div className="mt-8 text-center">
             <div className="font-bold">TEST → LEARN → ADAPT → DEMONSTRATE → SCALE</div>
             <div className="mt-4">
-              <button onClick={() => onNavigatePage('farmer-hub')} className="inline-flex items-center gap-2 rounded-xl bg-[var(--agro-green-700)] px-5 py-3.5 text-sm font-bold text-white">Explore Our Innovation Farm →</button>
+              <button onClick={() => onNavigatePage('innovation-farm')} className="inline-flex items-center gap-2 rounded-xl bg-[var(--agro-green-700)] px-5 py-3.5 text-sm font-bold text-white">Explore Our Innovation Farm →</button>
             </div>
           </div>
         </section>
@@ -358,22 +344,11 @@ export const IrrigationPage: React.FC<IrrigationPageProps> = ({ onOpenInquiryMod
               </ul>
             </div>
 
-            <div className="mt-8 text-center">
-              <h3 className="text-lg font-bold">Related Solutions</h3>
-              <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-                <div className="rounded-2xl border p-4">Farm Inputs</div>
-                <div className="rounded-2xl border p-4">Training & Technical Support</div>
-                <div className="rounded-2xl border p-4">Agricultural Finance</div>
-                <div className="rounded-2xl border p-4">Market Access</div>
-              </div>
-            </div>
-
             <div className="mt-10 text-center">
               <h3 className="text-xl font-bold">Have a Farm Challenge Technology Could Solve?</h3>
               <p className="mt-2 text-[var(--agro-muted)]">Tell us about your farm, your challenge and what you're trying to achieve. We'll help you explore practical options.</p>
               <div className="mt-4 flex items-center justify-center gap-3">
                 <button onClick={() => onOpenInquiryModal('Smallholder Farmer')} className="inline-flex items-center gap-2 rounded-xl bg-[var(--agro-green-700)] px-5 py-3.5 text-sm font-bold text-white">Talk to GleanAgro →</button>
-                <button onClick={() => onNavigatePage('farmer-hub')} className="inline-flex items-center gap-2 rounded-xl border border-[rgba(29,90,66,0.12)] px-5 py-3.5 text-sm font-bold">Join Farmer Hub →</button>
               </div>
             </div>
           </div>
