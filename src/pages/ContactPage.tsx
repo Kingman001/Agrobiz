@@ -20,14 +20,14 @@ import { InquiryRole } from '../types';
 interface ContactPageProps {
   companySettings: CompanySettings;
   initialRole?: InquiryRole;
-  initialProduceInterest?: string;
+  initialSubject?: string;
   onNavigatePage: (pageId: string) => void;
 }
 
 export const ContactPage: React.FC<ContactPageProps> = ({
   companySettings,
   initialRole = 'Commercial Buyer',
-  initialProduceInterest = '',
+  initialSubject = '',
   onNavigatePage
 }) => {
   // Form State
@@ -36,7 +36,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
   const [email, setEmail] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
   const [organization, setOrganization] = useState<string>('');
-  const [produceInterest, setProduceInterest] = useState<string>(initialProduceInterest);
+  const [subject, setSubject] = useState<string>(initialSubject);
   const [message, setMessage] = useState<string>('');
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -60,7 +60,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           phone,
           organization,
           role,
-          produceInterest,
+          subject,
           message
         })
       });
@@ -115,11 +115,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 <button
                   onClick={() => {
                     setSubmitted(false);
+                    setRole('');
                     setFullName('');
                     setEmail('');
                     setPhone('');
                     setOrganization('');
-                    setProduceInterest('');
+                    setSubject('');
                     setMessage('');
                   }}
                   className="px-6 py-2.5 bg-emerald-800 text-white font-bold rounded-xl text-xs hover:bg-emerald-900 transition-all cursor-pointer"
@@ -223,7 +224,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   </div>
                 </div>
 
-                {/* Produce Interest */}
+                {/* Interest */}
                 <div>
                   <label className="block text-xs font-bold text-stone-700 uppercase mb-1">
                     Specific Enterprise / Produce Interest
@@ -231,8 +232,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <input
                     type="text"
                     placeholder="e.g. Fresh Table Catfish, Grade-A Eggs, White & Yellow Maize..."
-                    value={produceInterest}
-                    onChange={(e) => setProduceInterest(e.target.value)}
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
                     className="w-full p-3 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-700 bg-stone-50"
                   />
                 </div>
