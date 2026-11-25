@@ -20,6 +20,6 @@ class Contact(Base):
     )
     created_at = Column(
         TIMESTAMP,
-        nullable=False,
+        nullable=True,
         server_default=text("CURRENT_TIMESTAMP")
     )

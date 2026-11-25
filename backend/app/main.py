@@ -18,12 +18,15 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",
+        "http://127.0.0.1:3000",
         "http://localhost:3000",
-        "https://gleanagro.netlify.app"
+        "http://127.0.0.1:5173",
+        "http://localhost:5173",
+        "https://gleanagro.netlify.app",
+        "https://gleanagrong.com"
     ],
     allow_credentials=False,
-    allow_methods=["POST", "GET"],
+    allow_methods=["GET", "POST"],
     allow_headers=["Content-Type"],
 )
 
@@ -56,7 +59,7 @@ def submit_contact(
         phone=contact_data.phone,
         role=contact_data.role.strip(),
   organization=contact_data.organization.strip(),
-        subject=contact_data.subject.strip(),
+        subject=(contact_data.subject or "").strip() or "General enquiry",
         message=contact_data.message.strip()
     )
 

@@ -17,6 +17,10 @@ import {
 
 import { InquiryRole } from '../types';
 
+
+ 
+const API_URL = import.meta.env.VITE_API_URL;
+
 interface ContactPageProps {
   companySettings: CompanySettings;
   initialRole?: InquiryRole;
@@ -45,37 +49,50 @@ export const ContactPage: React.FC<ContactPageProps> = ({
   // FAQ state
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError('');
 
-    try {
-      const response = await fetch('/api/inquiries', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          fullName,
-          email,
-          phone,
-          organization,
-          role,
-          subject,
-          message
-        })
-      });
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+  setSubmitError('');
 
-      if (!response.ok) {
-        throw new Error('The submission could not be saved.');
-      }
+  try {
+    const response = await fetch(`${API_URL}/api/contact`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: fullName.trim(),
+        email: email.trim(),
+        phone: phone.trim(),
+        role,
+        organization: organization.trim() || null,
+        subject: subject.trim() || null,
+        message: message.trim(),
+      }),
+    });
 
-      setSubmitted(true);
-    } catch {
-      setSubmitError('We could not send your message. Please try again or contact us directly by email or phone.');
-    } finally {
-      setIsSubmitting(false);
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(
+        data.detail || 'Your message could not be submitted.'
+      );
     }
-  };
+
+    setSubmitted(true);
+
+  } catch (error) {
+    setSubmitError(
+      error instanceof Error
+        ? error.message
+        : 'Unable to send your message. Please try again.'
+    );
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-stone-50 pb-20">

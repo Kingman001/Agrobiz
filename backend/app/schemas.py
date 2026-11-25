@@ -6,7 +6,7 @@ class ContactCreate(BaseModel):
     name: str = Field(min_length=2, max_length=150)
     email: EmailStr
     phone: Optional[str] = Field(default=None, max_length=30)
-    role: str = Field(min-length=2, max_length=200)
+    role: str = Field(min_length=2, max_length=200)
     organization: str = Field(min_length=2, max_length=200)
     subject: str = Field(min_length=2, max_length=200)
     message: str = Field(min_length=10, max_length=5000)
